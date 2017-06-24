@@ -1,0 +1,19 @@
+# NodeJs
+*.log
+node_modules
+
+# IDE
+.idea
+.vscode
+
+# Build
+modules/**/*.js.map
+modules/**/*.d.ts
+modules/**/*.js
+modules/**/LICENSE
+modules/**/README.md
+tmp
+.rpt2_cache
+
+# Report
+coverage

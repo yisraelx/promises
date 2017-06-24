@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "removeComments": false,
+    "declaration": true,
+    "sourceMap": true,
+    "baseUrl": "./",
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "paths": {
+      "@promises/*":[
+        "./*"
+      ]
+    }
+  },
+  "include": [
+    "./**/*.ts"
+  ]
+}

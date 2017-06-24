@@ -1,0 +1,72 @@
+{
+  "name": "@promises/-all",
+  "version": "0.0.1-PLACEHOLDER",
+  "description": "All is a group of packages of Promises library",
+  "main": "umd.js",
+  "browser": "umd.js",
+  "module": "es5.js",
+  "es2015": "index.js",
+  "typings": "index.d.ts",
+  "bundle": "bundle.js",
+  "author": {
+    "name": "Yisrael Eliev",
+    "url": "https://github.com/yisraelx",
+    "email": "yisraelx@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "promise",
+    "promises",
+    "utility",
+    "modules",
+    "async",
+    "await",
+    "deferred"
+  ],
+  "homepage": "https://github.com/yisraelx/promises#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yisraelx/promises.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yisraelx/promises/issues"
+  },
+  "dependencies": {
+    "@promises/compose": "0.0.1-PLACEHOLDER",
+    "@promises/core": "0.0.1-PLACEHOLDER",
+    "@promises/create": "0.0.1-PLACEHOLDER",
+    "@promises/delay": "0.0.1-PLACEHOLDER",
+    "@promises/error": "0.0.1-PLACEHOLDER",
+    "@promises/every-parallel": "0.0.1-PLACEHOLDER",
+    "@promises/every-series": "0.0.1-PLACEHOLDER",
+    "@promises/exec": "0.0.1-PLACEHOLDER",
+    "@promises/filter-parallel": "0.0.1-PLACEHOLDER",
+    "@promises/filter-series": "0.0.1-PLACEHOLDER",
+    "@promises/for-each-parallel": "0.0.1-PLACEHOLDER",
+    "@promises/for-each-right-series": "0.0.1-PLACEHOLDER",
+    "@promises/for-each-series": "0.0.1-PLACEHOLDER",
+    "@promises/interfaces": "0.0.1-PLACEHOLDER",
+    "@promises/is-promise": "0.0.1-PLACEHOLDER",
+    "@promises/keys": "0.0.1-PLACEHOLDER",
+    "@promises/map-parallel": "0.0.1-PLACEHOLDER",
+    "@promises/map-series": "0.0.1-PLACEHOLDER",
+    "@promises/parallel": "0.0.1-PLACEHOLDER",
+    "@promises/promisify": "0.0.1-PLACEHOLDER",
+    "@promises/reduce-right-series": "0.0.1-PLACEHOLDER",
+    "@promises/reduce-series": "0.0.1-PLACEHOLDER",
+    "@promises/reject-parallel": "0.0.1-PLACEHOLDER",
+    "@promises/reject-series": "0.0.1-PLACEHOLDER",
+    "@promises/reset": "0.0.1-PLACEHOLDER",
+    "@promises/retry": "0.0.1-PLACEHOLDER",
+    "@promises/series": "0.0.1-PLACEHOLDER",
+    "@promises/some-parallel": "0.0.1-PLACEHOLDER",
+    "@promises/some-series": "0.0.1-PLACEHOLDER",
+    "@promises/spread": "0.0.1-PLACEHOLDER",
+    "@promises/timeout": "0.0.1-PLACEHOLDER",
+    "@promises/timer": "0.0.1-PLACEHOLDER",
+    "@promises/times-parallel": "0.0.1-PLACEHOLDER",
+    "@promises/times-series": "0.0.1-PLACEHOLDER",
+    "@promises/to-callback": "0.0.1-PLACEHOLDER",
+    "@promises/wrap": "0.0.1-PLACEHOLDER"
+  }
+}

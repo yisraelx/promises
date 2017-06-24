@@ -1,0 +1,43 @@
+{
+  "name": "@promises/-rxjs",
+  "version": "0.0.1-PLACEHOLDER",
+  "description": "Rxjs is a group of packages of Promises library",
+  "main": "umd.js",
+  "browser": "umd.js",
+  "module": "es5.js",
+  "es2015": "index.js",
+  "typings": "index.d.ts",
+  "bundle": "bundle.js",
+  "author": {
+    "name": "Yisrael Eliev",
+    "url": "https://github.com/yisraelx",
+    "email": "yisraelx@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "promise",
+    "promises",
+    "utility",
+    "modules",
+    "async",
+    "await",
+    "deferred"
+  ],
+  "homepage": "https://github.com/yisraelx/promises#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yisraelx/promises.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yisraelx/promises/issues"
+  },
+  "dependencies": {
+    "@promises/core": "0.0.1-PLACEHOLDER",
+    "@promises/from-observable": "0.0.1-PLACEHOLDER",
+    "@promises/interfaces": "0.0.1-PLACEHOLDER",
+    "@promises/to-observable": "0.0.1-PLACEHOLDER"
+  },
+  "peerDependencies": {
+    "rxjs": "^5.4.1"
+  }
+}

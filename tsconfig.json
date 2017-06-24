@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "paths": {
+      "@promises/*":[
+        "./modules/*"
+      ]
+    }
+  }
+}
