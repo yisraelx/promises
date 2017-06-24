@@ -1,6 +1,6 @@
 {
   "name": "@promises/retry",
-  "version": "0.0.1-PLACEHOLDER",
+  "version": "0.1.0",
   "description": "Retry is package from Promises library",
   "main": "umd.js",
   "browser": "umd.js",
@@ -32,10 +32,10 @@
     "url": "https://github.com/yisraelx/promises/issues"
   },
   "dependencies": {
-    "@promises/core": "0.0.1-PLACEHOLDER",
-    "@promises/exec": "0.0.1-PLACEHOLDER",
-    "@promises/interfaces": "0.0.1-PLACEHOLDER",
-    "@promises/timeout": "0.0.1-PLACEHOLDER",
-    "@promises/timer": "0.0.1-PLACEHOLDER"
+    "@promises/core": "^0.1.0",
+    "@promises/exec": "^0.1.0",
+    "@promises/interfaces": "^0.1.0",
+    "@promises/timeout": "^0.1.0",
+    "@promises/timer": "^0.1.0"
   }
 }

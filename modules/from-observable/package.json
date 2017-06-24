@@ -1,6 +1,6 @@
 {
   "name": "@promises/from-observable",
-  "version": "0.0.1-PLACEHOLDER",
+  "version": "0.1.0",
   "description": "From Observable is package from Promises library",
   "main": "umd.js",
   "browser": "umd.js",
@@ -32,7 +32,7 @@
     "url": "https://github.com/yisraelx/promises/issues"
   },
   "dependencies": {
-    "@promises/core": "0.0.1-PLACEHOLDER",
-    "@promises/interfaces": "0.0.1-PLACEHOLDER"
+    "@promises/core": "^0.1.0",
+    "@promises/interfaces": "^0.1.0"
   }
 }
