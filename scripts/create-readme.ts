@@ -33,7 +33,7 @@ fs.writeFile(README_FILE_PATH, cotext, 'utf8');
 
 
 function badges({packageName, fromModulesPath}) {
-    let str = `[![Source Code](https://img.shields.io/badge/%3C/%3E-Source--Code-blue.svg)](${PACKAGES_URL}/${fromModulesPath})
+    let str = `[![Source Code](https://img.shields.io/badge/source--code-%3C/%3E-blue.svg)](${PACKAGES_URL}/${fromModulesPath})
 [![Version](https://img.shields.io/npm/v/${packageName}.svg)](https://www.npmjs.com/package/${packageName})
 [![MIT License](https://img.shields.io/npm/l/${packageName}.svg)](https://github.com/${GIT_USERNAME}/${REPOSITORY_NAME}/blob/master/LICENSE)`;
 
@@ -109,7 +109,7 @@ function install({packagePath, packageName}) {
         let keys = Object.keys(deps || {});
         if (!keys.length) return '';
         return `\n# and install ${key} dependencies\n$ npm install --save ${keys.join(' ')}`;
-    }).join('\n');
+    }).join('');
     return `\`\`\`sh\n$ npm install --save ${packageName} ${types}\n\`\`\``;
 }
 

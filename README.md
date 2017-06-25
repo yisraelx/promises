@@ -1,7 +1,7 @@
 # Promises utility modules
 [![Travis build](https://travis-ci.org/yisraelx/promises.svg?branch=master)](https://travis-ci.org/yisraelx/promises)
 [![Codecov](https://codecov.io/gh/yisraelx/promises/branch/master/graph/badge.svg)](https://codecov.io/gh/yisraelx/promises)
-[![MIT License](https://img.shields.io/npm/l/promises.svg)](https://github.com/yisraelx/promises/blob/master/LICENSE)
+[![MIT License](https://img.shields.io/npm/l/@promises/core.svg)](https://github.com/yisraelx/promises/blob/master/LICENSE)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 ## Compatibility
@@ -31,7 +31,7 @@ import __forEachSeries__ function from '@promises/-all' package, which is group 
 ```typescript
 import { forEachSeries } from '@promises/-all';  
 ```
-import __Promises__ class from '~promises/-all' package, which is group package that contains all functions from scoop __@promises__, This will add to the Promises.* and Promises.prototype.*  all the functions of the packages in the scope __@promises__ 
+import __Promises__ class from '@promises/-all' package, which is group package that contains all functions from scoop __@promises__, This will add to the Promises.* and Promises.prototype.*  all the functions of the packages in the scope __@promises__ 
 ```typescript
 import { Promises } from '@promises/-all'; 
 ```
@@ -42,8 +42,8 @@ import Promises from '@promises/core';
 ```
 Or import some groups of modules from scope __@promises__, This will add the functions of the modules to Promises.* and Promises.prototype.*
 ```typescript
-import '~promises.rxjs';
-import '~promises.parallel';
+import '@promises/-rxjs';
+import '@promises/-parallel';
 import Promises from '@promises/core';
 ```
 
