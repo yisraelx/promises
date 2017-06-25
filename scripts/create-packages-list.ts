@@ -3,7 +3,7 @@ import getPackagesList from './utils/packages-info';
 
 const FILE_NAME: string = 'PACKAGES.md';
 const GIT_PACKAGES_PATH: string = 'https://github.com/yisraelx/promises/blob/master';
-const NPM_PACKAGES_PATH: string = 'https://https://npmjs.com/package';
+const NPM_PACKAGES_PATH: string = 'https://npmjs.com/package';
 const NAMES = getPackagesList().filter(({ packageName }) => {
     let array = packageName.split('/');
     return array[array.length - 1][0] !== '_';
