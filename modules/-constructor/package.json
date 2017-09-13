@@ -35,6 +35,7 @@
     "@promises/compose": "^0.1.0",
     "@promises/core": "^0.1.0",
     "@promises/create": "^0.1.0",
+    "@promises/delay": "^0.1.0",
     "@promises/exec": "^0.1.0",
     "@promises/interfaces": "^0.1.0",
     "@promises/is-promise": "^0.1.0",

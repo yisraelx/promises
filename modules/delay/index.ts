@@ -10,34 +10,32 @@ import Promises from '@promises/core';
  * @example
  *
  * ```typescript
- *  let promises: Promises<string> = Promises.resolve<string>('foo');
- *  delay(promises, 3000).then((result: string) => {
- *    console.log(result); // result => 'foo'
+ *  delay(3000).then(() => {
+ *    console.log('timeout'); // => 'timeout'
  *  });
  * ```
  */
-function delay<T>(value?: Promises<T> | T, ms?: number): Promises<T> {
+function delayStatic<T>(ms?: number): Promises<T> {
     return new Promises<T>((resolve) => {
-        setTimeout(() => resolve(value), ms);
+        setTimeout(() => resolve(), ms);
     });
 }
 
-export default delay;
+export default delayStatic;
 
-Promises._setOnPrototype('delay', delay);
+Promises._setOnConstructor('delay', delayStatic);
 
 declare module '@promises/core' {
-    interface Promises<T> {
+    namespace Promises {
         /**
          * @example
          *
          * ```typescript
-         *  let promises: Promises<string> = Promises.resolve<string>('foo');
-         *  promises.delay(3000).then((result: string) => {
-         *    console.log(result); // result => 'foo'
+         *  Promises.delay(3000).then(() => {
+         *    console.log('timeout'); // => 'timeout'
          *  });
          * ```
          */
-        delay(ms?: number): Promises<T>;
+        export let delay: typeof delayStatic;
     }
 }

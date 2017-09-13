@@ -33,7 +33,6 @@
   },
   "dependencies": {
     "@promises/core": "^0.1.0",
-    "@promises/delay": "^0.1.0",
     "@promises/error": "^0.1.0",
     "@promises/every-parallel": "^0.1.0",
     "@promises/every-series": "^0.1.0",

@@ -5,7 +5,6 @@
  */
 
 export { default as Promises } from '@promises/core';
-export { default as delay } from '@promises/delay';
 export { default as error } from '@promises/error';
 export { default as everyParallel } from '@promises/every-parallel';
 export { default as everySeries } from '@promises/every-series';
