@@ -59,6 +59,7 @@
     "@promises/reset": "^0.1.0",
     "@promises/retry": "^0.1.0",
     "@promises/series": "^0.1.0",
+    "@promises/sleep": "NEXT-PLACEHOLDER",
     "@promises/some-parallel": "^0.1.0",
     "@promises/some-series": "^0.1.0",
     "@promises/spread": "^0.1.0",

@@ -23,6 +23,7 @@ export { default as rejectParallel } from '@promises/reject-parallel';
 export { default as rejectSeries } from '@promises/reject-series';
 export { default as reset } from '@promises/reset';
 export { default as retry, RetryOptions, RetryFilterInfo, RetryTimeInfo } from '@promises/retry';
+export { default as sleep } from '@promises/sleep';
 export { default as someParallel } from '@promises/some-parallel';
 export { default as someSeries } from '@promises/some-series';
 export { default as spread } from '@promises/spread';
