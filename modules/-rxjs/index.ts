@@ -5,5 +5,5 @@
  */
 
 export { default as Promises } from '@promises/core';
-export { default as fromObservable, IFromObservable } from '@promises/from-observable';
+export { default as fromObservable } from '@promises/from-observable';
 export { default as toObservable } from '@promises/to-observable';

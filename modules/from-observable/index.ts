@@ -22,17 +22,16 @@ import Promises from '@promises/core';
  *  });
  * ```
  */
-function fromObservable<T>(observe: Observable<T>): Promises<T> {
+function fromObservableStatic<T>(observe: Observable<T>): Promises<T> {
     return new Promises((resolve, reject) => {
         let value: any;
         observe.subscribe((x: T) => value = x, (err: any) => reject(err), () => resolve(value));
     });
 }
 
-export default fromObservable;
-export type IFromObservable = typeof fromObservable;
+export default fromObservableStatic;
 
-Promises._setOnConstructor('fromObservable', fromObservable);
+Promises._setOnConstructor('fromObservable', fromObservableStatic);
 
 declare module '@promises/core' {
     namespace Promises {
@@ -52,6 +51,6 @@ declare module '@promises/core' {
          *  });
          * ```
          */
-        export let fromObservable: IFromObservable;
+        export let fromObservable: typeof fromObservableStatic;
     }
 }
