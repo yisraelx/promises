@@ -51,6 +51,7 @@
     "@promises/keys": "^0.1.0",
     "@promises/map-parallel": "^0.1.0",
     "@promises/map-series": "^0.1.0",
+    "@promises/next": "NEXT-PLACEHOLDER",
     "@promises/parallel": "^0.1.0",
     "@promises/promisify": "^0.1.0",
     "@promises/reduce-right-series": "^0.1.0",

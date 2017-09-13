@@ -17,6 +17,7 @@ export { default as forEachRightSeries } from '@promises/for-each-right-series';
 export { default as keys } from '@promises/keys';
 export { default as mapParallel } from '@promises/map-parallel';
 export { default as mapSeries } from '@promises/map-series';
+export { default as next } from '@promises/next';
 export { default as reduceSeries } from '@promises/reduce-series';
 export { default as reduceRightSeries } from '@promises/reduce-right-series';
 export { default as rejectParallel } from '@promises/reject-parallel';

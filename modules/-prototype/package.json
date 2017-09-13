@@ -46,6 +46,7 @@
     "@promises/keys": "^0.1.0",
     "@promises/map-parallel": "^0.1.0",
     "@promises/map-series": "^0.1.0",
+    "@promises/next": "NEXT-PLACEHOLDER",
     "@promises/reduce-right-series": "^0.1.0",
     "@promises/reduce-series": "^0.1.0",
     "@promises/reject-parallel": "^0.1.0",

@@ -22,6 +22,7 @@ export { default as isPromise } from '@promises/is-promise';
 export { default as keys } from '@promises/keys';
 export { default as mapParallel } from '@promises/map-parallel';
 export { default as mapSeries } from '@promises/map-series';
+export { default as next } from '@promises/next';
 export { default as parallel } from '@promises/parallel';
 export { default as promisify, PromisifyOptions } from '@promises/promisify';
 export { default as reduceSeries } from '@promises/reduce-series';
