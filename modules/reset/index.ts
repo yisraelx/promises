@@ -16,11 +16,17 @@ import { OptionalPromise } from '@promises/interfaces';
  *    console.log(result); // => 'bar'
  *  });
  * ```
+ * @example
+ *
+ * ```typescript
+ *  let promises: Promises<string> = Promises.reject<string>('foo');
+ *  reset(promises, 'bar').then((result: string) => {
+ *    console.log(result); // => 'bar'
+ *  });
+ * ```
  */
 function reset<R>(promise: OptionalPromise<any>, value: OptionalPromise<R>): Promises<R> {
-    return Promises.resolve(promise).then(() => {
-        return value;
-    }) as Promises<R>;
+    return Promises.resolve(promise).then(() => value, () => value) as Promises<R>;
 }
 
 export default reset;
@@ -34,6 +40,14 @@ declare module '@promises/core' {
          *
          * ```typescript
          *  let promises: Promises<string> = Promises.resolve<string>('foo').reset('bar');
+         *  promises.then((result: string) => {
+         *    console.log(result); // => 'bar'
+         *  });
+         * ```
+         * @example
+         *
+         * ```typescript
+         *  let promises: Promises<string> = Promises.reject<string>('foo').reset('bar');
          *  promises.then((result: string) => {
          *    console.log(result); // => 'bar'
          *  });
