@@ -14,6 +14,7 @@ export { default as everySeries } from '@promises/every-series';
 export { default as exec } from '@promises/exec';
 export { default as filterParallel } from '@promises/filter-parallel';
 export { default as filterSeries } from '@promises/filter-series';
+export { default as finally } from '@promises/finally';
 export { default as forEachParallel } from '@promises/for-each-parallel';
 export { default as forEachSeries } from '@promises/for-each-series';
 export { default as forEachRightSeries } from '@promises/for-each-right-series';
