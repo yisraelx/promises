@@ -1,5 +1,5 @@
 /**
- * @module -promises
+ * @module @promises/-all
  * @copyright © 2017 Yisrael Eliav <yisraelx@gmail.com> (https://github.com/yisraelx)
  * @license MIT
  */

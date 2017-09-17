@@ -90,7 +90,7 @@ function run(forEach: Function) {
     let array: number[] = [3, 7, 1, 5];
 
     console.log('before');
-    forEach(array, execute(value: number) => {
+    forEach(array, (value: number) => {
         console.log(`start: ${value}`);
         return timeout((resolve) => {
             console.log(`end: ${value}`);
