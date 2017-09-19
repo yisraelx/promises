@@ -29,7 +29,7 @@ ${CONFIG.packageType === PACKAGE_TYPES.GROUP ? `Or ${useGlobal(CONFIG)}` : ''}
 # License
 ${license()}
 `;
-fs.writeFile(README_FILE_PATH, cotext, 'utf8');
+fs.writeFileSync(README_FILE_PATH, cotext);
 
 
 function badges({packageName, fromModulesPath}) {

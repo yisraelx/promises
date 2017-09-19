@@ -23,10 +23,10 @@ describe('timer', () => {
     });
 
     it('should be reject on timeout', () => {
-        let promise = new Promises((resolve, reject) => {
+        let promise: Promises<string> = new Promises((resolve, reject) => {
             setTimeout(() => resolve('a'), 5);
         });
-        let promise2 = new Promises((resolve, reject) => {
+        let promise2: Promises<string> = new Promises((resolve, reject) => {
             setTimeout(() => resolve('b'), 5);
         });
         let promises: Promises<string[]> = Promises.all<string>([promise, promise2]) as Promises<string[]>;
