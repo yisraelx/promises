@@ -1,6 +1,6 @@
 {
   "name": "@promises/-series",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Series is a group of packages of Promises library",
   "main": "umd.js",
   "browser": "umd.js",
@@ -32,18 +32,18 @@
     "url": "https://github.com/yisraelx/promises/issues"
   },
   "dependencies": {
-    "@promises/core": "^0.1.0",
-    "@promises/every-series": "^0.1.0",
-    "@promises/filter-series": "^0.1.0",
-    "@promises/for-each-right-series": "^0.1.0",
-    "@promises/for-each-series": "^0.1.0",
-    "@promises/interfaces": "^0.1.0",
-    "@promises/map-series": "^0.1.0",
-    "@promises/reduce-right-series": "^0.1.0",
-    "@promises/reduce-series": "^0.1.0",
-    "@promises/reject-series": "^0.1.0",
-    "@promises/series": "^0.1.0",
-    "@promises/some-series": "^0.1.0",
-    "@promises/times-series": "^0.1.0"
+    "@promises/core": "^0.2.0",
+    "@promises/every-series": "^0.2.0",
+    "@promises/filter-series": "^0.2.0",
+    "@promises/for-each-right-series": "^0.2.0",
+    "@promises/for-each-series": "^0.2.0",
+    "@promises/interfaces": "^0.2.0",
+    "@promises/map-series": "^0.2.0",
+    "@promises/reduce-right-series": "^0.2.0",
+    "@promises/reduce-series": "^0.2.0",
+    "@promises/reject-series": "^0.2.0",
+    "@promises/series": "^0.2.0",
+    "@promises/some-series": "^0.2.0",
+    "@promises/times-series": "^0.2.0"
   }
 }

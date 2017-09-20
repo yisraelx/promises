@@ -1,6 +1,6 @@
 {
   "name": "@promises/core",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Core is package from Promises library",
   "main": "umd.js",
   "browser": "umd.js",
@@ -32,6 +32,6 @@
     "url": "https://github.com/yisraelx/promises/issues"
   },
   "dependencies": {
-    "@promises/interfaces": "^0.1.0"
+    "@promises/interfaces": "^0.2.0"
   }
 }

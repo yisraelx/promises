@@ -1,6 +1,6 @@
 {
   "name": "@promises/filter-series",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Filter Series is package from Promises library",
   "main": "umd.js",
   "browser": "umd.js",
@@ -32,9 +32,9 @@
     "url": "https://github.com/yisraelx/promises/issues"
   },
   "dependencies": {
-    "@promises/_create-filter": "^0.1.0",
-    "@promises/core": "^0.1.0",
-    "@promises/for-each-series": "^0.1.0",
-    "@promises/interfaces": "^0.1.0"
+    "@promises/_create-filter": "^0.2.0",
+    "@promises/core": "^0.2.0",
+    "@promises/for-each-series": "^0.2.0",
+    "@promises/interfaces": "^0.2.0"
   }
 }

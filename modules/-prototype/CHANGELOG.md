@@ -1,7 +1,31 @@
 # Change Log
 
 All notable changes to this project will be documented in this file.
-See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+<a name="0.2.0"></a>
+# [0.2.0](https://github.com/yisraelx/promises/compare/v0.1.0...v0.2.0) (2017-09-20)
+
+
+### Code Refactoring
+
+* **delay:** move from prototype to constructor ([f59f19d](https://github.com/yisraelx/promises/commit/f59f19d))
+
+
+### Features
+
+* add method finally ([a88fee6](https://github.com/yisraelx/promises/commit/a88fee6))
+* add method next ([04c6d44](https://github.com/yisraelx/promises/commit/04c6d44))
+* add method sleep ([a75a15b](https://github.com/yisraelx/promises/commit/a75a15b))
+
+
+### BREAKING CHANGES
+
+* **delay:** The api of the method changed because of the move to constructor and the method is
+no longer on prototype.
+
+
+
 
 <a name="0.1.0"></a>
 # 0.1.0 (2017-06-24)

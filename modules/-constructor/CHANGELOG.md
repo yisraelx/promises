@@ -1,7 +1,24 @@
 # Change Log
 
 All notable changes to this project will be documented in this file.
-See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+<a name="0.2.0"></a>
+# [0.2.0](https://github.com/yisraelx/promises/compare/v0.1.0...v0.2.0) (2017-09-20)
+
+
+### Code Refactoring
+
+* **delay:** move from prototype to constructor ([f59f19d](https://github.com/yisraelx/promises/commit/f59f19d))
+
+
+### BREAKING CHANGES
+
+* **delay:** The api of the method changed because of the move to constructor and the method is
+no longer on prototype.
+
+
+
 
 <a name="0.1.0"></a>
 # 0.1.0 (2017-06-24)

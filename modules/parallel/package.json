@@ -1,6 +1,6 @@
 {
   "name": "@promises/parallel",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Parallel is package from Promises library",
   "main": "umd.js",
   "browser": "umd.js",
@@ -32,8 +32,8 @@
     "url": "https://github.com/yisraelx/promises/issues"
   },
   "dependencies": {
-    "@promises/core": "^0.1.0",
-    "@promises/interfaces": "^0.1.0",
-    "@promises/map-parallel": "^0.1.0"
+    "@promises/core": "^0.2.0",
+    "@promises/interfaces": "^0.2.0",
+    "@promises/map-parallel": "^0.2.0"
   }
 }

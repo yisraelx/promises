@@ -1,6 +1,6 @@
 {
   "name": "@promises/-constructor",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Constructor is a group of packages of Promises library",
   "main": "umd.js",
   "browser": "umd.js",
@@ -32,19 +32,19 @@
     "url": "https://github.com/yisraelx/promises/issues"
   },
   "dependencies": {
-    "@promises/compose": "^0.1.0",
-    "@promises/core": "^0.1.0",
-    "@promises/create": "^0.1.0",
-    "@promises/delay": "^0.1.0",
-    "@promises/exec": "^0.1.0",
-    "@promises/interfaces": "^0.1.0",
-    "@promises/is-promise": "^0.1.0",
-    "@promises/parallel": "^0.1.0",
-    "@promises/promisify": "^0.1.0",
-    "@promises/series": "^0.1.0",
-    "@promises/timeout": "^0.1.0",
-    "@promises/times-parallel": "^0.1.0",
-    "@promises/times-series": "^0.1.0",
-    "@promises/wrap": "^0.1.0"
+    "@promises/compose": "^0.2.0",
+    "@promises/core": "^0.2.0",
+    "@promises/create": "^0.2.0",
+    "@promises/delay": "^0.2.0",
+    "@promises/exec": "^0.2.0",
+    "@promises/interfaces": "^0.2.0",
+    "@promises/is-promise": "^0.2.0",
+    "@promises/parallel": "^0.2.0",
+    "@promises/promisify": "^0.2.0",
+    "@promises/series": "^0.2.0",
+    "@promises/timeout": "^0.2.0",
+    "@promises/times-parallel": "^0.2.0",
+    "@promises/times-series": "^0.2.0",
+    "@promises/wrap": "^0.2.0"
   }
 }
