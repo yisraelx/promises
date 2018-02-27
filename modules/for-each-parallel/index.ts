@@ -38,25 +38,34 @@ import { IOptionalPromise, IOptionalPromiseDictionary } from '@promises/interfac
  *  // => complete
  * ```
  */
-function forEachParallel<T extends ArrayLike<any>>(array: IOptionalPromise<T>, iteratee?: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<any>): Promise<T>;
-function forEachParallel<T>(object: IOptionalPromiseDictionary<T>, iteratee?: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<any>): Promise<T>;
-function forEachParallel(collection, iteratee = (v => v) as any) {
+function forEachParallel<T extends ArrayLike<any>>(array: IOptionalPromise<T>, iteratee?: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<any>, limit?: number): Promise<T>;
+function forEachParallel<T>(object: IOptionalPromiseDictionary<T>, iteratee?: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<any>, limit?: number): Promise<T>;
+function forEachParallel(collection, iteratee = (v => v) as any, limit?) {
     return Promise.resolve(collection).then((collection = []) => {
         return new Promise((resolve, reject) => {
             let objectKeys = !Array.isArray(collection) && keys(collection);
             let { length } = objectKeys ? objectKeys : collection;
             if (!length) return resolve(collection);
+            limit = limit && limit > 0 && limit < length ? limit : length;
             let index: number = 0;
-            let count: number = 0;
-            while (index < length) {
-                let key = objectKeys ? objectKeys[index++] : index++;
+            let completed: number = 0;
+            let each = (thisIndex) => {
+                let key = objectKeys ? objectKeys[thisIndex] : thisIndex;
                 let value = collection[key];
                 Promise.resolve(value).then((value) => {
                     let result = iteratee(value, key, collection);
                     return Promise.resolve(result).then(() => {
-                        if (++count === length) resolve(collection);
+                        completed++;
+                        if (index < length) {
+                            each(index++);
+                        } else if (completed === length) {
+                            resolve(collection);
+                        }
                     });
                 }).catch(reject);
+            };
+            while (index < limit) {
+                each(index++);
             }
         });
     });

@@ -31,12 +31,12 @@ import { IOptionalPromise, IDictionary } from '@promises/interfaces';
  *  // => { zero: 0, one: 1, two: 2}
  * ```
  */
-function parallel<R>(array: (() => IOptionalPromise<R>)[]): Promise<R[]>;
-function parallel<R extends ArrayLike<any>>(array: (() => IOptionalPromise<R[keyof R & number]>)[]): Promise<R>;
-function parallel<R>(object: IDictionary<(() => IOptionalPromise<R>)>): Promise<IDictionary<R>>;
-function parallel<R extends IDictionary<any>>(object: IDictionary<(() => IOptionalPromise<R[keyof R]>)>): Promise<R>;
-function parallel(functions) {
-    return map(functions, (fn) => fn()) as any;
+function parallel<R>(array: (() => IOptionalPromise<R>)[], limit?: number): Promise<R[]>;
+function parallel<R extends ArrayLike<any>>(array: (() => IOptionalPromise<R[keyof R & number]>)[], limit?: number): Promise<R>;
+function parallel<R>(object: IDictionary<(() => IOptionalPromise<R>)>, limit?: number): Promise<IDictionary<R>>;
+function parallel<R extends IDictionary<any>>(object: IDictionary<(() => IOptionalPromise<R[keyof R]>)>, limit?: number): Promise<R>;
+function parallel(functions, limit?) {
+    return map(functions, (fn) => fn(), limit) as any;
 }
 
 export default parallel;

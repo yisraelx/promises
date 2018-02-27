@@ -32,9 +32,9 @@ declare module '@promises/core' {
          *  // => ['zero', 'one', 'two']
          * ```
          */
-        export function parallel<R>(array: (() => IOptionalPromise<R>)[]): Promises<R[]>;
-        export function parallel<R extends ArrayLike<any>>(array: (() => IOptionalPromise<R[keyof R & number]>)[]): Promises<R>;
-        export function parallel<R>(object: IDictionary<(() => IOptionalPromise<R>)>): Promises<IDictionary<R>>;
-        export function parallel<R extends IDictionary<any>>(object: IDictionary<(() => IOptionalPromise<R[keyof R]>)>): Promises<R>;
+        export function parallel<R>(array: (() => IOptionalPromise<R>)[], limit?: number): Promises<R[]>;
+        export function parallel<R extends ArrayLike<any>>(array: (() => IOptionalPromise<R[keyof R & number]>)[], limit?: number): Promises<R>;
+        export function parallel<R>(object: IDictionary<(() => IOptionalPromise<R>)>, limit?: number): Promises<IDictionary<R>>;
+        export function parallel<R extends IDictionary<any>>(object: IDictionary<(() => IOptionalPromise<R[keyof R]>)>, limit?: number): Promises<R>;
     }
 }

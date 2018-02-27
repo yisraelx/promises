@@ -28,28 +28,33 @@ import { IOptionalPromise } from '@promises/interfaces';
  *  // => [9, 6, 3]
  * ```
  */
-function timesParallel<T extends any[]>(times: IOptionalPromise<number>, fn: (time: number) => IOptionalPromise<T[keyof T & number]>): Promise<T> {
+function timesParallel<T extends any[]>(times: IOptionalPromise<number>, fn: (time: number) => IOptionalPromise<T[keyof T & number]>, limit?: number): Promise<T> {
     return Promise.resolve(times).then((times) => {
         return new Promise((resolve, reject) => {
-            let length: number = times;
+            if (!times || times <= 0) return resolve([]);
+            let result = Array(times);
+            limit = limit && limit > 0 && limit < times ? limit : times;
             let index: number = 0;
-            let count: number = 0;
-            let result = Array(length);
+            let completed: number = 0;
 
-            while (index < length) {
-                let thisIndex = index++;
-                Promise.resolve().then(() => {
-                    let value = fn(thisIndex);
-                    return Promise.resolve(value).then((value) => {
-                        result[thisIndex] = value;
-                        if (++count === length) resolve(result);
-                    });
+            let each = (thisIndex: number) => {
+                Promise.resolve(thisIndex).then(fn).then((value) => {
+                    result[thisIndex] = value;
+                    completed++;
+                    if (index < times) {
+                        each(index++);
+                    } else if (completed === times) {
+                        resolve(result);
+                    }
                 }).catch(reject);
+            };
+
+            while (index < limit) {
+                each(index++);
             }
 
         });
     }) as Promise<T>;
-
 }
 
 export default timesParallel;

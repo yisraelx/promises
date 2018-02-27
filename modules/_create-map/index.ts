@@ -5,7 +5,7 @@
  */
 
 export default function _createMap(iterator) {
-    return (collection?, iteratee: any = v => v) => {
+    return (collection?, iteratee: any = v => v, limit?) => {
         return Promise.resolve(collection).then((collection = []) => {
             let result = Array.isArray(collection) ? Array(collection.length) : {};
             return iterator(collection, (value, key, collection) => {
@@ -13,7 +13,7 @@ export default function _createMap(iterator) {
                 return Promise.resolve(getNewValue).then((newValue) => {
                     result[key] = newValue;
                 });
-            }).then(() => {
+            }, limit).then(() => {
                 return result;
             });
         });

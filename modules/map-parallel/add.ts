@@ -27,9 +27,9 @@ declare module '@promises/core' {
          *  });
          * ```
          */
-        mapParallel(this: Promises<T & ArrayLike<any>>, iteratee?: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<T[keyof T & number]>): Promises<T>;
-        mapParallel<R>(this: Promises<T & ArrayLike<any>>, iteratee?: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<R>): Promises<R[]>;
-        mapParallel(this: Promises<T>, iteratee?: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<T[keyof T]>): Promises<T>;
-        mapParallel<R>(this: Promises<T>, iteratee?: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<R>): Promises<IDictionary<R>>;
+        mapParallel(this: Promises<T & ArrayLike<any>>, iteratee?: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<T[keyof T & number]>, limit?: number): Promises<T>;
+        mapParallel<R>(this: Promises<T & ArrayLike<any>>, iteratee?: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<R>, limit?: number): Promises<R[]>;
+        mapParallel(this: Promises<T>, iteratee?: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<T[keyof T]>, limit?: number): Promises<T>;
+        mapParallel<R>(this: Promises<T>, iteratee?: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<R>, limit?: number): Promises<IDictionary<R>>;
     }
 }

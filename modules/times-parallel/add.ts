@@ -30,6 +30,6 @@ declare module '@promises/core' {
          *  // => [9, 6, 3]
          * ```
          */
-        export function timesParallel<T extends any[]>(times: IOptionalPromise<number>, fn: (time: number) => IOptionalPromise<T[keyof T & number]>): Promises<T>;
+        export function timesParallel<T extends any[]>(times: IOptionalPromise<number>, fn: (time: number) => IOptionalPromise<T[keyof T & number]>, limit?: number): Promises<T>;
     }
 }

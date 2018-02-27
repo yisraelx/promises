@@ -1,9 +1,41 @@
 import { IDictionary } from '@promises/interfaces';
 import forEachParallel from '@promises/for-each-parallel';
+import timeout from '@promises/timeout';
 
 describe('forEachParallel', () => {
+    it('should be not iteratee on empty array and return empty array', () => {
+        let count = 0;
+        let array = [];
+        return forEachParallel(array, () => count++).then((result: any[]) => {
+            expect(count).toBe(0);
+            expect(array).toBe(array);
+        });
+    });
+
+    it('should be reject on iteratee error', () => {
+        return forEachParallel(['foo'], () => {
+            throw 'error';
+        }).then(() => {
+            throw 'resolve';
+        }).catch((error: string) => {
+            expect(error).toBe('error');
+        });
+    });
+
+    it('should be iteratee series if limit set to 1', () => {
+        let array = [0, 1, 2];
+        let {length} = array;
+        let result = [];
+        return forEachParallel(array, (value) => timeout((resolve) => {
+            result.push(value);
+            resolve();
+        }, length - value), 1).then(() => {
+            expect(result).toEqual(array);
+        });
+    });
+
     it('should be parallel iterator on object with identity function and return the object', () => {
-        let object: IDictionary<number> = { a: 1, b: 2, c: 3 };
+        let object: IDictionary<number> = {a: 1, b: 2, c: 3};
         return forEachParallel(object).then((result: IDictionary<number>) => {
             expect(object).toBe(result);
         });

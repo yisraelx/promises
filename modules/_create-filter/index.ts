@@ -5,7 +5,7 @@
  */
 
 export default function _createFilter(iterator, is) {
-    return (collection?, iteratee: any = v => v) => {
+    return (collection?, iteratee: any = v => v, limit?) => {
         return Promise.resolve(collection).then((collection = []) => {
             let isArray = Array.isArray(collection);
             let result = isArray ? [] : {};
@@ -15,7 +15,7 @@ export default function _createFilter(iterator, is) {
                 return Promise.resolve(isPass).then((isPass) => {
                     if (!!isPass === is) result[isArray ? count++ : key] = value;
                 });
-            }).then(() => {
+            }, limit).then(() => {
                 return result;
             });
         });
