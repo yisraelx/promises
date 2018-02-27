@@ -1,4 +1,3 @@
-import Promises from '@promises/core';
 import create from '@promises/create';
 
 describe('create', () => {

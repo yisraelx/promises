@@ -4,17 +4,23 @@
  * @license MIT
  */
 
-import Promises from '@promises/core';
 import forEach from '@promises/for-each-parallel';
 import createMap from '@promises/_create-map';
-import { IMap, IMapWrapper } from '@promises/interfaces';
+import { IDictionary, IOptionalPromise, IOptionalPromiseArray, IOptionalPromiseDictionary } from '@promises/interfaces';
+
+export interface IMapParallel {
+    <T extends ArrayLike<any>>(array: IOptionalPromiseArray<T>, iteratee?: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<T[keyof T & number]>): Promise<T>;
+    <T extends ArrayLike<any>, R>(array: IOptionalPromiseArray<T>, iteratee?: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<R>): Promise<R[]>;
+    <T>(object: IOptionalPromiseDictionary<T>, iteratee?: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<T[keyof T]>): Promise<T>;
+    <T, R>(object: IOptionalPromiseDictionary<T>, iteratee?: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<R>): Promise<IDictionary<R>>;
+}
 
 /**
  * @example
  *
  * ```typescript
  *  let mapper = (time: number) => {
- *      return Promises.timeout((resolve) => {
+ *      return timeout((resolve) => {
  *          resolve(count++);
  *      }, time);
  *  };
@@ -22,38 +28,11 @@ import { IMap, IMapWrapper } from '@promises/interfaces';
  *  let count: number = 0;
  *  let array: number[] = [7, 1, 6, 9, 3];
  *
- *  mapParallel(array, mapper).then((result) => {
+ *  mapParallel(array, mapper).then((result: number[]) => {
  *      console.log(result); // result => [1, 4, 2, 0, 3]
  *  });
  * ```
  */
-let mapParallel: IMap = createMap(forEach) as IMap;
+let mapParallel: IMapParallel = createMap(forEach) as IMapParallel;
 
 export default mapParallel;
-
-Promises._setOnPrototype('mapParallel', mapParallel);
-
-declare module '@promises/core' {
-    interface Promises <T> {
-        /**
-         * @example
-         *
-         * ```typescript
-         *  let mapper = (time: number) => {
-         *      return Promises.timeout((resolve) => {
-         *          resolve(count++);
-         *      }, time);
-         *  };
-         *
-         *  let count: number = 0;
-         *  let array: number[] = [7, 1, 6, 9, 3];
-         *  let promises = Promises.resolve(array);
-         *
-         *  promises.mapParallel(mapper).then((result) => {
-         *      console.log(result); // result => [1, 4, 2, 0, 3]
-         *  });
-         * ```
-         */
-        mapParallel: IMapWrapper<T>;
-    }
-}

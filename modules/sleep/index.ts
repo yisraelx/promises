@@ -4,41 +4,22 @@
  * @license MIT
  */
 
-import Promises from '@promises/core';
 import { IOptionalPromise } from '@promises/interfaces';
 
 /**
  * @example
  *
  * ```typescript
- *  let promises: Promises<string> = Promises.resolve<string>('foo');
- *  sleep(promises, 3000).then((result: string) => {
+ *  let promise: Promise<string> = Promise.resolve<string>('foo');
+ *  sleep(promise, 3000).then((result: string) => {
  *    console.log(result); // result => 'foo'
  *  });
  * ```
  */
-function sleep<T>(value?: IOptionalPromise<T>, ms?: number): Promises<T> {
-    return Promises.resolve(value).then(() => new Promises<T>((resolve) => {
+function sleep<T>(value?: IOptionalPromise<T>, ms?: number): Promise<T> {
+    return Promise.resolve(value).then(() => new Promise<T>((resolve) => {
         setTimeout(() => resolve(value), ms);
-    })) as Promises<T>;
+    })) as Promise<T>;
 }
 
 export default sleep;
-
-Promises._setOnPrototype('sleep', sleep);
-
-declare module '@promises/core' {
-    interface Promises<T> {
-        /**
-         * @example
-         *
-         * ```typescript
-         *  let promises: Promises<string> = Promises.resolve<string>('foo');
-         *  promises.sleep(3000).then((result: string) => {
-         *    console.log(result); // result => 'foo'
-         *  });
-         * ```
-         */
-        sleep(ms?: number): Promises<T>;
-    }
-}

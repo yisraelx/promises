@@ -50,10 +50,10 @@ $ npm install --save @promises/for-each-series
 
 ## Use
 #### static
-```typescript
+```ts
 import mapSeries from '@promises/map-series';
 let array: number[] = [1, 2, 3];
-let map: Promises<number[]> = mapSeries(array, (value: number, index: number, array: number[]) => {
+let map: Promise<number[]> = mapSeries(array, (value: number, index: number, array: number[]) => {
     return value * index;
 });
 map.then((result: number[]) => {
@@ -61,8 +61,24 @@ map.then((result: number[]) => {
 });
 ```
 #### wrapper
-```typescript
+```ts
 import { Promises } from '@promises/-all';
+let array: number[] = [1, 2, 3];
+let promises: Promises<number[]> = Promises.resolve(array);
+let filter: Promises<number[]> = promises.filterParallel((value: number) => value % 2 !== 0);
+let map: Promises<number[]> = filter.mapParallel((value: number, index: number) => value + index);
+let delay: Promises<number[]> = map.delay(1000);
+delay.then((result: number[]) => {
+    console.log(result) // => [1, 4]
+});
+```
+Or
+```ts
+import { Promises } from '@promises/core';
+import '@promises/filter-parallel/add';
+import '@promises/map-parallel/add';
+import '@promises/delay/add';
+
 let array: number[] = [1, 2, 3];
 let promises: Promises<number[]> = Promises.resolve(array);
 let filter: Promises<number[]> = promises.filterParallel((value: number) => value % 2 !== 0);

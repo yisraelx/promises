@@ -1,4 +1,3 @@
-import Promises from '@promises/core';
 import { IDictionary } from '@promises/interfaces';
 import forEachParallel from '@promises/for-each-parallel';
 
@@ -29,7 +28,7 @@ describe('forEachParallel', () => {
         let count: number = 0;
         let time = array.length;
         return forEachParallel(array, (value: number, index, array) => {
-            return new Promises(resolve => {
+            return new Promise(resolve => {
                 let time = value * 10;
                 setTimeout(() => {
                     result.push(count);
@@ -45,8 +44,8 @@ describe('forEachParallel', () => {
     });
 
     it('should be parallel iterator on promises array and args promises and return the array without change', () => {
-        let item = Promises.resolve(0);
-        let array = Promises.resolve([item]);
+        let item = Promise.resolve(0);
+        let array = Promise.resolve([item]);
         let iterator = (value, index, array) => {
             expect(typeof value).toBe('number');
             expect(typeof index).toBe('number');

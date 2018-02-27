@@ -1,4 +1,3 @@
-import Promises from '@promises/core';
 import { IDictionary } from '@promises/interfaces';
 import forEachSeries from '@promises/for-each-series';
 
@@ -30,7 +29,7 @@ describe('forEachSeries', () => {
         let length = array.length;
         return forEachSeries(array, (value, index, array) => {
             let time = length-- * 10;
-            return new Promises(resolve => {
+            return new Promise(resolve => {
                 setTimeout(() => {
                     expect(value).toBe(count);
                     expect(index).toBe(count);
@@ -45,8 +44,8 @@ describe('forEachSeries', () => {
     });
 
     it('should be series iterator on promise array and args promise and return the array without change', () => {
-        let item = Promises.resolve(0);
-        let array = Promises.resolve([item]);
+        let item = Promise.resolve(0);
+        let array = Promise.resolve([item]);
         let iterator = (value, index, array) => {
             expect(typeof value).toBe('number');
             expect(typeof index).toBe('number');

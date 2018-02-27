@@ -4,11 +4,8 @@
  * @license MIT
  */
 
-import Promises from '@promises/core';
 import keys from '@promises/_keys';
-import {
-    IForEach, IForEachWrapper
-} from '@promises/interfaces';
+import { IOptionalPromise, IOptionalPromiseDictionary } from '@promises/interfaces';
 
 /**
  * @example
@@ -41,9 +38,11 @@ import {
  *  // => complete
  * ```
  */
-let forEachParallel: IForEach = function (collection, iteratee: any = v => v) {
-    return Promises.resolve(collection).then((collection = []) => {
-        return new Promises((resolve, reject) => {
+function forEachParallel<T extends ArrayLike<any>>(array: IOptionalPromise<T>, iteratee?: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<any>): Promise<T>;
+function forEachParallel<T>(object: IOptionalPromiseDictionary<T>, iteratee?: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<any>): Promise<T>;
+function forEachParallel(collection, iteratee = (v => v) as any) {
+    return Promise.resolve(collection).then((collection = []) => {
+        return new Promise((resolve, reject) => {
             let objectKeys = !Array.isArray(collection) && keys(collection);
             let { length } = objectKeys ? objectKeys : collection;
             if (!length) return resolve(collection);
@@ -52,55 +51,15 @@ let forEachParallel: IForEach = function (collection, iteratee: any = v => v) {
             while (index < length) {
                 let key = objectKeys ? objectKeys[index++] : index++;
                 let value = collection[key];
-                Promises.resolve(value).then((value) => {
+                Promise.resolve(value).then((value) => {
                     let result = iteratee(value, key, collection);
-                    return Promises.resolve(result).then(() => {
+                    return Promise.resolve(result).then(() => {
                         if (++count === length) resolve(collection);
                     });
                 }).catch(reject);
             }
         });
     });
-} as IForEach;
+}
 
 export default forEachParallel;
-
-Promises._setOnPrototype('forEachParallel', forEachParallel);
-
-declare module '@promises/core' {
-    interface Promises<T> {
-        /**
-         * @example
-         *
-         * ```typescript
-         *  let array: number[] = [3, 7, 1, 5];
-         *  let promises = Promises.resolve(array);
-         *
-         *  console.log('before');
-         *  promises.forEachParallel((value: number) => {
-         *      console.log(`start: ${ value }`);
-         *      return timeout((resolve) => {
-         *          console.log(`end: ${ value }`);
-         *          resolve();
-         *      }, value);
-         *  }).then(() => {
-         *      console.log('complete');
-         *  });
-         *  console.log('after');
-         *
-         *  // => before
-         *  // => after
-         *  // => start 3
-         *  // => start 7
-         *  // => start 1
-         *  // => start 5
-         *  // => end 1
-         *  // => end 3
-         *  // => end 5
-         *  // => end 7
-         *  // => complete
-         * ```
-         */
-        forEachParallel: IForEachWrapper<T>;
-    }
-}

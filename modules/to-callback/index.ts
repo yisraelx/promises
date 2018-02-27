@@ -4,24 +4,23 @@
  * @license MIT
  */
 
-import Promises from '@promises/core';
-
+import { IOptionalPromise } from '@promises/interfaces';
 
 /**
  * @example
  *
  * ```typescript
- *  let promises: Promises<string> = Promises.resolve<string>('foo');
+ *  let promise: Promise<string> = Promise.resolve<string>('foo');
  *
- *  toCallback(promises, (error: any, result: string) => {
- *      console.log(error); // error => void 0
+ *  toCallback(promise, (error: any, result: string) => {
+ *      console.log(error); // error => null
  *      console.log(result); // result => 'foo'
- *  })
+ *  });
  * ```
  */
-function toCallback<T, R>(promise: Promises<T>, callback: (error: any, value?: T) => R): Promises<R> {
-    return (Promises as any)
-        .resolve(promise)
+function toCallback<T, R>(value: IOptionalPromise<T>, callback: (error?: any, value?: T) => IOptionalPromise<R>): Promise<R> {
+    return Promise
+        .resolve(value)
         .then((value) => {
             return callback(null, value);
         })
@@ -29,23 +28,3 @@ function toCallback<T, R>(promise: Promises<T>, callback: (error: any, value?: T
 }
 
 export default toCallback;
-
-Promises._setOnPrototype('toCallback', toCallback);
-
-declare module '@promises/core' {
-    interface Promises<T> {
-        /**
-         * @example
-         *
-         * ```typescript
-         *  let promises: Promises<string> = Promises.resolve<string>('foo');
-         *
-         *  promises.toCallback((error: any, result: string) => {
-         *      console.log(error); // error => void 0
-         *      console.log(result); // result => 'foo'
-         *  })
-         * ```
-         */
-        toCallback<R>(this: Promises<T>, callback: (error: any, value?: T) => R): Promises<R>;
-    }
-}

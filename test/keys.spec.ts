@@ -1,4 +1,3 @@
-import Promises from '@promises/core';
 import keys from '@promises/keys';
 
 describe('keys', () => {

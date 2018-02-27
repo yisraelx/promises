@@ -1,4 +1,3 @@
-import Promises from '@promises/core';
 import exec from '@promises/exec';
 
 describe('exec', () => {

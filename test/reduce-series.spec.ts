@@ -1,4 +1,3 @@
-import Promises from '@promises/core';
 import reduceSeries from '@promises/reduce-series';
 
 describe(`reduceSeries`, () => {
@@ -19,7 +18,7 @@ describe(`reduceSeries`, () => {
     it(`should be reduce array series`, () => {
         let collection = [4, 0, 3, 1, 2];
         return reduceSeries(collection, (accumulator, current) => {
-            return new Promises((resolve) => {
+            return new Promise((resolve) => {
                 let time = current * 10;
                 setTimeout(() => {
                     accumulator.push(current);
@@ -32,21 +31,21 @@ describe(`reduceSeries`, () => {
     });
 
     it(`should be reduce the array and return promises whit max element`, () => {
-        let collection = [0, 6, -1, 8, 9, 4, 5, Promises.resolve(3), 1, 8, 2];
+        let collection = [0, 6, -1, 8, 9, 4, 5, Promise.resolve(3), 1, 8, 2];
         return reduceSeries(collection, (max: number, current: number): number => Math.max(max, current)).then((accumulator: number) => {
             expect(accumulator).toBe(9);
         });
     });
 
     it(`should be reduce the array and return promises whit sum of the array elements`, () => {
-        let collection = Promises.resolve([Promises.resolve(0), 1, 2, 3, 4, 5]);
+        let collection = Promise.resolve([Promise.resolve(0), 1, 2, 3, 4, 5]);
         return reduceSeries(collection, (accumulator: number, current: number) => accumulator + current).then((accumulator: number) => {
             expect(accumulator).toBe(15);
         });
     });
 
     it(`should be reduce the array and return promises with even numbers`, () => {
-        let collection = [Promises.resolve(0), 1, 2, 3, 4, 5];
+        let collection = [Promise.resolve(0), 1, 2, 3, 4, 5];
         return reduceSeries(collection, (accumulator: number[], current: number): number[] => {
             if (current % 2 === 0) accumulator.push(current);
             return accumulator;

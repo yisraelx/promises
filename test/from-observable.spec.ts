@@ -1,4 +1,3 @@
-import Promises from '@promises/core';
 import fromObservable from '@promises/from-observable';
 import { Observable } from 'rxjs/Observable';
 import { Subscriber } from 'rxjs/Subscriber';

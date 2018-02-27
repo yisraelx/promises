@@ -31,8 +31,10 @@
   "bugs": {
     "url": "https://github.com/yisraelx/promises/issues"
   },
+  "optionalDependencies": {
+    "@promises/core": "^0.2.0"
+  },
   "dependencies": {
-    "@promises/core": "^0.2.0",
     "@promises/interfaces": "^0.2.0",
     "@promises/map-parallel": "^0.2.0"
   }

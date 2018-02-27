@@ -1,4 +1,3 @@
-import Promises from '@promises/core';
 import delay from '@promises/delay';
 
 describe('delay', () => {

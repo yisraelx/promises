@@ -4,10 +4,14 @@
  * @license MIT
  */
 
-import Promises from '@promises/core';
 import forEach from '@promises/for-each-parallel';
 import createFilter from '@promises/_create-filter';
-import { IFilter, IFilterWrapper } from '@promises/interfaces';
+import { IOptionalPromise, IOptionalPromiseDictionary } from '@promises/interfaces';
+
+export interface IRejectParallel {
+    <T extends ArrayLike<any>>(array: IOptionalPromise<T>, iteratee?: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<boolean>): Promise<T>;
+    <T>(object: IOptionalPromiseDictionary<T>, iteratee?: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<boolean>): Promise<T>;
+}
 
 /**
  * @example
@@ -15,31 +19,11 @@ import { IFilter, IFilterWrapper } from '@promises/interfaces';
  * ```typescript
  *  let array: any[] = ['yes', null, 0, true];
  *
- *  rejectParallel(array).then((result) => {
+ *  rejectParallel(array).then((result: any[]) => {
  *      console.log(result); // => [null, 0]
  *  });
  * ```
  */
-let rejectParallel: IFilter = createFilter(forEach, false) as IFilter;
+let rejectParallel: IRejectParallel = createFilter(forEach, false) as IRejectParallel;
 
 export default rejectParallel;
-
-Promises._setOnPrototype('rejectParallel', rejectParallel);
-
-declare module '@promises/core' {
-    interface Promises <T> {
-        /**
-         * @example
-         *
-         * ```typescript
-         *  let array: any[] = ['yes', null, 0, true];
-         *  let promises = Promises.resolve(array);
-         *
-         *  promises.rejectParallel().then((result) => {
-         *      console.log(result); // => [null, 0]
-         *  });
-         * ```
-         */
-        rejectParallel: IFilterWrapper<T>;
-    }
-}

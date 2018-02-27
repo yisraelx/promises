@@ -1,4 +1,3 @@
-import Promises from '@promises/core';
 import parallel from '@promises/parallel';
 import timeout from '@promises/timeout';
 

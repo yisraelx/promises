@@ -4,9 +4,15 @@
  * @license MIT
  */
 
-import Promises from '@promises/core';
 import createReduce from '@promises/_create-reduce';
-import { IReduce, IReduceWrapper } from '@promises/interfaces';
+import { IOptionalPromise, IOptionalPromiseDictionary } from '@promises/interfaces';
+
+export interface IReduceRightSeries {
+    <T extends ArrayLike<any>>(array: IOptionalPromise<T>, iteratee?: (accumulator: T[keyof T & number], value: T[keyof T & number], index: number, array: T) => IOptionalPromise<T[keyof T & number]>, accumulator?: T[keyof T & number]): Promise<T[keyof T & number]>;
+    <T extends ArrayLike<any>, R>(array: IOptionalPromise<T>, iteratee?: (accumulator: R, value: T[keyof T & number], index: number, array: T) => IOptionalPromise<R>, accumulator?: R): Promise<R>;
+    <T>(object: IOptionalPromiseDictionary<T>, iteratee?: (accumulator: T[keyof T], value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<T[keyof T]>, accumulator?: T[keyof T]): Promise<T[keyof T]>;
+    <T, R>(object: IOptionalPromiseDictionary<T>, iteratee?: (accumulator: R, value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<R>, accumulator?: R): Promise<R>;
+}
 
 /**
  * @example
@@ -19,26 +25,6 @@ import { IReduce, IReduceWrapper } from '@promises/interfaces';
  *  });
  * ```
  */
-let reduceSeries: IReduce = createReduce() as IReduce;
+let reduceSeries: IReduceRightSeries = createReduce() as IReduceRightSeries;
 
 export default reduceSeries;
-
-Promises._setOnPrototype('reduceSeries', reduceSeries);
-
-declare module '@promises/core' {
-    interface Promises <T> {
-        /**
-         * @example
-         *
-         * ```typescript
-         *  let array: number[] = [0, 1, 2, 3];
-         *  let promises = Promises.resolve(array);
-         *
-         *  promises.reduceSeries((sum, num) => Promises.resolve(sum + num)).then((result: number) => {
-         *      console.log(result); // => 6
-         *  });
-         * ```
-         */
-        reduceSeries: IReduceWrapper<T>;
-    }
-}

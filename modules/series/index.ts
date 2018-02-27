@@ -4,7 +4,6 @@
  * @license MIT
  */
 
-import Promises from '@promises/core';
 import map from '@promises/map-series';
 import { IOptionalPromise, IDictionary } from '@promises/interfaces';
 
@@ -22,7 +21,7 @@ import { IOptionalPromise, IDictionary } from '@promises/interfaces';
  *      fn('two', 5)
  *  ];
  *
- *  series(functions).then((result) => {
+ *  series(functions).then((result: string[]) => {
  *      console.log(result);
  *  });
  *
@@ -32,44 +31,12 @@ import { IOptionalPromise, IDictionary } from '@promises/interfaces';
  *  // => ['zero', 'one', 'two']
  * ```
  */
-function seriesStatic<R>(array: (() => IOptionalPromise<R>)[]): Promises<R[]>;
-function seriesStatic<R extends ArrayLike<any>>(array: (() => IOptionalPromise<R[keyof R & number]>)[]): Promises<R>;
-function seriesStatic<R>(object: IDictionary<(() => IOptionalPromise<R>)>): Promises<IDictionary<R>>;
-function seriesStatic<R extends IDictionary<any>>(object: IDictionary<(() => IOptionalPromise<R[keyof R]>)>): Promises<R>;
-function seriesStatic(functions) {
-    return map(functions, (fn) => fn());
+function series<R>(array: (() => IOptionalPromise<R>)[]): Promise<R[]>;
+function series<R extends ArrayLike<any>>(array: (() => IOptionalPromise<R[keyof R & number]>)[]): Promise<R>;
+function series<R>(object: IDictionary<(() => IOptionalPromise<R>)>): Promise<IDictionary<R>>;
+function series<R extends IDictionary<any>>(object: IDictionary<(() => IOptionalPromise<R[keyof R]>)>): Promise<R>;
+function series(functions) {
+    return map(functions, (fn) => fn()) as any;
 }
 
-export default seriesStatic;
-
-Promises._setOnConstructor('series', seriesStatic);
-
-declare module '@promises/core' {
-    namespace Promises {
-        /**
-         * @example
-         *
-         * ```typescript
-         *  let fn = (id: string, ms: number) => () => timeout((resolve) => {
-         *      console.log(id);
-         *      resolve(id);
-         *  }, ms);
-         *  let functions = {
-         *      zero: fn(0, 7),
-         *      one: fn(1, 3),
-         *      two: fn(2, 5),
-         *  };
-         *
-         *  Promises.series(functions).then((result) => {
-         *      console.log(result);
-         *  });
-         *
-         *  // => 0
-         *  // => 1
-         *  // => 2
-         *  // => { zero: 0, one: 1, two: 2}
-         * ```
-         */
-        export let series: typeof seriesStatic;
-    }
-}
+export default series;

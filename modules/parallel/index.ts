@@ -4,7 +4,6 @@
  * @license MIT
  */
 
-import Promises from '@promises/core';
 import map from '@promises/map-parallel';
 import { IOptionalPromise, IDictionary } from '@promises/interfaces';
 
@@ -22,7 +21,7 @@ import { IOptionalPromise, IDictionary } from '@promises/interfaces';
  *      two: fn(2, 5),
  *  };
  *
- *  parallel(functions).then((result) => {
+ *  parallel(functions).then((result: {[key: string]: number}) => {
  *      console.log(result);
  *  });
  *
@@ -32,44 +31,12 @@ import { IOptionalPromise, IDictionary } from '@promises/interfaces';
  *  // => { zero: 0, one: 1, two: 2}
  * ```
  */
-function parallelStatic<R>(array: (() => IOptionalPromise<R>)[]): Promises<R[]>;
-function parallelStatic<R extends ArrayLike<any>>(array: (() => IOptionalPromise<R[keyof R & number]>)[]): Promises<R>;
-function parallelStatic<R>(object: IDictionary<(() => IOptionalPromise<R>)>): Promises<IDictionary<R>>;
-function parallelStatic<R extends IDictionary<any>>(object: IDictionary<(() => IOptionalPromise<R[keyof R]>)>): Promises<R>;
-function parallelStatic(functions) {
-    return map(functions, (fn) => fn());
+function parallel<R>(array: (() => IOptionalPromise<R>)[]): Promise<R[]>;
+function parallel<R extends ArrayLike<any>>(array: (() => IOptionalPromise<R[keyof R & number]>)[]): Promise<R>;
+function parallel<R>(object: IDictionary<(() => IOptionalPromise<R>)>): Promise<IDictionary<R>>;
+function parallel<R extends IDictionary<any>>(object: IDictionary<(() => IOptionalPromise<R[keyof R]>)>): Promise<R>;
+function parallel(functions) {
+    return map(functions, (fn) => fn()) as any;
 }
 
-export default parallelStatic;
-
-Promises._setOnConstructor('parallel', parallelStatic);
-
-declare module '@promises/core' {
-    namespace Promises {
-        /**
-         * @example
-         *
-         * ```typescript
-         *  let fn = (id: string, ms: number) => () => timeout((resolve) => {
-         *      console.log(id);
-         *      resolve(id);
-         *  }, ms);
-         *  let functions = [
-         *      fn('zero', 7),
-         *      fn('one', 3),
-         *      fn('two', 5)
-         *  ];
-         *
-         *  Promises.parallel(functions).then((result) => {
-         *      console.log(result);
-         *  });
-         *
-         *  // => 'one'
-         *  // => 'two'
-         *  // => 'zero'
-         *  // => ['zero', 'one', 'two']
-         * ```
-         */
-        export let parallel: typeof parallelStatic;
-    }
-}
+export default parallel;

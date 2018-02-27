@@ -4,7 +4,6 @@
  * @license MIT
  */
 
-import Promises from '@promises/core';
 import exec from '@promises/exec';
 import _timer from '@promises/timer';
 import { IOptionalPromise } from '@promises/interfaces';
@@ -44,15 +43,15 @@ export interface IRetryFilterInfo {
  *  })
  * ```
  */
-function retryStatic<R>(fn: () => IOptionalPromise<R>, options?: IRetryOptions): Promises<R> {
-    return new Promises<R>((resolve, reject) => {
+function retry<R>(fn: () => IOptionalPromise<R>, options?: IRetryOptions): Promise<R> {
+    return new Promise<R>((resolve, reject) => {
         let {times = Infinity, interval, timer, filter = (error) => true} = options || {} as any;
         let counter: number = 0;
         let lastTimer: number, lastInterval: number;
 
         let next = () => {
             counter++;
-            let step: Promises<any> = exec(fn);
+            let step: Promise<any> = exec(fn);
 
             if (timer != null) {
                 try {
@@ -77,27 +76,4 @@ function retryStatic<R>(fn: () => IOptionalPromise<R>, options?: IRetryOptions):
     });
 }
 
-export default retryStatic;
-
-Promises._setOnConstructor('retry', retryStatic);
-
-declare module '@promises/core' {
-    namespace Promises {
-        /**
-         * @example
-         *
-         * ```typescript
-         *  let count = 0;
-         *  let promises = Promises.retry(()=>{
-         *  if(count++ < 2)  throw 'error';
-         *      return 'foo';
-         *  }, {times: 3});
-         *
-         *  promises.then((result) => {
-         *      console.log(result); // => 'foo'
-         *  });
-         * ```
-         */
-        export let retry: typeof retryStatic;
-    }
-}
+export default retry;

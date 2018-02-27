@@ -1,9 +1,8 @@
-import Promises from '@promises/core';
 import timesSeries from '@promises/times-series';
 
 describe('timesSeries', () => {
     it('should be return array times index result', () => {
-        let times = Promises.resolve(3);
+        let times = Promise.resolve(3);
         return timesSeries(times, time => time).then((result) => {
             expect(result).toEqual([0, 1, 2]);
         });
@@ -14,7 +13,7 @@ describe('timesSeries', () => {
         let mss = [3, 5, 1];
         let result = [];
         return timesSeries(times, time => {
-            return new Promises((resolve, reject) => {
+            return new Promise((resolve, reject) => {
                 let ms = mss[time];
                 setTimeout(() => {
                     result.push(time);

@@ -1,4 +1,3 @@
-import Promises from '@promises/core';
 import timeout from '@promises/timeout';
 
 describe('timeout', () => {

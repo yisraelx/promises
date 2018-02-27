@@ -4,57 +4,30 @@
  * @license MIT
  */
 
-import Promises from '@promises/core';
 import { IOptionalPromise } from '@promises/interfaces';
 
 /**
  * @example
  *
  * ```typescript
- *  let promises: Promises<string> = Promises.reject<string>('foo');
- *  error(promises, 'bar').catch((error: string) => {
+ *  let promise: Promise<string> = Promise.reject<string>('foo');
+ *  error(promise, 'bar').catch((error: string) => {
  *    console.log(error); // => 'bar'
  *  });
  * ```
  * @example
  *
  * ```typescript
- *  let promises: Promises<string> = Promises.resolve<string>('foo');
- *  error(promises, 'bar').catch((error: string) => {
+ *  let promise: Promise<string> = Promise.resolve<string>('foo');
+ *  error(promise, 'bar').catch((error: string) => {
  *    console.log(error); // => 'bar'
  *  });
  * ```
  */
-function error(promises: IOptionalPromise<any>, value: any): Promises<any> {
-    return Promises.resolve(promises).then(() => {
+function error(promise: IOptionalPromise<any>, value: any): Promise<any> {
+    return Promise.resolve(promise).then(() => {
         throw value;
-    }) as Promises<any>;
+    }) as Promise<any>;
 }
 
 export default error;
-
-Promises._setOnPrototype('error', error);
-
-declare module '@promises/core' {
-    interface Promises<T> {
-        /**
-         * @example
-         *
-         * ```typescript
-         *  let promises: Promises<string> = Promises.reject<string>('foo').error('bar');
-         *  promises.catch((error: string) => {
-         *    console.log(error); // => 'bar'
-         *  });
-         * ```
-         * @example
-         *
-         * ```typescript
-         *  let promises: Promises<string> = Promises.resolve<string>('foo').error('bar');
-         *  promises.catch((error: string) => {
-         *    console.log(error); // => 'bar'
-         *  });
-         * ```
-         */
-        error(this: Promises<T>, value: any): Promises<any>;
-    }
-}

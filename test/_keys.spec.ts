@@ -1,4 +1,3 @@
-import Promises from '@promises/core';
 import keys from '@promises/_keys';
 
 let tests = [

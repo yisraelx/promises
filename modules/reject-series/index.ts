@@ -4,42 +4,27 @@
  * @license MIT
  */
 
-import Promises from '@promises/core';
 import forEach from '@promises/for-each-series';
 import createFilter from '@promises/_create-filter';
-import { IFilter, IFilterWrapper } from '@promises/interfaces';
+import { IOptionalPromise, IOptionalPromiseDictionary } from '@promises/interfaces';
+
+export interface IRejectSeries {
+    <T extends ArrayLike<any>>(array: IOptionalPromise<T>, iteratee?: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<boolean>): Promise<T>;
+    <T>(object: IOptionalPromiseDictionary<T>, iteratee?: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<boolean>): Promise<T>;
+}
 
 /**
  * @example
  *
  * ```typescript
  *  let array: any[] = ['yes', null, 0, true];
+ *  let promise: Promise<any[]> = Promise.resolve(array);
  *
- *  rejectSeries(array).then((result) => {
+ *  rejectSeries(promise).then((result: any[]) => {
  *      console.log(result); // => [null, 0]
  *  });
  * ```
  */
-let rejectSeries: IFilter = createFilter(forEach, false) as IFilter;
+let rejectSeries: IRejectSeries = createFilter(forEach, false) as IRejectSeries;
 
 export default rejectSeries;
-
-Promises._setOnPrototype('rejectSeries', rejectSeries);
-
-declare module '@promises/core' {
-    interface Promises <T> {
-        /**
-         * @example
-         *
-         * ```typescript
-         *  let array: any[] = ['yes', null, 0, true];
-         *  let promises = Promises.resolve(array);
-         *
-         *  promises.rejectSeries().then((result) => {
-         *      console.log(result); // => [null, 0]
-         *  });
-         * ```
-         */
-        rejectSeries: IFilterWrapper<T>;
-    }
-}

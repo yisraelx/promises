@@ -4,50 +4,30 @@
  * @license MIT
  */
 
-import Promises from '@promises/core';
 import forEach from '@promises/for-each-series';
 import createFilter from '@promises/_create-filter';
-import { IFilter, IFilterWrapper } from '@promises/interfaces';
+import { IOptionalPromise, IOptionalPromiseDictionary } from '@promises/interfaces';
+
+export interface IFilterSeries {
+    <T extends ArrayLike<any>>(array: IOptionalPromise<T>, iteratee?: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<boolean>): Promise<T>;
+    <T>(object: IOptionalPromiseDictionary<T>, iteratee?: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<boolean>): Promise<T>;
+}
 
 /**
  * @example
  *
  * ```typescript
- *  let comparator = Promises.resolve((value) => {
+ *  let comparator = (value) => {
  *      return value % 2 === 0;
- *  });
+ *  };
  *
  *  let array = [0, 1, 2, 3];
  *
- *  filterSeries(array,comparator).then((result)=>{
+ *  filterSeries(array, comparator).then((result: number[])=>{
  *      console.log(result); // [0,2]
  *  });
  * ```
  */
-let filterSeries: IFilter = createFilter(forEach, true) as IFilter;
+let filterSeries: IFilterSeries = createFilter(forEach, true) as IFilterSeries;
 
 export default filterSeries;
-
-Promises._setOnPrototype('filterSeries', filterSeries);
-
-declare module '@promises/core' {
-    interface Promises <T> {
-        /**
-         * @example
-         *
-         * ```typescript
-         *  let comparator = Promises.resolve((value) => {
-         *      return value % 2 === 0;
-         *  });
-         *
-         *  let array = [0, 1, 2, 3];
-         *  let promises = Promises.resolve(array);
-         *
-         *  promises.filterSeries(comparator).then((result)=>{
-         *      console.log(result); // [0,2]
-         *  });
-         * ```
-         */
-        filterSeries: IFilterWrapper<T>;
-    }
-}

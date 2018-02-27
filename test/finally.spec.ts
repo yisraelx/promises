@@ -1,9 +1,8 @@
-import Promises from '@promises/core';
 import _finally from '@promises/finally';
 
 describe('finally', () => {
     it('should be exec after promise resolve and return the data', () => {
-        let promise = Promises.resolve('resolve');
+        let promise = Promise.resolve('resolve');
         let pass = false;
         return _finally(promise, () => {
             pass = true;
@@ -14,7 +13,7 @@ describe('finally', () => {
     });
 
     it('should be exec after promise reject and return the data', () => {
-        let promise = Promises.reject('reject');
+        let promise = Promise.reject('reject');
         let execFinally = false;
         let catchError = false;
         return _finally(promise, () => {

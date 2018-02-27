@@ -31,8 +31,10 @@
   "bugs": {
     "url": "https://github.com/yisraelx/promises/issues"
   },
-  "dependencies": {
-    "@promises/core": "^0.2.0",
-    "@promises/interfaces": "^0.2.0"
+  "peerDependencies": {
+    "rxjs": "^5.5.6"
+  },
+  "optionalDependencies": {
+    "@promises/core": "^0.2.0"
   }
 }

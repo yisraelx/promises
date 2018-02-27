@@ -1,4 +1,3 @@
-import Promises from '@promises/core';
 import reduceRightSeries from '@promises/reduce-right-series';
 
 describe(`reduceRightSeries`, () => {

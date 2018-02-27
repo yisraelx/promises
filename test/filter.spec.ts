@@ -1,4 +1,3 @@
-import Promises from '@promises/core';
 import filterSeries from '@promises/filter-series';
 import filterParallel from '@promises/filter-parallel';
 import rejectSeries from '@promises/reject-series';
@@ -22,9 +21,9 @@ export let tests: ITestFilter[] = [
     {collection: {1: 1, 0: 0}, filter: {1: 1}, reject: {0: 0}},
     {collection: [true], iteratee: () => false, filter: [], reject: [true]},
     {collection: [false], iteratee: () => true, filter: [false], reject: []},
-    {collection: [false], iteratee: () => Promises.resolve(1), filter: [false], reject: []},
+    {collection: [false], iteratee: () => Promise.resolve(1), filter: [false], reject: []},
     {
-        collection: Promises.resolve([Promises.resolve(1), Promises.resolve(0)]),
+        collection: Promise.resolve([Promise.resolve(1), Promise.resolve(0)]),
         iteratee: (val) => val,
         filter: [1],
         reject: [0]

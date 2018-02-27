@@ -1,4 +1,3 @@
-import Promises from '@promises/core';
 import promisify from '@promises/promisify';
 
 function upper(str: string, cb?: (err: any, result: string) => void): void;
@@ -22,8 +21,8 @@ let upperWrap = promisify(upper);
 
 describe('promisify', () => {
     it('should be bind the result from callback to then (with 2 args)', () => {
-        let str = Promises.resolve('foo');
-        let first = Promises.resolve(false);
+        let str = Promise.resolve('foo');
+        let first = Promise.resolve(false);
         return (upperWrap as any)(str, first).then((result) => {
             expect(result).toBe('FOO');
         });

@@ -1,4 +1,3 @@
-import Promises from '@promises/core';
 import everySeries from '@promises/every-series';
 import everyParallel from '@promises/every-parallel';
 import someSeries from '@promises/some-series';
@@ -15,9 +14,9 @@ let tests: ITestChecksIteratee[] = [
     { collection: void 0, every: true, some: false },
     { collection: [], every: true, some: false },
     { collection: {}, every: true, some: false },
-    { collection: Promises.resolve(void 0), every: true, some: false },
-    { collection: Promises.resolve([]), every: true, some: false },
-    { collection: Promises.resolve({}), every: true, some: false },
+    { collection: Promise.resolve(void 0), every: true, some: false },
+    { collection: Promise.resolve([]), every: true, some: false },
+    { collection: Promise.resolve({}), every: true, some: false },
     { collection: [null], every: false, some: false },
     { collection: [false], every: false, some: false },
     { collection: [void 0], every: false, some: false },
@@ -29,12 +28,12 @@ let tests: ITestChecksIteratee[] = [
     { collection: { 1: 1, 0: 0 }, every: false, some: true },
     { collection: [true], every: true, some: true },
     { collection: [true, false], every: false, some: true },
-    { collection: [false], iteratee: () => Promises.reject('error'), every: 'error' as any, some: 'error' as any },
+    { collection: [false], iteratee: () => Promise.reject('error'), every: 'error' as any, some: 'error' as any },
     { collection: [false], iteratee: () => true, every: true, some: true },
     { collection: [true], iteratee: () => false, every: false, some: false },
-    { collection: [true], iteratee: () => Promises.resolve(0), every: false, some: false },
+    { collection: [true], iteratee: () => Promise.resolve(0), every: false, some: false },
     {
-        collection: Promises.resolve([Promises.resolve(1), Promises.resolve(0)]),
+        collection: Promise.resolve([Promise.resolve(1), Promise.resolve(0)]),
         iteratee: void 0,
         every: false,
         some: true

@@ -1,4 +1,3 @@
-import Promises from '@promises/core';
 import { IDictionary } from '@promises/interfaces';
 import forEachRightSeries from '@promises/for-each-right-series';
 

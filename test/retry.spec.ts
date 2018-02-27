@@ -1,4 +1,3 @@
-import Promises from '@promises/core';
 import retry from '@promises/retry';
 
 describe('retry', () => {
@@ -49,7 +48,7 @@ describe('retry', () => {
             return (last || 1) * 2;
         };
         return retry(() => {
-            return new Promises((resolve, reject) => {
+            return new Promise((resolve, reject) => {
                 count++;
                 reject('error');
             });
@@ -69,7 +68,7 @@ describe('retry', () => {
         let times = 3;
         let count = 0;
         return retry(() => {
-            return new Promises((resolve, reject) => {
+            return new Promise((resolve, reject) => {
                 count++;
                 setTimeout(() => {
                     reject('error');
@@ -88,7 +87,7 @@ describe('retry', () => {
             return counter;
         };
         return retry(() => {
-            return new Promises((resolve, reject) => {
+            return new Promise((resolve, reject) => {
                 count++;
                 setTimeout(() => {
                     reject('error');

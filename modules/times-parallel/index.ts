@@ -4,7 +4,6 @@
  * @license MIT
  */
 
-import Promises from '@promises/core';
 import { IOptionalPromise } from '@promises/interfaces';
 
 /**
@@ -29,9 +28,9 @@ import { IOptionalPromise } from '@promises/interfaces';
  *  // => [9, 6, 3]
  * ```
  */
-function timesParallelStatic<T extends any[]>(times: IOptionalPromise<number>, fn: (time: number) => IOptionalPromise<T[keyof T & number]>): Promises<T> {
-    return Promises.resolve(times).then((times) => {
-        return new Promises((resolve, reject) => {
+function timesParallel<T extends any[]>(times: IOptionalPromise<number>, fn: (time: number) => IOptionalPromise<T[keyof T & number]>): Promise<T> {
+    return Promise.resolve(times).then((times) => {
+        return new Promise((resolve, reject) => {
             let length: number = times;
             let index: number = 0;
             let count: number = 0;
@@ -39,9 +38,9 @@ function timesParallelStatic<T extends any[]>(times: IOptionalPromise<number>, f
 
             while (index < length) {
                 let thisIndex = index++;
-                Promises.resolve().then(() => {
+                Promise.resolve().then(() => {
                     let value = fn(thisIndex);
-                    return Promises.resolve(value).then((value) => {
+                    return Promise.resolve(value).then((value) => {
                         result[thisIndex] = value;
                         if (++count === length) resolve(result);
                     });
@@ -49,38 +48,8 @@ function timesParallelStatic<T extends any[]>(times: IOptionalPromise<number>, f
             }
 
         });
-    }) as Promises<T>;
+    }) as Promise<T>;
 
 }
 
-export default timesParallelStatic;
-
-Promises._setOnConstructor('timesParallel', timesParallelStatic);
-
-declare module '@promises/core' {
-    namespace Promises {
-        /**
-         * @example
-         *
-         * ```typescript
-         *  let times: number = 3;
-         *
-         *  Promises.timesParallel(times, (time: number) => {
-         *      let ms = (times-time) * 3;
-         *      return timeout((resolve) => {
-         *          console.log(time);
-         *          resolve(ms);
-         *      }, ms);
-         *  }).then((result: number[]) => {
-         *      console.log(result);
-         *  });
-         *
-         *  // => 2
-         *  // => 1
-         *  // => 0
-         *  // => [9, 6, 3]
-         * ```
-         */
-        export let timesParallel: typeof timesParallelStatic;
-    }
-}
+export default timesParallel;

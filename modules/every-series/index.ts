@@ -4,52 +4,32 @@
  * @license MIT
  */
 
-import Promises from '@promises/core';
 import forEach from '@promises/for-each-series';
 import createChecksBoolean from '@promises/_create-checks-boolean';
-import { IChecksBoolean, IChecksBooleanWrapper } from '@promises/interfaces';
+import { IOptionalPromise, IOptionalPromiseDictionary } from '@promises/interfaces';
+
+export interface IEverySeries {
+    <T extends ArrayLike<any>>(array: IOptionalPromise<T>, iteratee?: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<boolean>): Promise<boolean>;
+    <T>(object: IOptionalPromiseDictionary<T>, iteratee?: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<boolean>): Promise<boolean>;
+}
 
 /**
  * @example
  *
  * ```typescript
  *  let comparator = (value) => {
- *      return Promises.resolve(Boolean(value));
+ *      return Promise.resolve(Boolean(value));
  *  };
  *
- *  let array = ['foo', true, Promises.resolve(-1)];
+ *  let array: any[] = ['foo', true, Promise.resolve(-1)];
  *
- *  everySeries(array, comparator).then((result)=>{
+ *  everySeries(array, comparator).then((result: boolean)=>{
  *      console.log(result); // result => true
  *  });
  * ```
  */
-let everySeries: IChecksBoolean = createChecksBoolean(forEach, (truthy) => {
-    return truthy ? true : Promises.reject(false);
-}, false) as IChecksBoolean;
+let everySeries: IEverySeries = createChecksBoolean(forEach, (truthy) => {
+    return truthy ? true : Promise.reject(false);
+}, false) as IEverySeries;
 
 export default everySeries;
-
-Promises._setOnPrototype('everySeries', everySeries);
-
-declare module '@promises/core' {
-    interface Promises <T> {
-        /**
-         * @example
-         *
-         * ```typescript
-         *  let comparator = (value) => {
-         *      return Promises.resolve(Boolean(value));
-         *  };
-         *
-         *  let array = ['foo', true, Promises.resolve(-1)];
-         *  let promises = Promises.resolve(array);
-         *
-         *  promises.everySeries(comparator).then((result)=>{
-         *      console.log(result); // result => true
-         *  });
-         * ```
-         */
-        everySeries: IChecksBooleanWrapper<T>;
-    }
-}

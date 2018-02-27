@@ -4,8 +4,6 @@
  * @license MIT
  */
 
-import Promises from '@promises/core';
-
 /**
  * @example
  *
@@ -15,27 +13,10 @@ import Promises from '@promises/core';
  *  });
  * ```
  */
-function delayStatic<T>(ms?: number): Promises<T> {
-    return new Promises<T>((resolve) => {
+function delay<T>(ms?: number): Promise<T> {
+    return new Promise<T>((resolve) => {
         setTimeout(() => resolve(), ms);
     });
 }
 
-export default delayStatic;
-
-Promises._setOnConstructor('delay', delayStatic);
-
-declare module '@promises/core' {
-    namespace Promises {
-        /**
-         * @example
-         *
-         * ```typescript
-         *  Promises.delay(3000).then(() => {
-         *    console.log('timeout'); // => 'timeout'
-         *  });
-         * ```
-         */
-        export let delay: typeof delayStatic;
-    }
-}
+export default delay;

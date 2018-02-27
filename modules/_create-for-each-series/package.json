@@ -32,8 +32,6 @@
     "url": "https://github.com/yisraelx/promises/issues"
   },
   "dependencies": {
-    "@promises/_keys": "^0.2.0",
-    "@promises/core": "^0.2.0",
-    "@promises/interfaces": "^0.2.0"
+    "@promises/_keys": "^0.2.0"
   }
 }

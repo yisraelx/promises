@@ -4,7 +4,6 @@
  * @license MIT
  */
 
-import Promises from '@promises/core';
 import { IOptionalPromise } from '@promises/interfaces';
 
 /**
@@ -20,29 +19,8 @@ import { IOptionalPromise } from '@promises/interfaces';
  *  });
  * ```
  */
-function execStatic<R>(fn: () => IOptionalPromise<R>): Promises<R> {
-    return Promises.resolve().then(fn) as Promises<R>;
+function exec<R>(fn: () => IOptionalPromise<R>): Promise<R> {
+    return Promise.resolve().then(fn) as Promise<R>;
 }
 
-export default execStatic;
-
-Promises._setOnConstructor('exec', execStatic);
-
-declare module '@promises/core' {
-    namespace Promises {
-        /**
-         * @example
-         *
-         * ```typescript
-         *  let foo = () => {
-         *      return 'bar';
-         *  };
-         *
-         *  Promise.exec(foo).then((result: string) => {
-         *      console.log(result); // => 'bar'
-         *  });
-         * ```
-         */
-        export let exec: typeof execStatic;
-    }
-}
+export default exec;

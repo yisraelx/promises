@@ -1,12 +1,13 @@
 import * as fs from 'fs';
-import { join } from 'path';
+import {join} from 'path';
 import * as parseComments from 'parse-comments';
-import getConfig, { PACKAGE_TYPES } from './utils/config';
+import getConfig, {PACKAGE_TYPES} from './utils/config';
 
 const CONFIG = getConfig();
 const LIBRARY = 'Promises';
 const GLOBAL_NAME = 'P';
 const ENTRY_FILE_PATH: string = join(CONFIG.packagePath, 'index.ts');
+const ADD_FILE_PATH = join(CONFIG.packagePath, 'add.ts');
 const README_FILE_PATH = join(CONFIG.packagePath, 'README.md');
 const GIT_USERNAME: string = 'yisraelx';
 const NPM_USERNAME: string = 'yisraelx';
@@ -19,25 +20,21 @@ let cotext: string = `
 ${badges(CONFIG)}
 
 **${description(CONFIG)}**
-# Compatibility
+
+## Use
+${use(CONFIG)}
+
+## Compatibility
 ${compatibility()}
-# Use
-${install(CONFIG)}
-${useImport(CONFIG)}
-${useExample()}
-${CONFIG.packageType === PACKAGE_TYPES.GROUP ? `Or ${useGlobal(CONFIG)}` : ''}
-# License
-${license()}
-`;
+
+## License
+${license()}`;
 fs.writeFileSync(README_FILE_PATH, cotext);
 
-
 function badges({packageName, fromModulesPath}) {
-    let str = `[![Source Code](https://img.shields.io/badge/source--code-%3C/%3E-blue.svg)](${PACKAGES_URL}/${fromModulesPath})
+    return `[![Source Code](https://img.shields.io/badge/%3C/%3E-source--code-blue.svg)](${PACKAGES_URL}/${fromModulesPath})
 [![Version](https://img.shields.io/npm/v/${packageName}.svg)](https://www.npmjs.com/package/${packageName})
 [![MIT License](https://img.shields.io/npm/l/${packageName}.svg)](https://github.com/${GIT_USERNAME}/${REPOSITORY_NAME}/blob/master/LICENSE)`;
-
-    return str;
 }
 
 function useImportWeb({packageName}) {
@@ -48,18 +45,39 @@ function compatibility() {
     return `These modules are written in typescript and available in ES5 and ES6 standard, the requirements are a global __Promise__ (native or polyfill).`;
 }
 
+function use(CONFIG) {
+    let str = `${install(CONFIG)}
+${useImport(CONFIG)}
+${useExample(ENTRY_FILE_PATH)}`;
+    if (CONFIG.packageType === PACKAGE_TYPES.GROUP) {
+        str += `\nOr\n${useGlobal(CONFIG)}`;
+    } else if (CONFIG.packageType === PACKAGE_TYPES.REGULAR && fs.existsSync(ADD_FILE_PATH)) {
+        str += `\nOr\n${useWrapper(CONFIG)}`;
+    }
+    return str;
+}
+
+function useWrapper(CONFIG) {
+    return `${install(CONFIG, true)}
+\`\`\`ts
+ import ${LIBRARY} from '@promises/core';
+ import '${CONFIG.packageName}/add';
+\`\`\`
+${useExample(ADD_FILE_PATH)}`;
+}
+
 function useImport({packageName, subName}) {
     let lib = require(ENTRY_FILE_PATH);
     let defaultName: string = `${capitalize(normalizaName(subName))}`;
     let libKeys = Object.keys(lib);
     if (libKeys.length === 0) return '';
     if (lib.default) {
-        if (libKeys.length === 1) return `\`\`\`typescript\n import ${defaultName} from '${packageName}';\n\`\`\``;
+        if (libKeys.length === 1) return `\`\`\`ts\n import ${defaultName} from '${packageName}';\n\`\`\``;
         let index = libKeys.indexOf('default');
         libKeys.splice(index, 1);
         libKeys.unshift(`default as ${defaultName}`);
     }
-    return `\`\`\`typescript\n import {\n\t${libKeys.join(',\n\t')}\n} from '${packageName}';\n\`\`\``;
+    return `\`\`\`ts\n import {\n\t${libKeys.join(',\n\t')}\n} from '${packageName}';\n\`\`\``;
 }
 
 function useGlobal({packagePath, packageName}) {
@@ -67,18 +85,20 @@ function useGlobal({packagePath, packageName}) {
     let libKeys = Object.keys(lib);
     return `
 \`\`\`html\n<script src="https://unpkg.com/${packageName}/bundle.js"> </script>\n\`\`\`
-\`\`\`typescript\nlet {\n\t${libKeys.join(',\n\t')}\n} = ${GLOBAL_NAME};\n\`\`\``;
+\`\`\`ts\nlet {\n\t${libKeys.join(',\n\t')}\n} = ${GLOBAL_NAME};\n\`\`\``;
 }
 
-function useExample() {
-    let sourcePath = ENTRY_FILE_PATH;
+function useExample(sourcePath) {
     let sourceBuffer = fs.readFileSync(sourcePath);
     let source = sourceBuffer.toString();
     let result = parseComments(source);
-    return result.map(({example}: { example?: string }) => {
-        if (!example) return '';
-        return example.replace(/^true/, '');
-    }).join('\n');
+    return result.reduce((examples, {example}: { example?: string }) => {
+        if (example) {
+            example = example.replace(/^true\n\n/, '').replace(/,\n\n/gm, '\n');
+            examples.push(example);
+        }
+        return examples;
+    }, []).join('\n').trim();
 }
 
 function description({subName, fromModulesPath}) {
@@ -94,22 +114,21 @@ function description({subName, fromModulesPath}) {
     }
 }
 
-function install({packagePath, packageName}) {
+function install({packagePath, packageName}, isAdd?: boolean) {
     let packageJsonPath = join(packagePath, 'package.json');
     let packageJson = require(packageJsonPath);
-    let types = ['optional', 'peer'].map((key) => {
+    let types = ['peer'].map((key) => {
         let deps = packageJson[`${key}Dependencies`];
         let keys = Object.keys(deps || {});
         if (!keys.length) return '';
         return `\n# and install ${key} dependencies\n$ npm install --save ${keys.join(' ')}`;
     }).join('');
-    return `\`\`\`sh\n$ npm install --save ${packageName} ${types}\n\`\`\``;
+    return `\`\`\`sh\n$ npm install --save ${packageName}${isAdd ? ' @promises/core' : ''} ${types}\n\`\`\``;
 }
 
 function license() {
-    let str = `Copyright © 2017 [Yisrael Eliav](https://github.com/${GIT_USERNAME}),
+    return `Copyright © 2017 [Yisrael Eliav](https://github.com/${GIT_USERNAME}),
 Licensed under the [MIT license](${REPOSITORY_URL}/blob/master/LICENSE).`;
-    return str;
 }
 
 function normalizaName(str: string) {

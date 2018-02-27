@@ -5,21 +5,20 @@
  */
 
 import { Observable, Subscriber } from 'rxjs';
-import Promises from '@promises/core';
 
 /**
  * @example
  *
  * ```typescript
- *  let promises: Promises<string> = Promises.resolve('foo');
- *  let observable: Observable<string> = toObservable(promises);
+ *  let promise: Promise<string> = Promise.resolve('foo');
+ *  let observable: Observable<string> = toObservable(promise);
  *
  *  observable.subscribe((result: string) => {
  *      console.log(result); // result => 'foo'
  *  });
  * ```
  */
-function toObservable<T>(promise: Promises<T>): Observable<T> {
+function toObservable<T>(promise: Promise<T>): Observable<T> {
     return new Observable<T>((subscriber: Subscriber<T>) => {
         promise
             .then((value: T) => {
@@ -32,23 +31,3 @@ function toObservable<T>(promise: Promises<T>): Observable<T> {
 }
 
 export default toObservable;
-
-Promises._setOnPrototype('toObservable', toObservable, false);
-
-declare module '@promises/core' {
-    interface Promises<T> {
-        /**
-         * @example
-         *
-         * ```typescript
-         *  let promises: Promises<string> = Promises.resolve('foo');
-         *  let observable: Observable<string> = promises.toObservable();
-         *
-         *  observable.subscribe((result: string) => {
-         *      console.log(result); // result => 'foo'
-         *  });
-         * ```
-         */
-        toObservable(promise: Promises<T>): Observable<T>;
-    }
-}

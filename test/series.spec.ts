@@ -1,4 +1,3 @@
-import Promises from '@promises/core';
 import series from '@promises/series';
 import timeout from '@promises/timeout';
 

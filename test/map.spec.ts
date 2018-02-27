@@ -1,4 +1,3 @@
-import Promises from '@promises/core';
 import mapSeries from '@promises/map-series';
 import mapParallel from '@promises/map-parallel';
 
@@ -22,8 +21,8 @@ let tests: ITestMaps[] = [
         equal: {0: false, 1: true}
     },
     {
-        collection: Promises.resolve([Promises.resolve(0), 1]),
-        iteratee: (v) => Promises.resolve(v),
+        collection: Promise.resolve([Promise.resolve(0), 1]),
+        iteratee: (v) => Promise.resolve(v),
         equal: [0, 1]
     },
 ];

@@ -4,52 +4,32 @@
  * @license MIT
  */
 
-import Promises from '@promises/core';
 import forEach from '@promises/for-each-parallel';
 import createChecksBoolean from '@promises/_create-checks-boolean';
-import { IChecksBoolean, IChecksBooleanWrapper } from '@promises/interfaces';
+import { IOptionalPromise, IOptionalPromiseDictionary } from '@promises/interfaces';
+
+export interface IEveryParallel {
+    <T extends ArrayLike<any>>(array: IOptionalPromise<T>, iteratee?: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<boolean>): Promise<boolean>;
+    <T>(object: IOptionalPromiseDictionary<T>, iteratee?: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<boolean>): Promise<boolean>;
+}
 
 /**
  * @example
  *
  * ```typescript
  *  let comparator = (value) => {
- *      return Promises.resolve(Boolean(value))
+ *      return Promise.resolve(Boolean(value))
  *  };
  *
- *  let array = [true, 1, Promises.resolve(null), 'yes'];
+ *  let array: any[] = [true, 1, Promise.resolve(null), 'yes'];
  *
- *  everyParallel(array, comparator).then((result)=>{
+ *  everyParallel(array, comparator).then((result: boolean)=>{
  *      console.log(result) // result => false
  *  });
  * ```
  */
-let everyParallel: IChecksBoolean = createChecksBoolean(forEach, (truthy) => {
-    return truthy ? true : Promises.reject(false);
-}, false) as IChecksBoolean;
+let everyParallel: IEveryParallel = createChecksBoolean(forEach, (truthy) => {
+    return truthy ? true : Promise.reject(false);
+}, false) as IEveryParallel;
 
 export default everyParallel;
-
-Promises._setOnPrototype('everyParallel', everyParallel);
-
-declare module '@promises/core' {
-    interface Promises <T> {
-        /**
-         * @example
-         *
-         * ```typescript
-         *  let comparator = (value) => {
-         *      return Promises.resolve(Boolean(value))
-         *  };
-         *
-         *  let array = [true, 1, Promises.resolve(null), 'yes'];
-         *  let promises = Promises.resolve(array);
-         *
-         *  promises.everyParallel(comparator).then((result)=>{
-         *      console.log(result) // result => false
-         *  });
-         * ```
-         */
-        everyParallel: IChecksBooleanWrapper<T>;
-    }
-}

@@ -1,4 +1,3 @@
-import Promises from '@promises/core';
 import wrap from '@promises/wrap';
 
 describe('wrap', () => {
@@ -15,7 +14,7 @@ describe('wrap', () => {
         let throwError = function (): never {
             throw 'error';
         };
-        let throwErrorWrap: () => Promises<any> = wrap(throwError);
+        let throwErrorWrap: () => Promise<any> = wrap(throwError);
         return throwErrorWrap().catch((error) => {
             expect(error).toBe('error');
         });
@@ -24,8 +23,8 @@ describe('wrap', () => {
     it('should be warp function and resolve args and return promise whit function return val', () => {
         let plus = (a, b) => a + b;
         let plusWrap = wrap(plus);
-        let a = Promises.resolve(1);
-        let b = Promises.resolve(2);
+        let a = Promise.resolve(1);
+        let b = Promise.resolve(2);
         return plusWrap(a, b).then((result) => {
             expect(result).toBe(3);
         });

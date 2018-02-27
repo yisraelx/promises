@@ -5,7 +5,7 @@
  */
 
 import { Observable } from 'rxjs';
-import Promises from '@promises/core';
+
 /**
  * @example
  *
@@ -15,42 +15,18 @@ import Promises from '@promises/core';
  *      observer.complete();
  *  });
  *
- *  let promises: Promises<string> = fromObservable<string>(observable);
+ *  let promise: Promise<string> = fromObservable<string>(observable);
  *
- *  promises.then((result: string) => {
+ *  promise.then((result: string) => {
  *      console.log(result); // => 'foo'
  *  });
  * ```
  */
-function fromObservableStatic<T>(observe: Observable<T>): Promises<T> {
-    return new Promises((resolve, reject) => {
+function fromObservable<T>(observe: Observable<T>): Promise<T> {
+    return new Promise((resolve, reject) => {
         let value: any;
         observe.subscribe((x: T) => value = x, (err: any) => reject(err), () => resolve(value));
     });
 }
 
-export default fromObservableStatic;
-
-Promises._setOnConstructor('fromObservable', fromObservableStatic);
-
-declare module '@promises/core' {
-    namespace Promises {
-        /**
-         * @example
-         *
-         * ```typescript
-         *  let observable: Observable<string> = new Observable<string>((observer: Subscriber<T>) => {
-         *      observer.next('foo');
-         *      observer.complete();
-         *  });
-         *
-         *  let promises: Promises<string> = Promises.fromObservable<string>(observable);
-         *
-         *  promises.then((result: string) => {
-         *      console.log(result); // => 'foo'
-         *  });
-         * ```
-         */
-        export let fromObservable: typeof fromObservableStatic;
-    }
-}
+export default fromObservable;

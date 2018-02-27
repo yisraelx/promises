@@ -4,45 +4,23 @@
  * @license MIT
  */
 
-import Promises from '@promises/core';
 import { IExecutor } from '@promises/interfaces';
 
 /**
  * @example
  *
  * ```typescript
- *  let promises = create((resolve, reject) => {
+ *  let promise: Promise<string> = create<string>((resolve, reject) => {
  *      resolve('foo');
  *  });
  *
- *  promises.then((result: string) => {
+ *  promise.then((result: string) => {
  *      console.log(result); // => 'foo'
  *  });
  * ```
  */
-function createStatic<T>(executor: IExecutor<T> = (resolve) => resolve()): Promises<T> {
-    return new Promises(executor);
+function create<T>(executor: IExecutor<T> = (resolve) => resolve()): Promise<T> {
+    return new Promise(executor);
 }
 
-export default createStatic;
-
-Promises._setOnConstructor('create', createStatic);
-
-declare module '@promises/core' {
-    namespace Promises {
-        /**
-         * @example
-         *
-         * ```typescript
-         *  let promises = create((resolve, reject) => {
-         *      resolve('foo');
-         *  });
-         *
-         *  promises.then((result: string) => {
-         *      console.log(result); // => 'foo'
-         *  });
-         * ```
-         */
-        export let create: typeof createStatic;
-    }
-}
+export default create;

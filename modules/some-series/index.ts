@@ -4,10 +4,14 @@
  * @license MIT
  */
 
-import Promises from '@promises/core';
 import forEach from '@promises/for-each-series';
 import createChecksBoolean from '@promises/_create-checks-boolean';
-import { IChecksBoolean, IChecksBooleanWrapper } from '@promises/interfaces';
+import { IOptionalPromise, IOptionalPromiseDictionary } from '@promises/interfaces';
+
+export interface ISomeSeries {
+    <T extends ArrayLike<any>>(array: IOptionalPromise<T>, iteratee?: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<boolean>): Promise<boolean>;
+    <T>(object: IOptionalPromiseDictionary<T>, iteratee?: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<boolean>): Promise<boolean>;
+}
 
 /**
  * @example
@@ -20,28 +24,8 @@ import { IChecksBoolean, IChecksBooleanWrapper } from '@promises/interfaces';
  *  });
  * ```
  */
-let someSeries: IChecksBoolean = createChecksBoolean(forEach, (truthy) => {
-    return truthy ? Promises.reject(true) : false;
-}, true) as IChecksBoolean;
+let someSeries: ISomeSeries = createChecksBoolean(forEach, (truthy) => {
+    return truthy ? Promise.reject(true) : false;
+}, true) as ISomeSeries;
 
 export default someSeries;
-
-Promises._setOnPrototype('someSeries', someSeries);
-
-declare module '@promises/core' {
-    interface Promises <T> {
-        /**
-         * @example
-         *
-         * ```typescript
-         *  let array: any[] = [0, null, true, false];
-         *  let promises = Promises.resolve(array);
-         *
-         *  promises.someSeries().then((result: boolean) => {
-         *    console.log(result); // result => true
-         *  });
-         * ```
-         */
-        someSeries: IChecksBooleanWrapper<T>;
-    }
-}

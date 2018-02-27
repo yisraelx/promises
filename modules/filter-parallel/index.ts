@@ -4,10 +4,14 @@
  * @license MIT
  */
 
-import Promises from '@promises/core';
 import forEach from '@promises/for-each-parallel';
 import createFilter from '@promises/_create-filter';
-import { IFilter, IFilterWrapper } from '@promises/interfaces';
+import { IOptionalPromise, IOptionalPromiseDictionary } from '@promises/interfaces';
+
+export interface IFilterParallel {
+    <T extends ArrayLike<any>>(array: IOptionalPromise<T>, iteratee?: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<boolean>): Promise<T>;
+    <T>(object: IOptionalPromiseDictionary<T>, iteratee?: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<boolean>): Promise<T>;
+}
 
 /**
  * @example
@@ -17,37 +21,13 @@ import { IFilter, IFilterWrapper } from '@promises/interfaces';
  *      return value % 2 === 0;
  *  };
  *
- *  let array = Array.from({length:5}, (value, index) => i++);
+ *  let array = Array.from({length:5}, (value, index) => index);
  *
  *  filterParallel(array, comparator).then((result: number[])=>{
  *      console.log(result); // result => [0, 2, 4]
  *  });
  * ```
  */
-let filterParallel: IFilter = createFilter(forEach, true) as IFilter;
+let filterParallel: IFilterParallel = createFilter(forEach, true) as IFilterParallel;
 
 export default filterParallel;
-
-Promises._setOnPrototype('filterParallel', filterParallel);
-
-declare module '@promises/core' {
-    interface Promises <T> {
-        /**
-         * @example
-         *
-         * ```typescript
-         *  let comparator = (value: number) => {
-         *      return value % 2 === 0;
-         *  };
-         *
-         *  let array = Array.from({length:5}, (value, index) => i++);
-         *  let promises = Promises.resolve(array);
-         *
-         *  promises.filterParallel(comparator).then((result: number[])=>{
-         *      console.log(result); // result => [0, 2, 4]
-         *  });
-         * ```
-         */
-        filterParallel: IFilterWrapper<T>;
-    }
-}

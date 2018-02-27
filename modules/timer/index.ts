@@ -4,27 +4,25 @@
  * @license MIT
  */
 
-import Promises from '@promises/core';
-
 /**
  * @example
  *
  * ```typescript
- *  let promises: Promises<string> = Promises.resolve<string>('foo').delay(3000);
+ *  let promise: Promise<string> = Promise.resolve<string>('foo').delay(3000);
  *
- *  timer(promises, 1500, 'error: timeout').catch((error: string) => {
+ *  timer(promise, 1500, 'error: timeout').catch((error: string) => {
  *      console.log(error); // error => 'error: timeout'
  *  })
  * ```
  */
-function timer<T>(promise: Promises<T>, ms?: number, error?: any): Promises<T> {
-    return new Promises((resolve, reject) => {
+function timer<T>(promise: Promise<T>, ms?: number, error?: any): Promise<T> {
+    return new Promise((resolve, reject) => {
         let isExecute = false;
         setTimeout(() => {
             if (isExecute === false) reject(error);
             isExecute = true;
         }, ms);
-        Promises.resolve(promise).then((x: any) => {
+        Promise.resolve(promise).then((x: any) => {
             if (isExecute === false) resolve(x);
             isExecute = true;
 
@@ -33,22 +31,3 @@ function timer<T>(promise: Promises<T>, ms?: number, error?: any): Promises<T> {
 }
 
 export default timer;
-
-Promises._setOnPrototype('timer', timer);
-
-declare module '@promises/core' {
-    interface Promises<T> {
-        /**
-         * @example
-         *
-         * ```typescript
-         *  let promises: Promises<string> = Promises.resolve<string>('foo').delay(3000);
-         *
-         *  promises.timer(1500, 'error: timeout').catch((error: string) => {
-         *      console.log(error); // error => 'error: timeout'
-         *  });
-         * ```
-         */
-        timer(ms?: number, error?: any): Promises<T>;
-    }
-}
