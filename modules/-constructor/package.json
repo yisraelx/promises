@@ -41,6 +41,7 @@
     "@promises/is-promise": "^0.2.0",
     "@promises/parallel": "^0.2.0",
     "@promises/promisify": "^0.2.0",
+    "@promises/retry": "^0.2.0",
     "@promises/series": "^0.2.0",
     "@promises/timeout": "^0.2.0",
     "@promises/times-parallel": "^0.2.0",

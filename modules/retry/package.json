@@ -35,7 +35,6 @@
     "@promises/core": "^0.2.0",
     "@promises/exec": "^0.2.0",
     "@promises/interfaces": "^0.2.0",
-    "@promises/timeout": "^0.2.0",
     "@promises/timer": "^0.2.0"
   }
 }

@@ -52,7 +52,6 @@
     "@promises/reject-parallel": "^0.2.0",
     "@promises/reject-series": "^0.2.0",
     "@promises/reset": "^0.2.0",
-    "@promises/retry": "^0.2.0",
     "@promises/sleep": "^0.2.0",
     "@promises/some-parallel": "^0.2.0",
     "@promises/some-series": "^0.2.0",
