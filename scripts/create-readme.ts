@@ -45,16 +45,9 @@ function useImportWeb({packageName}) {
 }
 
 function compatibility() {
-    let str = `These modules are written in typescript and available in ES5 and ES6 standard, the requirements are a global __Promise__ (native or polyfill).
-- main - umd format and es5 standard (umd.js, umd.min.js)
-- module - commonjs module and es5 standard (es5.js)
-- es2015 - commonjs module and es6 standard (index.js)
-- browser - umd format and es5 standard (umd.js, umd.min.js)
-- bundle - bundle in umd format includes all scope dependencies in es5 standard (bundle.js, bundle.min.js)
-- typings - typescript declaration file (index.d.ts)`;
-
-    return str;
+    return `These modules are written in typescript and available in ES5 and ES6 standard, the requirements are a global __Promise__ (native or polyfill).`;
 }
+
 function useImport({packageName, subName}) {
     let lib = require(ENTRY_FILE_PATH);
     let defaultName: string = `${capitalize(normalizaName(subName))}`;
@@ -125,7 +118,7 @@ function normalizaName(str: string) {
 
 function capitalize(str: string = '', func: boolean = true) {
     return str.split(' ').map((word: string, index: number) => {
-        let first = (func && index === 0) ? word[0].toLowerCase() : word[0].toUpperCase()
+        let first = (func && index === 0) ? word[0].toLowerCase() : word[0].toUpperCase();
         return first + word.slice(1).toLowerCase();
     }).join('');
 }

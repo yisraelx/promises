@@ -4,15 +4,6 @@
 [![MIT License](https://img.shields.io/npm/l/@promises/core.svg)](https://github.com/yisraelx/promises/blob/master/LICENSE)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-## Compatibility
-These modules are written in typescript and available in ES5 and ES6 standard, the requirements are a global __Promise__ (native or polyfill).
-- main - umd format and es5 standard (umd.js, umd.min.js)
-- module - commonjs module and es5 standard (es5.js)
-- es2015 - commonjs module and es6 standard (index.js)
-- browser - umd format and es5 standard (umd.js, umd.min.js)
-- bundle - bundle in umd format includes all scope dependencies in es5 standard (bundle.js, bundle.min.js)
-- typings - typescript declaration file (index.d.ts)
-
 ## Packages structure
 ##### The code is divided into many small modules and each module is a package in itself ([Packages List](https://github.com/yisraelx/promises/blob/master/PACKAGES.md)).
 ##### Each package in the scoop has only one function or class and it in the default export of the package.
@@ -159,6 +150,15 @@ run(forEachWrap);
 // => end 5
 // => end 7
 ```
+
+## Compatibility
+These modules are written in typescript and available in ES5 and ES6 standard, the requirements are a global __Promise__ (native or polyfill).
+- main - commonjs module and es5 standard (es5.js)
+- es2015/module - commonjs module and es6 standard (index.js)
+- browser - umd format and es5 standard (umd.js, umd.min.js)
+- bundle - bundle in umd format includes all scope dependencies in es5 standard (bundle.js, bundle.min.js)
+- typings - typescript declaration file (index.d.ts)
+
 ## License
 Copyright © 2017 [Yisrael Eliav](https://github.com/yisraelx),
 Licensed under the [MIT license](https://github.com/yisraelx/promises/blob/master/LICENSE).
