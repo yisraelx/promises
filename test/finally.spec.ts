@@ -15,12 +15,27 @@ describe('finally', () => {
 
     it('should be exec after promise reject and return the data', () => {
         let promise = Promises.reject('reject');
-        let pass = false;
+        let execFinally = false;
+        let catchError = false;
         return _finally(promise, () => {
-            pass = true;
+            expect(catchError).toBeFalsy();
+            execFinally = true;
+        }).then(() => {
+            throw 'resolve';
         }).catch((data) => {
             expect(data).toBe('reject');
-            expect(pass).toBeTruthy();
+            expect(execFinally).toBeTruthy();
+            catchError = true;
+        });
+    });
+
+    it('should be reject on throw error', () => {
+        return _finally('foo', () => {
+            throw 'finally';
+        }).then(() => {
+            throw 'resolve';
+        }).catch((data) => {
+            expect(data).toBe('finally');
         });
     });
 });

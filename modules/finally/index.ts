@@ -6,6 +6,8 @@
 
 import Promises from '@promises/core';
 import { IOptionalPromise } from '@promises/interfaces';
+import next from '@promises/next';
+import error from '@promises/error';
 
 /**
  * @example
@@ -25,12 +27,11 @@ import { IOptionalPromise } from '@promises/interfaces';
  *  });
  * ```
  */
-function _finally<R>(promise: IOptionalPromise<any>, fn: () => IOptionalPromise<any>): Promises<R> {
-    let onBoth = (value) => {
-        let result = fn();
-        return Promise.resolve(result).then(() => value);
-    };
-    return Promises.resolve(promise).then(onBoth, onBoth) as Promises<R>;
+function _finally<R>(promise: IOptionalPromise<R>, fn: () => IOptionalPromise<any>): Promises<R> {
+    return Promises.resolve(promise).then(
+        (value) => next(fn(), value),
+        (reason) => error(fn(), reason)
+    );
 }
 
 export default _finally;
