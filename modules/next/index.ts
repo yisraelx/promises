@@ -5,7 +5,7 @@
  */
 
 import Promises from '@promises/core';
-import { OptionalPromise } from '@promises/interfaces';
+import { IOptionalPromise } from '@promises/interfaces';
 
 /**
  * @example
@@ -25,7 +25,7 @@ import { OptionalPromise } from '@promises/interfaces';
  *  });
  * ```
  */
-function next<R>(promise: OptionalPromise<any>, value: OptionalPromise<R>): Promises<R> {
+function next<R>(promise: IOptionalPromise<any>, value: IOptionalPromise<R>): Promises<R> {
     return Promises.resolve(promise).then(() => {
         return value;
     }) as Promises<R>;
@@ -55,6 +55,6 @@ declare module '@promises/core' {
          *  });
          * ```
          */
-        next<R>(this: Promises<T>, value: OptionalPromise<R>): Promises<R>;
+        next<R>(this: Promises<T>, value: IOptionalPromise<R>): Promises<R>;
     }
 }

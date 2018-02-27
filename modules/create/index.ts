@@ -5,7 +5,7 @@
  */
 
 import Promises from '@promises/core';
-import { IExecute } from '@promises/interfaces';
+import { IExecutor } from '@promises/interfaces';
 
 /**
  * @example
@@ -20,8 +20,8 @@ import { IExecute } from '@promises/interfaces';
  *  });
  * ```
  */
-function createStatic<T>(execute: IExecute<T> = (resolve) => resolve()): Promises<T> {
-    return new Promises(execute);
+function createStatic<T>(executor: IExecutor<T> = (resolve) => resolve()): Promises<T> {
+    return new Promises(executor);
 }
 
 export default createStatic;

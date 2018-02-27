@@ -5,7 +5,7 @@
  */
 
 import Promises from '@promises/core';
-import { OptionalPromise } from '@promises/interfaces';
+import { IOptionalPromise } from '@promises/interfaces';
 
 /**
  * @example
@@ -17,7 +17,7 @@ import { OptionalPromise } from '@promises/interfaces';
  *  });
  * ```
  */
-function sleep<T>(value?: OptionalPromise<T>, ms?: number): Promises<T> {
+function sleep<T>(value?: IOptionalPromise<T>, ms?: number): Promises<T> {
     return Promises.resolve(value).then(() => new Promises<T>((resolve) => {
         setTimeout(() => resolve(value), ms);
     })) as Promises<T>;

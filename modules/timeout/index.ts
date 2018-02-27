@@ -5,7 +5,7 @@
  */
 
 import Promises from '@promises/core';
-import { IExecute } from '@promises/interfaces';
+import { IExecutor } from '@promises/interfaces';
 
 /**
  * @example
@@ -20,10 +20,10 @@ import { IExecute } from '@promises/interfaces';
  *  });
  * ```
  */
-function timeoutStatic<T>(execute: IExecute<T>, ms?: number): Promises<T> {
+function timeoutStatic<T>(executor: IExecutor<T>, ms?: number): Promises<T> {
     return new Promises((resolve, reject) => {
         setTimeout(() => {
-            execute(resolve, reject);
+            executor(resolve, reject);
         }, ms);
     });
 }

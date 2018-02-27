@@ -5,7 +5,7 @@
  */
 
 import Promises from '@promises/core';
-import { OptionalPromise } from '@promises/interfaces';
+import { IOptionalPromise } from '@promises/interfaces';
 
 /**
  * @example
@@ -25,7 +25,7 @@ import { OptionalPromise } from '@promises/interfaces';
  *  });
  * ```
  */
-function _finally<R>(promise: OptionalPromise<any>, fn: () => OptionalPromise<any>): Promises<R> {
+function _finally<R>(promise: IOptionalPromise<any>, fn: () => IOptionalPromise<any>): Promises<R> {
     let onBoth = (value) => {
         let result = fn();
         return Promise.resolve(result).then(() => value);
@@ -57,6 +57,6 @@ declare module '@promises/core' {
          *  });
          * ```
          */
-        finally(this: Promises<T>, fn: () => OptionalPromise<any>): Promises<T>;
+        finally(this: Promises<T>, fn: () => IOptionalPromise<any>): Promises<T>;
     }
 }

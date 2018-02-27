@@ -5,7 +5,7 @@
  */
 
 import Promises from '@promises/core';
-import { OptionalPromise } from '@promises/interfaces';
+import { IOptionalPromise } from '@promises/interfaces';
 
 /**
  * @example
@@ -20,7 +20,7 @@ import { OptionalPromise } from '@promises/interfaces';
  *  });
  * ```
  */
-function execStatic<R>(fn: () => OptionalPromise<R>): Promises<R> {
+function execStatic<R>(fn: () => IOptionalPromise<R>): Promises<R> {
     return Promises.resolve().then(fn) as Promises<R>;
 }
 

@@ -5,7 +5,7 @@
  */
 
 import Promises from '@promises/core';
-import { OptionalPromise } from '@promises/interfaces';
+import { IOptionalPromise } from '@promises/interfaces';
 import _keys from '@promises/_keys';
 
 /**
@@ -20,8 +20,8 @@ import _keys from '@promises/_keys';
  *  });
  * ```
  */
-function keys<T>(collection: OptionalPromise<T>): Promises<string[]>;
-function keys<T, R>(collection: OptionalPromise<T>, fn: (keys: string[]) => OptionalPromise<R>): Promises<R>;
+function keys<T>(collection: IOptionalPromise<T>): Promises<string[]>;
+function keys<T, R>(collection: IOptionalPromise<T>, fn: (keys: string[]) => IOptionalPromise<R>): Promises<R>;
 function keys(collection, fn = v => v) {
     let keys = _keys(collection);
     return Promises.resolve(keys).then(fn);
@@ -46,6 +46,6 @@ declare module '@promises/core' {
          * ```
          */
         keys(this: Promises<T>): Promises<string[]>;
-        keys<R>(this: Promises<T>, fn: (keys: string[]) => OptionalPromise<R>): Promises<R>;
+        keys<R>(this: Promises<T>, fn: (keys: string[]) => IOptionalPromise<R>): Promises<R>;
     }
 }

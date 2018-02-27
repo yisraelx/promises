@@ -10,7 +10,7 @@ export { default as create } from '@promises/create';
 export { default as delay } from '@promises/delay';
 export { default as exec } from '@promises/exec';
 export { default as isPromise } from '@promises/is-promise';
-export { default as promisify, PromisifyOptions } from '@promises/promisify';
+export { default as promisify, IPromisifyOptions } from '@promises/promisify';
 export { default as parallel } from '@promises/parallel';
 export { default as series } from '@promises/series';
 export { default as timeout } from '@promises/timeout';

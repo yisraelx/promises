@@ -1,5 +1,5 @@
 import Promises from '@promises/core';
-import { Dictionary } from '@promises/interfaces';
+import { IDictionary } from '@promises/interfaces';
 import forEachSeries from '@promises/for-each-series';
 
 describe('forEachSeries', () => {
@@ -11,14 +11,14 @@ describe('forEachSeries', () => {
     });
 
     it('should be series iterator on the object whit void iteratee and return the object without change', () => {
-        let object: Dictionary<number> = { a: 0, b: 1, c: 2 };
+        let object: IDictionary<number> = { a: 0, b: 1, c: 2 };
         let objectKeys = Object.keys(object);
         let count: number = 0;
         return forEachSeries(object, (value, key, object) => {
             expect(value).toBe(count);
             expect(key).toBe(objectKeys[count]);
             count++;
-        }).then((returnObject: Dictionary<number>) => {
+        }).then((returnObject: IDictionary<number>) => {
             expect(count).toBe(objectKeys.length);
             expect(returnObject).toBe(object);
         });

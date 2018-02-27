@@ -6,7 +6,7 @@
 
 import Promises from '@promises/core';
 import map from '@promises/map-series';
-import { OptionalPromise, Dictionary } from '@promises/interfaces';
+import { IOptionalPromise, IDictionary } from '@promises/interfaces';
 
 /**
  * @example
@@ -32,10 +32,10 @@ import { OptionalPromise, Dictionary } from '@promises/interfaces';
  *  // => ['zero', 'one', 'two']
  * ```
  */
-function seriesStatic<R>(array: (() => OptionalPromise<R>)[]): Promises<R[]>;
-function seriesStatic<R extends ArrayLike<any>>(array: (() => OptionalPromise<R[keyof R & number]>)[]): Promises<R>;
-function seriesStatic<R>(object: Dictionary<(() => OptionalPromise<R>)>): Promises<Dictionary<R>>;
-function seriesStatic<R extends Dictionary<any>>(object: Dictionary<(() => OptionalPromise<R[keyof R]>)>): Promises<R>;
+function seriesStatic<R>(array: (() => IOptionalPromise<R>)[]): Promises<R[]>;
+function seriesStatic<R extends ArrayLike<any>>(array: (() => IOptionalPromise<R[keyof R & number]>)[]): Promises<R>;
+function seriesStatic<R>(object: IDictionary<(() => IOptionalPromise<R>)>): Promises<IDictionary<R>>;
+function seriesStatic<R extends IDictionary<any>>(object: IDictionary<(() => IOptionalPromise<R[keyof R]>)>): Promises<R>;
 function seriesStatic(functions) {
     return map(functions, (fn) => fn());
 }

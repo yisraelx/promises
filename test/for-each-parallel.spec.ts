@@ -1,11 +1,11 @@
 import Promises from '@promises/core';
-import { Dictionary } from '@promises/interfaces';
+import { IDictionary } from '@promises/interfaces';
 import forEachParallel from '@promises/for-each-parallel';
 
 describe('forEachParallel', () => {
     it('should be parallel iterator on object with identity function and return the object', () => {
-        let object: Dictionary<number> = { a: 1, b: 2, c: 3 };
-        return forEachParallel(object).then((result: Dictionary<number>) => {
+        let object: IDictionary<number> = { a: 1, b: 2, c: 3 };
+        return forEachParallel(object).then((result: IDictionary<number>) => {
             expect(object).toBe(result);
         });
     });

@@ -8,22 +8,22 @@ import Promises from '@promises/core';
 import exec from '@promises/exec';
 import timeout from '@promises/timeout';
 import '@promises/timer';
-import { OptionalPromise } from '@promises/interfaces';
+import { IOptionalPromise } from '@promises/interfaces';
 
-export interface RetryOptions {
+export interface IRetryOptions {
     times?: number;
-    interval?: number | ((info: RetryTimeInfo) => number);
-    timer?: number | ((info: RetryTimeInfo) => number);
-    filter?: (info: RetryFilterInfo) => boolean;
+    interval?: number | ((info: IRetryTimeInfo) => number);
+    timer?: number | ((info: IRetryTimeInfo) => number);
+    filter?: (info: IRetryFilterInfo) => boolean;
 }
 
-export interface RetryTimeInfo {
+export interface IRetryTimeInfo {
     counter: number;
     last: number;
     times: number;
 }
 
-export interface RetryFilterInfo {
+export interface IRetryFilterInfo {
     counter: number;
     error: any;
     times: number;
@@ -44,7 +44,7 @@ export interface RetryFilterInfo {
  *  })
  * ```
  */
-function retryStatic<R>(fn: () => OptionalPromise<R>, options?: RetryOptions): Promises<R> {
+function retryStatic<R>(fn: () => IOptionalPromise<R>, options?: IRetryOptions): Promises<R> {
     let { times = 1, interval, timer, filter = (error) => true } = options || {} as any;
     return retryHelper(fn, { times, interval, timer, filter, counter: 1 }) as Promises<R>;
 }

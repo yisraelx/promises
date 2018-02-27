@@ -5,7 +5,7 @@
  */
 
 import Promises from '@promises/core';
-import { OptionalPromise } from '@promises/interfaces';
+import { IOptionalPromise } from '@promises/interfaces';
 
 /**
  * @example
@@ -29,7 +29,7 @@ import { OptionalPromise } from '@promises/interfaces';
  *  // => [9, 6, 3]
  * ```
  */
-function timesParallelStatic<T extends any[]>(times: OptionalPromise<number>, fn: (time: number) => OptionalPromise<T[keyof T & number]>): Promises<T> {
+function timesParallelStatic<T extends any[]>(times: IOptionalPromise<number>, fn: (time: number) => IOptionalPromise<T[keyof T & number]>): Promises<T> {
     return Promises.resolve(times).then((times) => {
         return new Promises((resolve, reject) => {
             let length: number = times;

@@ -5,7 +5,7 @@
  */
 
 import Promises from '@promises/core';
-import { OptionalPromise, OptionalPromiseArray } from '@promises/interfaces';
+import { IOptionalPromise, IOptionalPromiseArray } from '@promises/interfaces';
 
 /**
  * @example
@@ -19,8 +19,8 @@ import { OptionalPromise, OptionalPromiseArray } from '@promises/interfaces';
  *  });
  * ```
  */
-function spread<T extends ArrayLike<any>>(array: OptionalPromiseArray<T>, fn: (...args: (T[keyof T & number])[]) => OptionalPromise<T>): Promises<T>;
-function spread<T extends ArrayLike<any>, R>(array: OptionalPromiseArray<T>, fn: (...args: (T[keyof T & number])[]) => OptionalPromise<R>): Promises<R>;
+function spread<T extends ArrayLike<any>>(array: IOptionalPromiseArray<T>, fn: (...args: (T[keyof T & number])[]) => IOptionalPromise<T>): Promises<T>;
+function spread<T extends ArrayLike<any>, R>(array: IOptionalPromiseArray<T>, fn: (...args: (T[keyof T & number])[]) => IOptionalPromise<R>): Promises<R>;
 function spread(array, fn) {
     return (Promises as any).resolve(array).then((array) => {
         return Array.isArray(array) ? Promises.all(array) : Object(array);
@@ -47,7 +47,7 @@ declare module '@promises/core' {
          *  })
          * ```
          */
-        spread(this: Promises<T & ArrayLike<any>>, fn: (...args: (T[keyof T & number])[]) => OptionalPromise<T>): Promises<T>;
-        spread<R>(this: Promises<T & ArrayLike<any>>, fn: (...args: (T[keyof T & number])[]) => OptionalPromise<R>): Promises<R>;
+        spread(this: Promises<T & ArrayLike<any>>, fn: (...args: (T[keyof T & number])[]) => IOptionalPromise<T>): Promises<T>;
+        spread<R>(this: Promises<T & ArrayLike<any>>, fn: (...args: (T[keyof T & number])[]) => IOptionalPromise<R>): Promises<R>;
     }
 }

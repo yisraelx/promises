@@ -5,7 +5,7 @@
  */
 
 import Promises from '@promises/core';
-import { OptionalPromise } from '@promises/interfaces';
+import { IOptionalPromise } from '@promises/interfaces';
 
 /**
  * @example
@@ -25,7 +25,7 @@ import { OptionalPromise } from '@promises/interfaces';
  *  });
  * ```
  */
-function error(promises: OptionalPromise<any>, value: any): Promises<any> {
+function error(promises: IOptionalPromise<any>, value: any): Promises<any> {
     return Promises.resolve(promises).then(() => {
         throw value;
     }) as Promises<any>;

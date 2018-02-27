@@ -6,7 +6,7 @@
 
 import Promises from '@promises/core';
 import map from '@promises/map-parallel';
-import { OptionalPromise, Dictionary } from '@promises/interfaces';
+import { IOptionalPromise, IDictionary } from '@promises/interfaces';
 
 /**
  * @example
@@ -32,10 +32,10 @@ import { OptionalPromise, Dictionary } from '@promises/interfaces';
  *  // => { zero: 0, one: 1, two: 2}
  * ```
  */
-function parallelStatic<R>(array: (() => OptionalPromise<R>)[]): Promises<R[]>;
-function parallelStatic<R extends ArrayLike<any>>(array: (() => OptionalPromise<R[keyof R & number]>)[]): Promises<R>;
-function parallelStatic<R>(object: Dictionary<(() => OptionalPromise<R>)>): Promises<Dictionary<R>>;
-function parallelStatic<R extends Dictionary<any>>(object: Dictionary<(() => OptionalPromise<R[keyof R]>)>): Promises<R>;
+function parallelStatic<R>(array: (() => IOptionalPromise<R>)[]): Promises<R[]>;
+function parallelStatic<R extends ArrayLike<any>>(array: (() => IOptionalPromise<R[keyof R & number]>)[]): Promises<R>;
+function parallelStatic<R>(object: IDictionary<(() => IOptionalPromise<R>)>): Promises<IDictionary<R>>;
+function parallelStatic<R extends IDictionary<any>>(object: IDictionary<(() => IOptionalPromise<R[keyof R]>)>): Promises<R>;
 function parallelStatic(functions) {
     return map(functions, (fn) => fn());
 }
