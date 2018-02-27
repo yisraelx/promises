@@ -11,7 +11,6 @@ export = (config: Config) => {
 
         files: [
             './node_modules/es6-promise/dist/es6-promise.auto.min.js',
-            './node_modules/jasmine-promises/dist/jasmine-promises.js',
             './modules/**/*.ts',
             './test/**/*.ts'
         ],

@@ -2,6 +2,7 @@ import * as webpack from 'webpack';
 import { Configuration } from 'webpack';
 import { join } from 'path';
 import { TsConfigPathsPlugin } from 'awesome-typescript-loader';
+import * as UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import getConfig, { PACKAGE_TYPES } from './utils/config';
 
 const LIBRARY_NAME = 'P';
@@ -45,8 +46,7 @@ let config = {
     } as any,
     devtool: 'source-map',
     plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            comments: false,
+        new UglifyJsPlugin({
             sourceMap: true,
             test: /\.min.js$/,
         }),
