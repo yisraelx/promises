@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "@promises/core": "^0.2.0",
+    "@promises/do-while-series": "NEXT-PLACEHOLDER",
     "@promises/every-series": "^0.2.0",
     "@promises/filter-series": "^0.2.0",
     "@promises/for-each-right-series": "^0.2.0",

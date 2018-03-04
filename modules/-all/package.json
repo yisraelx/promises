@@ -37,6 +37,7 @@
     "@promises/create": "^0.2.0",
     "@promises/delay": "^0.2.0",
     "@promises/do-while-parallel": "NEXT-PLACEHOLDER",
+    "@promises/do-while-series": "NEXT-PLACEHOLDER",
     "@promises/error": "^0.2.0",
     "@promises/every-parallel": "^0.2.0",
     "@promises/every-series": "^0.2.0",

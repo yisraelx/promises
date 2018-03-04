@@ -5,6 +5,7 @@
  */
 
 export { default as Promises } from '@promises/core';
+export { default as doWhileSeries } from '@promises/do-while-series/add';
 export { default as everySeries } from '@promises/every-series/add';
 export { default as filterSeries } from '@promises/filter-series/add';
 export { default as forEachSeries } from '@promises/for-each-series/add';
