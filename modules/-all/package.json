@@ -47,6 +47,7 @@
     "@promises/for-each-right-series": "^0.2.0",
     "@promises/for-each-series": "^0.2.0",
     "@promises/from-callback": "NEXT-PLACEHOLDER",
+    "@promises/from-event": "NEXT-PLACEHOLDER",
     "@promises/interfaces": "^0.2.0",
     "@promises/is-promise": "^0.2.0",
     "@promises/keys": "^0.2.0",

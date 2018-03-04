@@ -38,6 +38,7 @@
     "@promises/delay": "^0.2.0",
     "@promises/exec": "^0.2.0",
     "@promises/from-callback": "NEXT-PLACEHOLDER",
+    "@promises/from-event": "NEXT-PLACEHOLDER",
     "@promises/interfaces": "^0.2.0",
     "@promises/is-promise": "^0.2.0",
     "@promises/parallel": "^0.2.0",
