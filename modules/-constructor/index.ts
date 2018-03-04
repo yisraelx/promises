@@ -9,6 +9,7 @@ export {default as Promises} from '@promises/core';
 export {default as create} from '@promises/create/add';
 export {default as delay} from '@promises/delay/add';
 export {default as exec} from '@promises/exec/add';
+export { default as fromCallback } from '@promises/from-callback/add';
 export * from '@promises/interfaces';
 export {default as isPromise} from '@promises/is-promise/add';
 export {default as promisify, IPromisifyOptions} from '@promises/promisify/add';

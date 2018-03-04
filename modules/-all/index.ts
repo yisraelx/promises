@@ -18,6 +18,7 @@ export { default as finally } from '@promises/finally/add';
 export { default as forEachParallel } from '@promises/for-each-parallel/add';
 export { default as forEachRightSeries } from '@promises/for-each-right-series/add';
 export { default as forEachSeries } from '@promises/for-each-series/add';
+export { default as fromCallback } from '@promises/from-callback/add';
 export * from '@promises/interfaces';
 export { default as isPromise } from '@promises/is-promise/add';
 export { default as keys } from '@promises/keys/add';
