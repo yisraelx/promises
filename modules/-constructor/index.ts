@@ -8,6 +8,7 @@ export {default as compose} from '@promises/compose/add';
 export {default as Promises} from '@promises/core';
 export {default as create} from '@promises/create/add';
 export {default as delay} from '@promises/delay/add';
+export {default as doWhileParallel} from '@promises/do-while-parallel/add';
 export {default as exec} from '@promises/exec/add';
 export {default as forever} from '@promises/forever/add';
 export {default as fromCallback} from '@promises/from-callback/add';

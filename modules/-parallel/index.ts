@@ -5,6 +5,7 @@
  */
 
 export { default as Promises } from '@promises/core';
+export { default as doWhileParallel } from '@promises/do-while-parallel/add';
 export { default as everyParallel } from '@promises/every-parallel/add';
 export { default as filterParallel } from '@promises/filter-parallel/add';
 export { default as forEachParallel } from '@promises/for-each-parallel/add';
