@@ -30,3 +30,4 @@ export { default as someSeries } from '@promises/some-series/add';
 export { default as spread } from '@promises/spread/add';
 export { default as timer } from '@promises/timer/add';
 export { default as toCallback } from '@promises/to-callback/add';
+export { default as wait } from '@promises/wait/add';
