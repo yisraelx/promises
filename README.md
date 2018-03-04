@@ -3,6 +3,7 @@
 [![Codecov](https://codecov.io/gh/yisraelx/promises/branch/master/graph/badge.svg)](https://codecov.io/gh/yisraelx/promises)
 [![MIT License](https://img.shields.io/npm/l/@promises/core.svg)](https://github.com/yisraelx/promises/blob/master/LICENSE)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
 
 ## Packages structure
 ##### The code is divided into many small modules and each module is a package in itself ([Packages List](https://github.com/yisraelx/promises/blob/master/PACKAGES.md)).
@@ -74,7 +75,7 @@ delay.then((result: number[]) => {
 ```
 Or
 ```ts
-import { Promises } from '@promises/core';
+import Promises from '@promises/core';
 import '@promises/filter-parallel/add';
 import '@promises/map-parallel/add';
 import '@promises/delay/add';

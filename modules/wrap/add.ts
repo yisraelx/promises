@@ -16,8 +16,8 @@ declare module '@promises/core' {
          *      return a * b;
          *  }
          *
-         *  let multipalWrap: (a: number, b: number) => Promises<number> = Promises.wrap(multiply);
-         *  let promises: Promises<number> = multipalWrap(2, 3);
+         *  let multiplyWrap: (a: number, b: number) => Promises<number> = Promises.wrap(multiply);
+         *  let promises: Promises<number> = multiplyWrap(2, 3);
          *
          *  promises.then((result: number) => {
          *      console.log(result); // result => 6

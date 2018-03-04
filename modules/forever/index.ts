@@ -16,7 +16,7 @@ import { IOptionalPromise } from '@promises/interfaces';
  *  });
  * }), 0).catch((error: string) => {
  *  console.log(error) // error => 'reject'
- * })
+ * });
  * ```
  */
 function forever<T>(iteratee: (previous?: T) => IOptionalPromise<any>, factor?: T): Promise<never> {

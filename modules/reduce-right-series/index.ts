@@ -20,7 +20,7 @@ export interface IReduceSeries {
  * ```typescript
  *  let array: number[] = [0, 1, 2, 3];
  *
- *  reduceRightSeries(array, (sum, num) => Promise.resolve(sum + num)).then((result: number) => {
+ *  reduceRightSeries(array, (sum: number, num: number) => Promise.resolve(sum + num), 0).then((result: number) => {
  *      console.log(result); // => 6
  *  });
  * ```

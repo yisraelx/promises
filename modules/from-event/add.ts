@@ -13,7 +13,7 @@ declare module '@promises/core' {
          *
          * ```typescript
          * let emitter: EventEmitter = new EventEmitter()
-         * Promises.fromEvent(emitter, 'foo').then((data) => {
+         * Promises.fromEvent(emitter, 'foo').then((data: string) => {
          *  console.log(data); // data => 'bar'
          * });
          *

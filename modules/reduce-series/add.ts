@@ -15,7 +15,7 @@ declare module '@promises/core' {
          *  let array: number[] = [0, 1, 2, 3];
          *  let promises: Promises<number[]> = Promises.resolve<number[]>(array);
          *
-         *  promises.reduceSeries((sum, num) => Promises.resolve(sum + num)).then((result: number) => {
+         *  promises.reduceSeries((sum: number, num: number) => Promises.resolve(sum + num), 0).then((result: number) => {
          *      console.log(result); // => 6
          *  });
          * ```

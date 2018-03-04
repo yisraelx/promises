@@ -19,7 +19,7 @@ export interface IFromEventOptions {
  * Promise.race([
  *  fromEvent(emitter, 'foo'),
  *  fromEvent(emitter, 'error', {reject: true})
- * ]).catch((error) => {
+ * ]).catch((error: string) => {
  *  console.log(error); // error => 'some error'
  * });
  *

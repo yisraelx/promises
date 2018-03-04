@@ -36,11 +36,11 @@ export interface IRetryFilterInfo {
  *  let promise: Promise<string> = retry<string>(()=>{
  *      if(count++ < 2)  throw 'error';
  *      return 'foo';
- *  }, {times: 3})
+ *  }, {times: 3});
  *
  *  promises.then((result: string) => {
  *      console.log(result); // => 'foo'
- *  })
+ *  });
  * ```
  */
 function retry<R>(fn: () => IOptionalPromise<R>, options?: IRetryOptions): Promise<R> {

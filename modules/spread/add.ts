@@ -17,7 +17,7 @@ declare module '@promises/core' {
          *  promises.spread((a: string, b: string) => {
          *      console.log(a); // a => 'foo'
          *      console.log(b); // b => 'bar'
-         *  })
+         *  });
          * ```
          */
         spread(this: Promises<T & ArrayLike<any>>, fn: (...args: (T[keyof T & number])[]) => IOptionalPromise<T>): Promises<T>;

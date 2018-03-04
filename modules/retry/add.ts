@@ -13,15 +13,15 @@ declare module '@promises/core' {
          * @example
          *
          * ```typescript
-         *  let count = 0;
-         *  let promises = Promises.retry(()=>{
-         *  if(count++ < 2)  throw 'error';
+         *  let count: number = 0;
+         *  let promises: Promises<string> = Promises.retry(()=>{
+         *      if(count++ < 2)  throw 'error';
          *      return 'foo';
-         *  }, {times: 3})
+         *  }, {times: 3});
          *
-         *  promises.then((result) => {
+         *  promises.then((result: string) => {
          *      console.log(result); // => 'foo'
-         *  })
+         *  });
          * ```
          */
         export function retry<R>(fn: () => IOptionalPromise<R>, options?: IRetryOptions): Promises<R>;
