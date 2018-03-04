@@ -23,8 +23,7 @@ function toCallback<T, R>(value: IOptionalPromise<T>, callback: (error?: any, va
         .resolve(value)
         .then((value) => {
             return callback(null, value);
-        })
-        .catch(callback);
+        }, callback);
 }
 
 export default toCallback;
