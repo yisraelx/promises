@@ -1,0 +1,40 @@
+{
+  "name": "@promises/forever",
+  "version": "NEXT-PLACEHOLDER",
+  "description": "Forever is package from Promises library",
+  "main": "es5.js",
+  "browser": "umd.min.js",
+  "module": "index.js",
+  "es2015": "index.js",
+  "typings": "index.d.ts",
+  "bundle": "bundle.min.js",
+  "author": {
+    "name": "Yisrael Eliev",
+    "url": "https://github.com/yisraelx",
+    "email": "yisraelx@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "promise",
+    "promises",
+    "utility",
+    "modules",
+    "async",
+    "await",
+    "deferred"
+  ],
+  "homepage": "https://github.com/yisraelx/promises#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yisraelx/promises.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yisraelx/promises/issues"
+  },
+  "optionalDependencies": {
+    "@promises/core": "^0.2.0"
+  },
+  "dependencies": {
+    "@promises/interfaces": "^0.2.0"
+  }
+}
