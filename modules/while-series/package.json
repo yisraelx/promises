@@ -1,7 +1,7 @@
 {
-  "name": "@promises/-series",
-  "version": "0.2.0",
-  "description": "Series is a group of packages of Promises library",
+  "name": "@promises/while-series",
+  "version": "NEXT-PLACEHOLDER",
+  "description": "While Series is package from Promises library",
   "main": "es5.js",
   "browser": "umd.min.js",
   "module": "index.js",
@@ -31,21 +31,12 @@
   "bugs": {
     "url": "https://github.com/yisraelx/promises/issues"
   },
+  "optionalDependencies": {
+    "@promises/core": "^0.2.0"
+  },
   "dependencies": {
-    "@promises/core": "^0.2.0",
     "@promises/do-while-series": "NEXT-PLACEHOLDER",
-    "@promises/every-series": "^0.2.0",
-    "@promises/filter-series": "^0.2.0",
-    "@promises/for-each-right-series": "^0.2.0",
-    "@promises/for-each-series": "^0.2.0",
-    "@promises/interfaces": "^0.2.0",
-    "@promises/map-series": "^0.2.0",
-    "@promises/reduce-right-series": "^0.2.0",
-    "@promises/reduce-series": "^0.2.0",
-    "@promises/reject-series": "^0.2.0",
-    "@promises/series": "^0.2.0",
-    "@promises/some-series": "^0.2.0",
-    "@promises/times-series": "^0.2.0",
-    "@promises/while-series": "NEXT-PLACEHOLDER"
+    "@promises/exec": "^0.2.0",
+    "@promises/interfaces": "^0.2.0"
   }
 }

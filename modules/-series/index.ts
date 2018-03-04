@@ -18,3 +18,4 @@ export { default as rejectSeries } from '@promises/reject-series/add';
 export { default as series } from '@promises/series/add';
 export { default as someSeries } from '@promises/some-series/add';
 export { default as timesSeries } from '@promises/times-series/add';
+export { default as whileSeries } from '@promises/while-series/add';
