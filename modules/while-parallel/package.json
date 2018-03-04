@@ -1,7 +1,7 @@
 {
-  "name": "@promises/-parallel",
-  "version": "0.2.0",
-  "description": "Parallel is a group of packages of Promises library",
+  "name": "@promises/while-parallel",
+  "version": "NEXT-PLACEHOLDER",
+  "description": "While Parallel is package from Promises library",
   "main": "es5.js",
   "browser": "umd.min.js",
   "module": "index.js",
@@ -31,17 +31,11 @@
   "bugs": {
     "url": "https://github.com/yisraelx/promises/issues"
   },
+  "optionalDependencies": {
+    "@promises/core": "^0.2.0"
+  },
   "dependencies": {
-    "@promises/core": "^0.2.0",
-    "@promises/every-parallel": "^0.2.0",
-    "@promises/filter-parallel": "^0.2.0",
-    "@promises/for-each-parallel": "^0.2.0",
-    "@promises/interfaces": "^0.2.0",
-    "@promises/map-parallel": "^0.2.0",
-    "@promises/parallel": "^0.2.0",
-    "@promises/reject-parallel": "^0.2.0",
-    "@promises/some-parallel": "^0.2.0",
-    "@promises/times-parallel": "^0.2.0",
-    "@promises/while-parallel": "NEXT-PLACEHOLDER"
+    "@promises/exec": "^0.2.0",
+    "@promises/interfaces": "^0.2.0"
   }
 }

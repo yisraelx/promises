@@ -73,6 +73,7 @@
     "@promises/times-parallel": "^0.2.0",
     "@promises/times-series": "^0.2.0",
     "@promises/to-callback": "^0.2.0",
+    "@promises/while-parallel": "NEXT-PLACEHOLDER",
     "@promises/wrap": "^0.2.0"
   }
 }

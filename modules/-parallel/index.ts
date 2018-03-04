@@ -14,3 +14,4 @@ export { default as parallel } from '@promises/parallel/add';
 export { default as rejectParallel } from '@promises/reject-parallel/add';
 export { default as someParallel } from '@promises/some-parallel/add';
 export { default as timesParallel } from '@promises/times-parallel/add';
+export { default as whileParallel } from '@promises/while-parallel/add';

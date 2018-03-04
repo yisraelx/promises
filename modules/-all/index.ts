@@ -45,4 +45,5 @@ export { default as timer } from '@promises/timer/add';
 export { default as timesParallel } from '@promises/times-parallel/add';
 export { default as timesSeries } from '@promises/times-series/add';
 export { default as toCallback } from '@promises/to-callback/add';
+export { default as whileParallel } from '@promises/while-parallel/add';
 export { default as wrap } from '@promises/wrap/add';
