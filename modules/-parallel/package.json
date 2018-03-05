@@ -1,6 +1,6 @@
 {
   "name": "@promises/-parallel",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Parallel is a group of packages of Promises library",
   "main": "es5.js",
   "browser": "umd.min.js",
@@ -33,16 +33,16 @@
   },
   "dependencies": {
     "@promises/core": "^0.3.0",
-    "@promises/do-while-parallel": "^0.3.0",
-    "@promises/every-parallel": "^0.3.0",
-    "@promises/filter-parallel": "^0.3.0",
-    "@promises/for-each-parallel": "^0.3.0",
+    "@promises/do-while-parallel": "^0.3.1",
+    "@promises/every-parallel": "^0.3.1",
+    "@promises/filter-parallel": "^0.3.1",
+    "@promises/for-each-parallel": "^0.3.1",
     "@promises/interfaces": "^0.3.0",
-    "@promises/map-parallel": "^0.3.0",
-    "@promises/parallel": "^0.3.0",
-    "@promises/reject-parallel": "^0.3.0",
-    "@promises/some-parallel": "^0.3.0",
-    "@promises/times-parallel": "^0.3.0",
-    "@promises/while-parallel": "^0.3.0"
+    "@promises/map-parallel": "^0.3.1",
+    "@promises/parallel": "^0.3.1",
+    "@promises/reject-parallel": "^0.3.1",
+    "@promises/some-parallel": "^0.3.1",
+    "@promises/times-parallel": "^0.3.1",
+    "@promises/while-parallel": "^0.3.1"
   }
 }

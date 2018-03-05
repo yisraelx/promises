@@ -1,6 +1,6 @@
 {
   "name": "@promises/-series",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Series is a group of packages of Promises library",
   "main": "es5.js",
   "browser": "umd.min.js",
@@ -33,19 +33,19 @@
   },
   "dependencies": {
     "@promises/core": "^0.3.0",
-    "@promises/do-while-series": "^0.3.0",
-    "@promises/every-series": "^0.3.0",
-    "@promises/filter-series": "^0.3.0",
-    "@promises/for-each-right-series": "^0.3.0",
-    "@promises/for-each-series": "^0.3.0",
+    "@promises/do-while-series": "^0.3.1",
+    "@promises/every-series": "^0.3.1",
+    "@promises/filter-series": "^0.3.1",
+    "@promises/for-each-right-series": "^0.3.1",
+    "@promises/for-each-series": "^0.3.1",
     "@promises/interfaces": "^0.3.0",
-    "@promises/map-series": "^0.3.0",
-    "@promises/reduce-right-series": "^0.3.0",
-    "@promises/reduce-series": "^0.3.0",
-    "@promises/reject-series": "^0.3.0",
-    "@promises/series": "^0.3.0",
-    "@promises/some-series": "^0.3.0",
-    "@promises/times-series": "^0.3.0",
-    "@promises/while-series": "^0.3.0"
+    "@promises/map-series": "^0.3.1",
+    "@promises/reduce-right-series": "^0.3.1",
+    "@promises/reduce-series": "^0.3.1",
+    "@promises/reject-series": "^0.3.1",
+    "@promises/series": "^0.3.1",
+    "@promises/some-series": "^0.3.1",
+    "@promises/times-series": "^0.3.1",
+    "@promises/while-series": "^0.3.1"
   }
 }

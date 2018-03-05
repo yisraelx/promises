@@ -1,6 +1,6 @@
 {
   "name": "@promises/some-parallel",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Some Parallel is package from Promises library",
   "main": "es5.js",
   "browser": "umd.min.js",
@@ -32,11 +32,11 @@
     "url": "https://github.com/yisraelx/promises/issues"
   },
   "optionalDependencies": {
-    "@promises/core": "^0.3.0"
+    "@promises/core": "^0.3.1"
   },
   "dependencies": {
     "@promises/_create-checks-boolean": "^0.3.0",
-    "@promises/for-each-parallel": "^0.3.0",
+    "@promises/for-each-parallel": "^0.3.1",
     "@promises/interfaces": "^0.3.0"
   }
 }
