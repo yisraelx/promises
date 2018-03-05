@@ -1,6 +1,6 @@
 {
   "name": "@promises/_create-for-each-series",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Create For Each Series is a internal package from Promises library",
   "main": "es5.js",
   "browser": "umd.min.js",
@@ -32,6 +32,6 @@
     "url": "https://github.com/yisraelx/promises/issues"
   },
   "dependencies": {
-    "@promises/_keys": "^0.2.0"
+    "@promises/_keys": "^0.3.0"
   }
 }

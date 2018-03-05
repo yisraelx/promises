@@ -1,6 +1,6 @@
 {
   "name": "@promises/interfaces",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Interfaces is package from Promises library",
   "main": "es5.js",
   "browser": "umd.min.js",

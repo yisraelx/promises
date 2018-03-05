@@ -1,6 +1,6 @@
 {
   "name": "@promises/timeout",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Timeout is package from Promises library",
   "main": "es5.js",
   "browser": "umd.min.js",
@@ -32,9 +32,9 @@
     "url": "https://github.com/yisraelx/promises/issues"
   },
   "optionalDependencies": {
-    "@promises/core": "^0.2.0"
+    "@promises/core": "^0.3.0"
   },
   "dependencies": {
-    "@promises/interfaces": "^0.2.0"
+    "@promises/interfaces": "^0.3.0"
   }
 }

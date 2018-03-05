@@ -1,6 +1,6 @@
 {
   "name": "@promises/_keys",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Keys is a internal package from Promises library",
   "main": "es5.js",
   "browser": "umd.min.js",
