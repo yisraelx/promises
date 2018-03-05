@@ -37,6 +37,6 @@
   "dependencies": {
     "@promises/exec": "^0.3.0",
     "@promises/interfaces": "^0.3.0",
-    "@promises/while-parallel": "NEXT-PLACEHOLDER"
+    "@promises/while-parallel": "^0.3.0"
   }
 }

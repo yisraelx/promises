@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@promises/core": "^0.3.0",
-    "@promises/do-while-parallel": "NEXT-PLACEHOLDER",
+    "@promises/do-while-parallel": "^0.3.0",
     "@promises/every-parallel": "^0.3.0",
     "@promises/filter-parallel": "^0.3.0",
     "@promises/for-each-parallel": "^0.3.0",
@@ -43,6 +43,6 @@
     "@promises/reject-parallel": "^0.3.0",
     "@promises/some-parallel": "^0.3.0",
     "@promises/times-parallel": "^0.3.0",
-    "@promises/while-parallel": "NEXT-PLACEHOLDER"
+    "@promises/while-parallel": "^0.3.0"
   }
 }

@@ -58,6 +58,6 @@
     "@promises/spread": "^0.3.0",
     "@promises/timer": "^0.3.0",
     "@promises/to-callback": "^0.3.0",
-    "@promises/wait": "NEXT-PLACEHOLDER"
+    "@promises/wait": "^0.3.0"
   }
 }

@@ -36,12 +36,12 @@
     "@promises/core": "^0.3.0",
     "@promises/create": "^0.3.0",
     "@promises/delay": "^0.3.0",
-    "@promises/do-while-parallel": "NEXT-PLACEHOLDER",
-    "@promises/do-while-series": "NEXT-PLACEHOLDER",
+    "@promises/do-while-parallel": "^0.3.0",
+    "@promises/do-while-series": "^0.3.0",
     "@promises/exec": "^0.3.0",
-    "@promises/forever": "NEXT-PLACEHOLDER",
-    "@promises/from-callback": "NEXT-PLACEHOLDER",
-    "@promises/from-event": "NEXT-PLACEHOLDER",
+    "@promises/forever": "^0.3.0",
+    "@promises/from-callback": "^0.3.0",
+    "@promises/from-event": "^0.3.0",
     "@promises/interfaces": "^0.3.0",
     "@promises/is-promise": "^0.3.0",
     "@promises/parallel": "^0.3.0",
@@ -51,8 +51,8 @@
     "@promises/timeout": "^0.3.0",
     "@promises/times-parallel": "^0.3.0",
     "@promises/times-series": "^0.3.0",
-    "@promises/while-parallel": "NEXT-PLACEHOLDER",
-    "@promises/while-series": "NEXT-PLACEHOLDER",
+    "@promises/while-parallel": "^0.3.0",
+    "@promises/while-series": "^0.3.0",
     "@promises/wrap": "^0.3.0"
   }
 }

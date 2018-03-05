@@ -35,7 +35,7 @@
     "@promises/core": "^0.3.0"
   },
   "dependencies": {
-    "@promises/do-while-series": "NEXT-PLACEHOLDER",
+    "@promises/do-while-series": "^0.3.0",
     "@promises/exec": "^0.3.0",
     "@promises/interfaces": "^0.3.0"
   }
