@@ -4,7 +4,7 @@
  * @license MIT
  */
 
-import { IOptionalPromise } from '@promises/interfaces';
+import { IOptionalPromise, IDictionary } from '@promises/interfaces';
 import _keys from '@promises/_keys';
 
 /**
@@ -19,11 +19,9 @@ import _keys from '@promises/_keys';
  *  });
  * ```
  */
-function keys<T>(collection: IOptionalPromise<T>): Promise<string[]>;
-function keys<T, R>(collection: IOptionalPromise<T>, fn: (keys: string[]) => IOptionalPromise<R>): Promise<R>;
-function keys(collection, fn = v => v) {
+function keys(collection: IOptionalPromise<ArrayLike<any> | IDictionary<any>>): Promise<string[]> {
     let keys = _keys(collection);
-    return Promise.resolve(keys).then(fn);
+    return Promise.resolve(keys);
 }
 
 export default keys;

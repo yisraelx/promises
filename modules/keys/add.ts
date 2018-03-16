@@ -1,5 +1,5 @@
 import Promises from '@promises/core';
-import { IOptionalPromise } from '@promises/interfaces';
+import { IDictionary } from '@promises/interfaces';
 import keys from './';
 
 Promises._setOnPrototype('keys', keys);
@@ -12,15 +12,14 @@ declare module '@promises/core' {
          * @example
          *
          * ```typescript
-         *  let object = { foo: 'bar'};
-         *  let promises: Promises<{[key: string]: string}> = Promises.resolve(object);
+         *  let array: number[] = [0, 1, 2];
+         *  let promises: Promises<number[]> = Promises.resolve(array);
          *
-         *  promises.keys((keys: string[]) => {
-         *      console.log(keys); // => ['foo']
+         *  promises.keys().then((keys: string[]) => {
+         *      console.log(keys); // => ['0', '1', '2']
          *  });
          * ```
          */
-        keys(this: Promises<T>): Promises<string[]>;
-        keys<R>(this: Promises<T>, fn: (keys: string[]) => IOptionalPromise<R>): Promises<R>;
+        keys(this: Promises<IDictionary<any> | ArrayLike<any>>): Promises<string[]>;
     }
 }
