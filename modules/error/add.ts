@@ -25,6 +25,6 @@ declare module '@promises/core' {
          *  });
          * ```
          */
-        error(this: Promises<T>, value: any): Promises<any>;
+        error(this: Promises<T>, newValue: any): Promises<never>;
     }
 }

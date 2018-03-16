@@ -24,10 +24,10 @@ import { IOptionalPromise } from '@promises/interfaces';
  *  });
  * ```
  */
-function error(promise: IOptionalPromise<any>, value: any): Promise<any> {
-    return Promise.resolve(promise).then(() => {
-        throw value;
-    }) as Promise<any>;
+function error(value: IOptionalPromise<any>, newValue: any): Promise<never> {
+    return Promise.resolve(value).then(() => {
+        throw newValue;
+    });
 }
 
 export default error;
