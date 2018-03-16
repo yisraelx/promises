@@ -20,6 +20,7 @@ declare module '@promises/core' {
          * emitter.emit('foo', 'bar');
          * ```
          */
-        export function fromEvent<R>(emitter: IEmitterLike, event: string, options?: IFromEventOptions): Promises<R>;
+        export function fromEvent(emitter: IEmitterLike, event: string, options: IFromEventOptions & { reject: true }): Promises<never> ;
+        export function fromEvent<R>(emitter: IEmitterLike, event: string, options: IFromEventOptions & { reject?: false }): Promises<R> ;
     }
 }

@@ -26,16 +26,18 @@ export interface IFromEventOptions {
  * emitter.emit('error', 'some error');
  * ```
  */
-function fromEvent<R>(emitter: IEmitterLike, event: string, options: IFromEventOptions = {}): Promise<R> {
+function fromEvent(emitter: IEmitterLike, event: string, options: IFromEventOptions & { reject: true }): Promise<never> ;
+function fromEvent<R>(emitter: IEmitterLike, event: string, options?: IFromEventOptions & { reject?: false }): Promise<R> ;
+function fromEvent(emitter: IEmitterLike, event: string, options: IFromEventOptions = {}) {
     let {multi = false, reject: rejection = false} = options;
 
     let add = (emitter as any).addEventListener || (emitter as any).addListener || (emitter as any).on;
     let remove = (emitter as any).removeEventListener || (emitter as any).removeListener || (emitter as any).off;
 
     return new Promise((resolve, reject) => {
-        add.call(emitter, event, function handler(...args: any[])  {
+        add.call(emitter, event, function handler(...args: any[]) {
             remove.call(emitter, event, handler);
-            let data: R = multi ? args : args[0];
+            let data = multi ? args : args[0];
             rejection ? reject(data) : resolve(data);
         });
     });
