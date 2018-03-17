@@ -26,6 +26,6 @@ declare module '@promises/core' {
          *  });
          * ```
          */
-        reset<R>(this: Promises<T>, value: IOptionalPromise<R>): Promises<R>;
+        reset<R>(this: Promises<T>, newValue: IOptionalPromise<R>): Promises<R>;
     }
 }

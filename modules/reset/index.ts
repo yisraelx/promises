@@ -24,8 +24,8 @@ import { IOptionalPromise } from '@promises/interfaces';
  *  });
  * ```
  */
-function reset<R>(promise: IOptionalPromise<any>, value: IOptionalPromise<R>): Promise<R> {
-    return Promise.resolve(promise).then(() => value, () => value) as Promise<R>;
+function reset<R>(value: IOptionalPromise<any>, newValue: IOptionalPromise<R>): Promise<R> {
+    return Promise.resolve(value).then(() => newValue, () => newValue) as Promise<R>;
 }
 
 export default reset;

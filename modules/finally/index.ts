@@ -13,7 +13,7 @@ import error from '@promises/error';
  *
  * ```typescript
  *  let promise = Promise.resolve('foo');
- *  finally(promises, () => {
+ *  finally(promise, () => {
  *      console.log('done'); // => 'done'
  *  });
  * ```
@@ -21,7 +21,7 @@ import error from '@promises/error';
  *
  * ```typescript
  *  let promise = Promise.reject('foo');
- *  finally(promises, () => {
+ *  finally(promise, () => {
  *      console.log('done'); // => 'done'
  *  });
  * ```

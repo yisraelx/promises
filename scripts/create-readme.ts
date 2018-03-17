@@ -8,6 +8,7 @@ const LIBRARY = 'Promises';
 const GLOBAL_NAME = 'P';
 const ENTRY_FILE_PATH: string = join(CONFIG.packagePath, 'index.ts');
 const ADD_FILE_PATH = join(CONFIG.packagePath, 'add.ts');
+const FP_FILE_PATH = join(CONFIG.packagePath, 'fp.ts');
 const README_FILE_PATH = join(CONFIG.packagePath, 'README.md');
 const GIT_USERNAME: string = 'yisraelx';
 const NPM_USERNAME: string = 'yisraelx';
@@ -52,8 +53,13 @@ ${useExample(ENTRY_FILE_PATH)}`;
     if (CONFIG.packageType === PACKAGE_TYPES.GROUP) {
         str += `\nOr\n${useGlobal(CONFIG)}`;
     } else if (CONFIG.packageType === PACKAGE_TYPES.REGULAR && fs.existsSync(ADD_FILE_PATH)) {
-        str += `\nOr\n${useWrapper(CONFIG)}`;
+        str += `\n**Wrapper:**\n${useWrapper(CONFIG)}`;
     }
+
+    if (CONFIG.packageType === PACKAGE_TYPES.REGULAR && fs.existsSync(FP_FILE_PATH)) {
+        str += `\n**Functional programming**:\n${useFP(CONFIG)}`;
+    }
+
     return str;
 }
 
@@ -66,13 +72,20 @@ function useWrapper(CONFIG) {
 ${useExample(ADD_FILE_PATH)}`;
 }
 
+function useFP(CONFIG) {
+    return `${install(CONFIG)}
+\`\`\`ts
+ import ${defaultName(CONFIG.subName)} from '${CONFIG.packageName}/fp';
+\`\`\`
+${useExample(FP_FILE_PATH)}`;
+}
+
 function useImport({packageName, subName}) {
     let lib = require(ENTRY_FILE_PATH);
-    let defaultName: string = `${capitalize(normalizaName(subName))}`;
     let libKeys = Object.keys(lib);
     if (libKeys.length === 0) return '';
     if (lib.default) {
-        if (libKeys.length === 1) return `\`\`\`ts\n import ${defaultName} from '${packageName}';\n\`\`\``;
+        if (libKeys.length === 1) return `\`\`\`ts\n import ${defaultName(subName)} from '${packageName}';\n\`\`\``;
         let index = libKeys.indexOf('default');
         libKeys.splice(index, 1);
         libKeys.unshift(`default as ${defaultName}`);
@@ -131,6 +144,10 @@ function license() {
 Licensed under the [MIT license](${REPOSITORY_URL}/blob/master/LICENSE).`;
 }
 
+function defaultName(subName: string) {
+    return capitalize(normalizaName(subName));
+}
+
 function normalizaName(str: string) {
     return `${str}`.replace(/[-_]/gm, ' ').replace(/(^\s|\s$)/gm, '');
 }
@@ -141,4 +158,3 @@ function capitalize(str: string = '', func: boolean = true) {
         return first + word.slice(1).toLowerCase();
     }).join('');
 }
-

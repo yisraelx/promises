@@ -24,10 +24,8 @@ import { IOptionalPromise } from '@promises/interfaces';
  *  });
  * ```
  */
-function next<R>(promise: IOptionalPromise<any>, value: IOptionalPromise<R>): Promise<R> {
-    return Promise.resolve(promise).then(() => {
-        return value;
-    }) as Promise<R>;
+function next<R>(value: IOptionalPromise<any>, newValue: IOptionalPromise<R>): Promise<R> {
+    return Promise.resolve(value).then(() => newValue);
 }
 
 export default next;

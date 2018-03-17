@@ -3,7 +3,7 @@
 [![Codecov](https://codecov.io/gh/yisraelx/promises/branch/master/graph/badge.svg)](https://codecov.io/gh/yisraelx/promises)
 [![MIT License](https://img.shields.io/npm/l/@promises/core.svg)](https://github.com/yisraelx/promises/blob/master/LICENSE)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
+[![Lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
 
 ## Packages structure
 ##### The code is divided into many small modules and each module is a package in itself ([Packages List](https://github.com/yisraelx/promises/blob/master/PACKAGES.md)).
@@ -38,6 +38,20 @@ import '@promises/-rxjs';
 import '@promises/-parallel';
 import Promises from '@promises/core';
 ```
+Or import only the module you need
+```ts
+import Promises from '@promises/core';
+import '@promises/map-series/add';
+import '@promises/sleep/add';
+```
+import all models that have Functional programming support
+```ts
+import * as FP from '@promises/-fp';
+```
+Or import only the module you need
+```ts
+import filterSeries from '@promises/filter-series/fp';
+```
 
 ## Install
 __Installation of all packages in scoop @promises__
@@ -64,30 +78,43 @@ map.then((result: number[]) => {
 #### wrapper
 ```ts
 import { Promises } from '@promises/-all';
-let array: number[] = [1, 2, 3];
-let promises: Promises<number[]> = Promises.resolve(array);
-let filter: Promises<number[]> = promises.filterParallel((value: number) => value % 2 !== 0);
-let map: Promises<number[]> = filter.mapParallel((value: number, index: number) => value + index);
-let delay: Promises<number[]> = map.delay(1000);
-delay.then((result: number[]) => {
-    console.log(result) // => [1, 4]
-});
 ```
 Or
 ```ts
 import Promises from '@promises/core';
 import '@promises/filter-parallel/add';
 import '@promises/map-parallel/add';
-import '@promises/delay/add';
-
+import '@promises/sleep/add';
+```
+```ts
 let array: number[] = [1, 2, 3];
 let promises: Promises<number[]> = Promises.resolve(array);
 let filter: Promises<number[]> = promises.filterParallel((value: number) => value % 2 !== 0);
 let map: Promises<number[]> = filter.mapParallel((value: number, index: number) => value + index);
-let delay: Promises<number[]> = map.delay(1000);
-delay.then((result: number[]) => {
+let sleep: Promises<number[]> = map.sleep(1000);
+sleep.then((result: number[]) => {
     console.log(result) // => [1, 4]
 });
+```
+#### Functional programming
+```ts
+import filterParallel from '@promises/filter-parallel/fp';
+import mapParallel from '@promises/map-parallel/fp';
+import { sleep } from '@promises/-fp';
+
+let array: number[] = [1, 2, 3];
+let filterOdd = filterParallel((value: number) => value % 2 !== 0)(Infinity);
+let sleepSecond = sleep(1000);
+
+Promise
+    .resolve(array)
+    .then(filterOdd)
+    .then(mapParallel((value: number, index: number) => value + index, void 0))
+    .then(sleepSecond)
+    .then((result: number[]) => {
+        console.log(result) // => [1, 4]
+    });
+    
 ```
 
 ## Behavior

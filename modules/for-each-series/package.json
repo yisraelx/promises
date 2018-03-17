@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@promises/_create-for-each-series": "^0.3.0",
+    "@promises/_curry": "NEXT-PLACEHOLDER",
     "@promises/interfaces": "^0.3.0"
   }
 }

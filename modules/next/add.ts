@@ -26,6 +26,6 @@ declare module '@promises/core' {
          *  });
          * ```
          */
-        next<R>(this: Promises<T>, value: IOptionalPromise<R>): Promises<R>;
+        next<R>(this: Promises<T>, newValue: IOptionalPromise<R>): Promises<R>;
     }
 }
