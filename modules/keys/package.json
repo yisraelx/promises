@@ -1,6 +1,6 @@
 {
   "name": "@promises/keys",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "Keys is package from Promises library",
   "main": "es5.js",
   "browser": "umd.min.js",
@@ -36,6 +36,6 @@
   },
   "dependencies": {
     "@promises/_keys": "^0.3.0",
-    "@promises/interfaces": "^0.3.0"
+    "@promises/interfaces": "^0.3.1"
   }
 }

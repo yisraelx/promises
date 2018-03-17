@@ -1,6 +1,6 @@
 {
   "name": "@promises/for-each-series",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "For Each Series is package from Promises library",
   "main": "es5.js",
   "browser": "umd.min.js",
@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@promises/_create-for-each-series": "^0.3.0",
-    "@promises/_curry": "NEXT-PLACEHOLDER",
-    "@promises/interfaces": "^0.3.0"
+    "@promises/_curry": "^0.4.0",
+    "@promises/interfaces": "^0.3.1"
   }
 }

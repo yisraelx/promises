@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.4.0"></a>
+# [0.4.0](https://github.com/yisraelx/promises/compare/v0.3.1...v0.4.0) (2018-03-17)
+
+
+### Bug Fixes
+
+* **keys:** remove method of handling keys ([1c622c0](https://github.com/yisraelx/promises/commit/1c622c0))
+
+
+### BREAKING CHANGES
+
+* **keys:** the method no longer accepts the handling function, it should be moved to the
+"then" method instead.
+
+
+
+
 <a name="0.3.1"></a>
 ## [0.3.1](https://github.com/yisraelx/promises/compare/v0.3.0...v0.3.1) (2018-03-05)
 

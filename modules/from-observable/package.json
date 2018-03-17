@@ -1,6 +1,6 @@
 {
   "name": "@promises/from-observable",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "From Observable is package from Promises library",
   "main": "es5.js",
   "browser": "umd.min.js",

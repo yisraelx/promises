@@ -1,6 +1,6 @@
 {
   "name": "@promises/forever",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "Forever is package from Promises library",
   "main": "es5.js",
   "browser": "umd.min.js",
@@ -35,6 +35,6 @@
     "@promises/core": "^0.3.1"
   },
   "dependencies": {
-    "@promises/interfaces": "^0.3.0"
+    "@promises/interfaces": "^0.3.1"
   }
 }

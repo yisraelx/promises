@@ -1,6 +1,6 @@
 {
   "name": "@promises/-rxjs",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "Rxjs is a group of packages of Promises library",
   "main": "es5.js",
   "browser": "umd.min.js",
@@ -32,10 +32,10 @@
     "url": "https://github.com/yisraelx/promises/issues"
   },
   "dependencies": {
-    "@promises/core": "^0.3.0",
-    "@promises/from-observable": "^0.3.1",
-    "@promises/interfaces": "^0.3.0",
-    "@promises/to-observable": "^0.3.1"
+    "@promises/core": "^0.3.1",
+    "@promises/from-observable": "^0.4.0",
+    "@promises/interfaces": "^0.3.1",
+    "@promises/to-observable": "^0.4.0"
   },
   "peerDependencies": {
     "rxjs": "^5.5.7"

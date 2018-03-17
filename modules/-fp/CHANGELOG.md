@@ -10,22 +10,3 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Features
 
 * Adding Functional programming support ([c801b97](https://github.com/yisraelx/promises/commit/c801b97))
-
-
-
-
-<a name="0.3.1"></a>
-## [0.3.1](https://github.com/yisraelx/promises/compare/v0.3.0...v0.3.1) (2018-03-05)
-
-
-
-
-**Note:** Version bump only for package @promises/wait
-
-<a name="0.3.0"></a>
-# [0.3.0](https://github.com/yisraelx/promises/compare/v0.2.0...v0.3.0) (2018-03-05)
-
-
-### Features
-
-* add method wait ([7b68d41](https://github.com/yisraelx/promises/commit/7b68d41))

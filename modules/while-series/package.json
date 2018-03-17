@@ -1,6 +1,6 @@
 {
   "name": "@promises/while-series",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "While Series is package from Promises library",
   "main": "es5.js",
   "browser": "umd.min.js",
@@ -35,8 +35,8 @@
     "@promises/core": "^0.3.1"
   },
   "dependencies": {
-    "@promises/do-while-series": "^0.3.1",
-    "@promises/exec": "^0.3.1",
-    "@promises/interfaces": "^0.3.0"
+    "@promises/do-while-series": "^0.4.0",
+    "@promises/exec": "^0.4.0",
+    "@promises/interfaces": "^0.3.1"
   }
 }

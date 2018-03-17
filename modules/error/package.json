@@ -1,6 +1,6 @@
 {
   "name": "@promises/error",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "Error is package from Promises library",
   "main": "es5.js",
   "browser": "umd.min.js",
@@ -35,7 +35,7 @@
     "@promises/core": "^0.3.1"
   },
   "dependencies": {
-    "@promises/_curry": "NEXT-PLACEHOLDER",
-    "@promises/interfaces": "^0.3.0"
+    "@promises/_curry": "^0.4.0",
+    "@promises/interfaces": "^0.3.1"
   }
 }
