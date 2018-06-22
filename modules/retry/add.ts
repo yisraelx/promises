@@ -4,9 +4,6 @@ import retry, { IRetryOptions } from './';
 
 Promises._setOnConstructor('retry', retry);
 
-export { IRetryFilterInfo, IRetryOptions, IRetryTimeInfo } from './';
-export default retry;
-
 declare module '@promises/core' {
     namespace Promises {
         /**

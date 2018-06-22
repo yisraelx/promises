@@ -4,8 +4,6 @@ import timeout from './';
 
 Promises._setOnConstructor('timeout', timeout);
 
-export default timeout;
-
 declare module '@promises/core' {
     namespace Promises {
         /**

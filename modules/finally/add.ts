@@ -4,8 +4,6 @@ import _finally from './';
 
 Promises._setOnPrototype('finally', _finally);
 
-export default _finally;
-
 declare module '@promises/core' {
     interface Promises<T> {
         /**

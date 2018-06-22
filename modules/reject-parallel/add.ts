@@ -4,8 +4,6 @@ import rejectParallel from './';
 
 Promises._setOnPrototype('rejectParallel', rejectParallel);
 
-export default rejectParallel;
-
 declare module '@promises/core' {
     interface Promises <T> {
         /**

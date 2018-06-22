@@ -4,8 +4,6 @@ import wrap from './';
 
 Promises._setOnConstructor('wrap', wrap, false);
 
-export default wrap;
-
 declare module '@promises/core' {
     namespace Promises {
         /**

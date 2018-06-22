@@ -4,8 +4,6 @@ import whileParallel from './';
 
 Promises._setOnConstructor('whileParallel', whileParallel);
 
-export default whileParallel;
-
 declare module '@promises/core' {
     namespace Promises {
         /**

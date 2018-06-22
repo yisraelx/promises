@@ -4,8 +4,6 @@ import forEachParallel from './';
 
 Promises._setOnPrototype('forEachParallel', forEachParallel);
 
-export default forEachParallel;
-
 declare module '@promises/core' {
     interface Promises<T> {
         /**

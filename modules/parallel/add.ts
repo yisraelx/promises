@@ -4,8 +4,6 @@ import parallel from './';
 
 Promises._setOnConstructor('parallel', parallel);
 
-export default parallel;
-
 declare module '@promises/core' {
     namespace Promises {
         /**

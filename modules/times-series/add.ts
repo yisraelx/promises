@@ -4,8 +4,6 @@ import timesSeries from './';
 
 Promises._setOnConstructor('timesSeries', timesSeries);
 
-export default timesSeries;
-
 declare module '@promises/core' {
     namespace Promises {
         /**

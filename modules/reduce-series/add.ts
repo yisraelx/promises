@@ -4,8 +4,6 @@ import reduceSeries from './';
 
 Promises._setOnPrototype('reduceSeries', reduceSeries);
 
-export default reduceSeries;
-
 declare module '@promises/core' {
     interface Promises <T> {
         /**

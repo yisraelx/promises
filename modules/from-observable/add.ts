@@ -4,8 +4,6 @@ import fromObservable from './';
 
 Promises._setOnConstructor('fromObservable', fromObservable);
 
-export default fromObservable;
-
 declare module '@promises/core' {
     namespace Promises {
         /**

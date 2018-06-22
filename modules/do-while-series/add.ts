@@ -4,8 +4,6 @@ import doWhileSeries from './';
 
 Promises._setOnConstructor('doWhileSeries', doWhileSeries);
 
-export default doWhileSeries;
-
 declare module '@promises/core' {
     namespace Promises {
         /**

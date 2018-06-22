@@ -4,8 +4,6 @@ import create from './';
 
 Promises._setOnConstructor('create', create);
 
-export default create;
-
 declare module '@promises/core' {
     namespace Promises {
         /**

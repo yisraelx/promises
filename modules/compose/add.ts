@@ -4,8 +4,6 @@ import compose from './';
 
 Promises._setOnConstructor('compose', compose, false);
 
-export default compose;
-
 declare module '@promises/core' {
     namespace Promises {
         /**

@@ -3,8 +3,6 @@ import fromCallback from './';
 
 Promises._setOnConstructor('fromCallback', fromCallback);
 
-export default fromCallback;
-
 declare module '@promises/core' {
     namespace Promises {
         /**

@@ -4,8 +4,6 @@ import mapSeries from './';
 
 Promises._setOnPrototype('mapSeries', mapSeries);
 
-export default mapSeries;
-
 declare module '@promises/core' {
     interface Promises <T> {
         /**

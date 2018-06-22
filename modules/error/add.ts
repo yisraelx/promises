@@ -3,8 +3,6 @@ import error from './';
 
 Promises._setOnPrototype('error', error);
 
-export default error;
-
 declare module '@promises/core' {
     interface Promises<T> {
         /**

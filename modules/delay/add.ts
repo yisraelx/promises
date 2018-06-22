@@ -3,8 +3,6 @@ import delay from './';
 
 Promises._setOnConstructor('delay', delay);
 
-export default delay;
-
 declare module '@promises/core' {
     namespace Promises {
         /**

@@ -3,8 +3,6 @@ import sleep from './';
 
 Promises._setOnPrototype('sleep', sleep);
 
-export default sleep;
-
 declare module '@promises/core' {
     interface Promises<T> {
         /**

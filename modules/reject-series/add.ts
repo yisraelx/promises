@@ -4,8 +4,6 @@ import rejectSeries from './';
 
 Promises._setOnPrototype('rejectSeries', rejectSeries);
 
-export default rejectSeries;
-
 declare module '@promises/core' {
     interface Promises <T> {
         /**

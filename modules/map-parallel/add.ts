@@ -4,8 +4,6 @@ import mapParallel from './';
 
 Promises._setOnPrototype('mapParallel', mapParallel);
 
-export default mapParallel;
-
 declare module '@promises/core' {
     interface Promises <T> {
         /**

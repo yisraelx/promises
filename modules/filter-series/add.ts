@@ -4,8 +4,6 @@ import filterSeries from './';
 
 Promises._setOnPrototype('filterSeries', filterSeries);
 
-export default filterSeries;
-
 declare module '@promises/core' {
     interface Promises<T> {
         /**

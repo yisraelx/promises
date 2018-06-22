@@ -4,8 +4,6 @@ import series from './';
 
 Promises._setOnConstructor('series', series);
 
-export default series;
-
 declare module '@promises/core' {
     namespace Promises {
         /**

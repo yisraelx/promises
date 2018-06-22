@@ -4,8 +4,6 @@ import wait from './';
 
 Promises._setOnPrototype('wait', wait);
 
-export default wait;
-
 declare module '@promises/core' {
     interface Promises<T> {
         /**

@@ -4,8 +4,6 @@ import whileSeries from './';
 
 Promises._setOnConstructor('whileSeries', whileSeries);
 
-export default whileSeries;
-
 declare module '@promises/core' {
     namespace Promises {
         /**

@@ -4,8 +4,6 @@ import someParallel from './';
 
 Promises._setOnPrototype('someParallel', someParallel);
 
-export default someParallel;
-
 declare module '@promises/core' {
     interface Promises <T> {
         /**

@@ -4,8 +4,6 @@ import keys from './';
 
 Promises._setOnPrototype('keys', keys);
 
-export default keys;
-
 declare module '@promises/core' {
     interface Promises<T> {
         /**

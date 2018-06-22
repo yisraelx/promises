@@ -4,7 +4,9 @@
  * @license MIT
  */
 
-export { default as Promises } from '@promises/core';
-export { default as fromObservable } from '@promises/from-observable/add';
+export { default as fromObservable } from '@promises/from-observable';
 export * from '@promises/interfaces';
-export { default as toObservable } from '@promises/to-observable/add';
+export { default as toObservable } from '@promises/to-observable';
+
+import './add';
+export { default as Promises } from '@promises/core';

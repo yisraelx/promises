@@ -3,8 +3,6 @@ import timer from './';
 
 Promises._setOnPrototype('timer', timer);
 
-export default timer;
-
 declare module '@promises/core' {
     interface Promises<T> {
         /**

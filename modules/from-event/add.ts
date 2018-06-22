@@ -3,9 +3,6 @@ import fromEvent, { IEmitterLike, IFromEventOptions } from './';
 
 Promises._setOnConstructor('fromEvent', fromEvent);
 
-export {IEmitterLike, IFromEventOptions} from './';
-export default fromEvent;
-
 declare module '@promises/core' {
     namespace Promises {
         /**

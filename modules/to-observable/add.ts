@@ -4,8 +4,6 @@ import toObservable from './';
 
 Promises._setOnPrototype('toObservable', toObservable, false);
 
-export default toObservable;
-
 declare module '@promises/core' {
     interface Promises<T> {
         /**

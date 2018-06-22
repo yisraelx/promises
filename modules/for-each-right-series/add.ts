@@ -4,8 +4,6 @@ import forEachRightSeries from './';
 
 Promises._setOnPrototype('forEachRightSeries', forEachRightSeries);
 
-export default forEachRightSeries;
-
 declare module '@promises/core' {
     interface Promises <T> {
         /**

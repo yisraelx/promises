@@ -4,25 +4,27 @@
  * @license MIT
  */
 
-export {default as compose} from '@promises/compose/add';
-export {default as Promises} from '@promises/core';
-export {default as create} from '@promises/create/add';
-export {default as delay} from '@promises/delay/add';
-export {default as doWhileParallel} from '@promises/do-while-parallel/add';
-export {default as doWhileSeries} from '@promises/do-while-series/add';
-export {default as exec} from '@promises/exec/add';
-export {default as forever} from '@promises/forever/add';
-export {default as fromCallback} from '@promises/from-callback/add';
-export {default as fromEvent, IFromEventOptions, IEmitterLike} from '@promises/from-event/add';
+export {default as compose} from '@promises/compose';
+export {default as create} from '@promises/create';
+export {default as delay} from '@promises/delay';
+export {default as doWhileParallel} from '@promises/do-while-parallel';
+export {default as doWhileSeries} from '@promises/do-while-series';
+export {default as exec} from '@promises/exec';
+export {default as forever} from '@promises/forever';
+export {default as fromCallback} from '@promises/from-callback';
+export {default as fromEvent} from '@promises/from-event';
 export * from '@promises/interfaces';
-export {default as isPromise} from '@promises/is-promise/add';
-export {default as promisify, IPromisifyOptions} from '@promises/promisify/add';
-export {default as parallel} from '@promises/parallel/add';
-export {default as retry, IRetryFilterInfo, IRetryOptions, IRetryTimeInfo} from '@promises/retry/add';
-export {default as series} from '@promises/series/add';
-export {default as timeout} from '@promises/timeout/add';
-export {default as timesParallel} from '@promises/times-parallel/add';
-export {default as timesSeries} from '@promises/times-series/add';
-export {default as whileParallel} from '@promises/while-parallel/add';
-export {default as whileSeries} from '@promises/while-series/add';
-export {default as wrap} from '@promises/wrap/add';
+export {default as isPromise} from '@promises/is-promise';
+export {default as promisify} from '@promises/promisify';
+export {default as parallel} from '@promises/parallel';
+export {default as retry} from '@promises/retry';
+export {default as series} from '@promises/series';
+export {default as timeout} from '@promises/timeout';
+export {default as timesParallel} from '@promises/times-parallel';
+export {default as timesSeries} from '@promises/times-series';
+export {default as whileParallel} from '@promises/while-parallel';
+export {default as whileSeries} from '@promises/while-series';
+export {default as wrap} from '@promises/wrap';
+
+import './add';
+export { default as Promises } from '@promises/core';

@@ -1,11 +1,8 @@
 import Promises from '@promises/core';
 import { IOptionalPromise } from '@promises/interfaces';
-import promisify, { IPromisifyOptions } from './';
+import promisify from './';
 
 Promises._setOnConstructor('promisify', promisify, false);
-
-export { IPromisifyOptions } from './';
-export default promisify;
 
 declare module '@promises/core' {
     namespace Promises {

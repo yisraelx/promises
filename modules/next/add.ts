@@ -4,8 +4,6 @@ import next from './';
 
 Promises._setOnPrototype('next', next);
 
-export default next;
-
 declare module '@promises/core' {
     interface Promises<T> {
         /**

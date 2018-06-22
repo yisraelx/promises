@@ -4,8 +4,6 @@ import timesParallel from './';
 
 Promises._setOnConstructor('timesParallel', timesParallel);
 
-export default timesParallel;
-
 declare module '@promises/core' {
     namespace Promises {
         /**

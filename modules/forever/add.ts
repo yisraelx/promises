@@ -4,8 +4,6 @@ import forever from './';
 
 Promises._setOnConstructor('forever', forever);
 
-export default forever;
-
 declare module '@promises/core' {
     namespace Promises {
         /**

@@ -4,8 +4,6 @@ import toCallback from './';
 
 Promises._setOnPrototype('toCallback', toCallback);
 
-export default toCallback;
-
 declare module '@promises/core' {
     interface Promises<T> {
         /**

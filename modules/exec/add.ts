@@ -4,8 +4,6 @@ import exec from './';
 
 Promises._setOnConstructor('exec', exec);
 
-export default exec;
-
 declare module '@promises/core' {
     namespace Promises {
         /**

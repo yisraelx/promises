@@ -4,8 +4,6 @@ import someSeries from './';
 
 Promises._setOnPrototype('someSeries', someSeries);
 
-export default someSeries;
-
 declare module '@promises/core' {
     interface Promises <T> {
         /**

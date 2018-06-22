@@ -4,8 +4,6 @@ import filterParallel from './';
 
 Promises._setOnPrototype('filterParallel', filterParallel);
 
-export default filterParallel;
-
 declare module '@promises/core' {
     interface Promises <T> {
         /**

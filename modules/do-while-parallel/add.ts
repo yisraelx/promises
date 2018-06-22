@@ -4,8 +4,6 @@ import doWhileParallel from './';
 
 Promises._setOnConstructor('doWhileParallel', doWhileParallel);
 
-export default doWhileParallel;
-
 declare module '@promises/core' {
     namespace Promises {
         /**

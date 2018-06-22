@@ -4,8 +4,6 @@ import spread from './';
 
 Promises._setOnPrototype('spread', spread);
 
-export default spread;
-
 declare module '@promises/core' {
     interface Promises<T> {
         /**

@@ -4,8 +4,6 @@ import reset from './';
 
 Promises._setOnPrototype('reset', reset);
 
-export default reset;
-
 declare module '@promises/core' {
     interface Promises<T> {
         /**

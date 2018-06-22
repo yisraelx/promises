@@ -82,6 +82,10 @@ import { Promises } from '@promises/-all';
 Or
 ```ts
 import Promises from '@promises/core';
+import '@promises/-all/add';
+```
+```ts
+import Promises from '@promises/core';
 import '@promises/filter-parallel/add';
 import '@promises/map-parallel/add';
 import '@promises/sleep/add';
