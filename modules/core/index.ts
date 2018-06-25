@@ -5,13 +5,17 @@
  */
 
 declare let ES6Promise: typeof Promise;
-export let basePromise: typeof Promise = (typeof Promise !== 'undefined' && Promise) || (typeof ES6Promise !== 'undefined' && ES6Promise);
+let basePromise: typeof Promise = typeof Promise !== 'undefined' ? Promise : ES6Promise;
+
+if (typeof basePromise === 'undefined') {
+    throw new Error(`Missing Promise support, the requirements are a global "Promise" (native or polyfill).`);
+}
 
 export class Promises<T> extends basePromise<T> {
 }
 
 try {
-    exports.Promises = Function(`return function(basePromise){return class Promises extends basePromise{} }`)()(basePromise);
+    exports.Promises = ((Promises as any) = Function(`return function(basePromise){return class Promises extends basePromise{} }`)()(basePromise));
 } catch (e) {
 
 }
@@ -76,7 +80,3 @@ export declare namespace Promises {
 }
 
 export default Promises;
-
-if (!basePromise) {
-    throw new Error(`Missing Promise support, the requirements are a global "Promise" (native or polyfill).`);
-}

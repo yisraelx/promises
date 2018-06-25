@@ -201,11 +201,11 @@ run(forEachWrap);
 
 ## Compatibility
 These modules are written in typescript and available in ES5 and ES6 standard, the requirements are a global __Promise__ (native or polyfill).
-- main - commonjs module and es5 standard (es5.js)
-- es2015/module - commonjs module and es6 standard (index.js)
-- browser - umd format and es5 standard (umd.js, umd.min.js)
-- bundle - bundle in umd format includes all scope dependencies in es5 standard (bundle.js, bundle.min.js)
-- typings - typescript declaration file (index.d.ts)
+
+* main - commonjs module and es5 standard (index.js)
+* es2015 - commonjs module and es2015 standard (index.es6.js)
+* browser - bundle in umd format includes all scope dependencies in es5 standard (bundle.umd.js, bundle.umd.min.js)
+* typings - typescript declaration file (index.d.ts)
 
 ## License
 Copyright © 2017 [Yisrael Eliav](https://github.com/yisraelx),

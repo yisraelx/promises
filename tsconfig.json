@@ -1,14 +1,23 @@
 {
-  "compilerOptions": {
-    "baseUrl": "./",
-    "lib": [
-      "es6",
-      "dom"
-    ],
-    "paths": {
-      "@promises/*":[
-        "./modules/*"
-      ]
-    }
-  }
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "lib": [
+            "es2015",
+            "dom"
+        ],
+        "declaration": false,
+        "sourceMap": true,
+        "moduleResolution": "node",
+        "baseUrl": "./",
+        "paths": {
+            "@promises/*": [
+                "./modules/*"
+            ]
+        }
+    },
+    "include": [
+        "./modules/**/*.ts",
+        "./test/**/*.ts"
+    ]
 }

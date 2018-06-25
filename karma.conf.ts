@@ -20,7 +20,7 @@ export = (config: Config) => {
         },
 
         karmaTypescriptConfig: {
-            tsconfig: './test/tsconfig.json',
+            tsconfig: './tsconfig.json',
             reports: {
                 'text-summary': null,
                 html: {
