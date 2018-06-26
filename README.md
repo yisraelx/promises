@@ -46,7 +46,7 @@ import '@promises/sleep/add';
 ```
 import all models that have Functional programming support
 ```ts
-import * as FP from '@promises/-fp';
+import * as PF from '@promises/-all/fp';
 ```
 Or import only the module you need
 ```ts
@@ -104,7 +104,7 @@ sleep.then((result: number[]) => {
 ```ts
 import filterParallel from '@promises/filter-parallel/fp';
 import mapParallel from '@promises/map-parallel/fp';
-import { sleep } from '@promises/-fp';
+import { sleep } from '@promises/-all/fp';
 
 let array: number[] = [1, 2, 3];
 let filterOdd = filterParallel((value: number) => value % 2 !== 0)(Infinity);

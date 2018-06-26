@@ -1,0 +1,7 @@
+{
+  "name": "@promises/reject-series/fp",
+  "main": "index.js",
+  "browser": "bundle.umd.js",
+  "es2015": "index.es6.js",
+  "typings": "index.d.ts"
+}

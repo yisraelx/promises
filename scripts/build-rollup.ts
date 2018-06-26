@@ -16,11 +16,28 @@ let camelName: string = camelPackageName(packageJson.name);
 let isGroup: boolean = /^@.*\/-.*/.test(packageJson.name);
 let isInternal: boolean = /^@.*\/_.*/.test(packageJson.name);
 let scope: string = 'promises';
-console.log('start', camelName);
+
 let buildVersions = [
     {inputFile: 'index', globalName: 'P', outputFile: 'index.es6', outputFormat: 'cjs', isBundle: false, target: 'es6'},
     {inputFile: 'index', globalName: 'P', outputFile: 'bundle.umd', outputFormat: 'umd', isBundle: true, minify: true},
-    {inputFile: 'index', globalName: 'P', outputFile: 'bundle.umd', outputFormat: 'umd', isBundle: true}
+    {inputFile: 'index', globalName: 'P', outputFile: 'bundle.umd', outputFormat: 'umd', isBundle: true},
+    {
+        inputFile: 'fp/index',
+        globalName: 'PF',
+        outputFile: 'fp/index.es6',
+        outputFormat: 'cjs',
+        isBundle: false,
+        target: 'es6'
+    },
+    {
+        inputFile: 'fp/index',
+        globalName: 'PF',
+        outputFile: 'fp/bundle.umd',
+        outputFormat: 'umd',
+        isBundle: true,
+        minify: true
+    },
+    {inputFile: 'fp/index', globalName: 'PF', outputFile: 'fp/bundle.umd', outputFormat: 'umd', isBundle: true}
 ];
 
 buildVersions.reduce(async (dfd: Promise<any>, options) => {
