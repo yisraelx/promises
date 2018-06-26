@@ -20,8 +20,10 @@ import _keys from '@promises/_keys';
  * ```
  */
 function keys(collection: IOptionalPromise<ArrayLike<any> | IDictionary<any>>): Promise<string[]> {
-    let keys = _keys(collection);
-    return Promise.resolve(keys);
+    return Promise.resolve(collection).then((collection: ArrayLike<any> | IDictionary<any>) => {
+        let keys: string[] = _keys(collection);
+        return Promise.resolve(keys);
+    });
 }
 
 export default keys;
