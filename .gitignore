@@ -1,19 +1,22 @@
-# NodeJs
+### IDE
+.vscode/
+.idea/
+
+### Node
+logs
 *.log
-node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.changelog
+node_modules/
 
-# IDE
-.idea
-.vscode
-
-# Build
-modules/**/*.js.map
-modules/**/*.d.ts
-modules/**/*.js
+### Build
+coverage/
+modules/**/.npmignore
 modules/**/LICENSE
 modules/**/README.md
-tmp
-.rpt2_cache
-
-# Report
-coverage
+modules/**/*.js.map
+modules/**/*.js
+modules/**/*.d.ts
