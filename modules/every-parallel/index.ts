@@ -14,10 +14,10 @@ export interface IEveryParallel {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
- *  let comparator = (value) => {
+ *  let comparator = (value: any) => {
  *      return Promise.resolve(Boolean(value))
  *  };
  *
@@ -26,7 +26,6 @@ export interface IEveryParallel {
  *  everyParallel(array, comparator).then((result: boolean)=>{
  *      console.log(result) // result => false
  *  });
- * ```
  */
 let everyParallel: IEveryParallel = createChecksBoolean(forEach, (truthy) => {
     return truthy ? true : Promise.reject(false);

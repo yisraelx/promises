@@ -14,14 +14,16 @@ export interface IWait {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let promise: Promise<string> = Promise.resolve<string>('foo');
  *  let count: number = 0;
+ *
  *  wait(() => count++ === 3, 1000).then((result: string) => {
  *    console.log(result); // result => 'foo'
  *  })(100)(promise);
- * ```
  */
-export default _curry(wait, {length: 3}) as IWait;
+let curriedWait: IWait = _curry(wait);
+
+export default  curriedWait;

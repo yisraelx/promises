@@ -9,7 +9,6 @@ declare module '@promises/core' {
         /**
          * @example
          *
-         * ```typescript
          * Promises.forever((count: number) => new Promise((resolve, reject) => {
          *  setImmediate(() => {
          *   count >= 5 ? reject('foo') : resolve(++count);
@@ -17,7 +16,6 @@ declare module '@promises/core' {
          * }), 0).catch((error: string) => {
          *  console.log(error) // error => 'reject'
          * });
-         * ```
          */
         export function forever<T>(iteratee: (previous?: T) => IOptionalPromise<any>, factor?: T): Promises<never>;
     }

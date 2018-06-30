@@ -5,13 +5,13 @@
  */
 
 /**
+ * @function
+ * @param ms The number of milliseconds to delay invocation.
  * @example
  *
- * ```typescript
  *  delay(3000).then(() => {
  *    console.log('timeout'); // => 'timeout'
  *  });
- * ```
  */
 function delay<T>(ms?: number): Promise<T> {
     return new Promise<T>((resolve) => {

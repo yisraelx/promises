@@ -7,9 +7,9 @@
 import { Observable } from 'rxjs';
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let observable: Observable<string> = new Observable<string>((observer: Subscriber<T>) => {
  *      observer.next('foo');
  *      observer.complete();
@@ -20,7 +20,6 @@ import { Observable } from 'rxjs';
  *  promise.then((result: string) => {
  *      console.log(result); // => 'foo'
  *  });
- * ```
  */
 function fromObservable<T>(observe: Observable<T>): Promise<T> {
     return new Promise((resolve, reject) => {

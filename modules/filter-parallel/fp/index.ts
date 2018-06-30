@@ -17,9 +17,9 @@ export interface IFilterParallel {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let comparator = (value: number) => {
  *      return value % 2 === 0;
  *  };
@@ -29,6 +29,7 @@ export interface IFilterParallel {
  *  filterParallel(comparator)(void 0, array).then((result: number[])=>{
  *      console.log(result); // result => [0, 2, 4]
  *  });
- * ```
  */
-export default _curry(filterParallel, {length: 3}) as IFilterParallel;
+let curriedFilterParallel: IFilterParallel = _curry(filterParallel);
+
+export default curriedFilterParallel;

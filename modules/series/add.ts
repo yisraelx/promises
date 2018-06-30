@@ -9,7 +9,6 @@ declare module '@promises/core' {
         /**
          * @example
          *
-         * ```typescript
          *  let fn = (id: string, ms: number) => () => timeout((resolve) => {
          *      console.log(id);
          *      resolve(id);
@@ -28,7 +27,6 @@ declare module '@promises/core' {
          *  // => 1
          *  // => 2
          *  // => { zero: 0, one: 1, two: 2}
-         * ```
          */
         export function series<R>(array: (() => IOptionalPromise<R>)[]): Promises<R[]>;
         export function series<R extends ArrayLike<any>>(array: (() => IOptionalPromise<R[keyof R & number]>)[]): Promises<R>;

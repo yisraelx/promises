@@ -14,16 +14,15 @@ export interface IRejectSeries {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let array: any[] = ['yes', null, 0, true];
  *  let promise: Promise<any[]> = Promise.resolve(array);
  *
  *  rejectSeries(promise).then((result: any[]) => {
  *      console.log(result); // => [null, 0]
  *  });
- * ```
  */
 let rejectSeries: IRejectSeries = createFilter(forEach, false) as IRejectSeries;
 

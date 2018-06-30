@@ -23,14 +23,15 @@ export interface IReduceRightSeries {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let array: number[] = [0, 1, 2, 3];
  *
  *  reduceRightSeries((sum: number, num: number) => Promise.resolve(sum + num), 0)(array).then((result: number) => {
  *      console.log(result); // => 6
  *  });
- * ```
  */
-export default _curry(reduceRightSeries, {length: 3}) as IReduceRightSeries;
+let curriedReduceRightSeries: IReduceRightSeries = _curry(reduceRightSeries);
+
+export default curriedReduceRightSeries;

@@ -15,10 +15,10 @@ export interface IEverySeries {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
- *  let comparator = (value) => {
+ *  let comparator = (value: any) => {
  *      return Promise.resolve(Boolean(value))
  *  };
  *
@@ -27,6 +27,7 @@ export interface IEverySeries {
  *  everySeries(comparator)(array).then((result: boolean)=>{
  *      console.log(result) // result => false
  *  });
- * ```
  */
-export default _curry(everySeries, {length: 2}) as IEverySeries;
+let curriedEverySeries: IEverySeries = _curry(everySeries);
+
+export default curriedEverySeries;

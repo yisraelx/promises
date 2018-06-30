@@ -4,7 +4,7 @@
  * @license MIT
  */
 import _curry from '@promises/_curry';
-import { IOptionalPromise, IOptionalPromiseDictionary } from '@promises/interfaces';
+import { IOptionalPromise } from '@promises/interfaces';
 import timesSeries from '../';
 
 export interface ITimesSeries {
@@ -13,9 +13,9 @@ export interface ITimesSeries {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let times: number = 3;
  *
  *  timesSeries((time: number) => {
@@ -32,6 +32,7 @@ export interface ITimesSeries {
  *  // => 1
  *  // => 2
  *  // => [9, 6, 3]
- * ```
  */
-export default _curry(timesSeries, {length: 2}) as ITimesSeries;
+let curriedTimesSeries: ITimesSeries = _curry(timesSeries);
+
+export default curriedTimesSeries;

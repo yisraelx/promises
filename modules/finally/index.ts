@@ -9,22 +9,22 @@ import next from '@promises/next';
 import error from '@promises/error';
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let promise = Promise.resolve('foo');
+ *
  *  finally(promise, () => {
  *      console.log('done'); // => 'done'
  *  });
- * ```
+ *
  * @example
  *
- * ```typescript
  *  let promise = Promise.reject('foo');
+ *
  *  finally(promise, () => {
  *      console.log('done'); // => 'done'
  *  });
- * ```
  */
 function _finally<R>(promise: IOptionalPromise<R>, fn: () => IOptionalPromise<any>): Promise<R> {
     return Promise.resolve(promise).then(

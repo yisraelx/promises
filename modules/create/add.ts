@@ -9,7 +9,6 @@ declare module '@promises/core' {
         /**
          * @example
          *
-         * ```typescript
          *  let promises: Promises<string> = Promises.create<string>((resolve, reject) => {
          *      resolve('foo');
          *  });
@@ -17,7 +16,6 @@ declare module '@promises/core' {
          *  promises.then((result: string) => {
          *      console.log(result); // => 'foo'
          *  });
-         * ```
          */
         export function create<T>(executor?: IExecutor<T>): Promises<T>;
     }

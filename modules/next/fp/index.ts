@@ -13,21 +13,23 @@ export interface INext {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let promise: Promise<string> = Promise.resolve<string>('foo');
+ *
  *  next('bar', promise).then((result: string) => {
  *    console.log(result); // => 'bar'
  *  });
- * ```
+ *
  * @example
  *
- * ```typescript
  *  let promise: Promise<string> = Promise.reject<string>('foo');
+ *
  *  next('bar', promise).then((result: string) => {
  *    console.log(result); // => 'bar'
  *  });
- * ```
  */
-export default _curry(next, {length: 2}) as INext;
+let curriedNext: INext = _curry(next);
+
+export default curriedNext;

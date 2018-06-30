@@ -7,16 +7,15 @@
 import { Observable, Subscriber } from 'rxjs';
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let promise: Promise<string> = Promise.resolve('foo');
  *  let observable: Observable<string> = toObservable(promise);
  *
  *  observable.subscribe((result: string) => {
  *      console.log(result); // result => 'foo'
  *  });
- * ```
  */
 function toObservable<T>(promise: Promise<T>): Observable<T> {
     return new Observable<T>((subscriber: Subscriber<T>) => {

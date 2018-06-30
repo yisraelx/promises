@@ -8,9 +8,9 @@ import map from '@promises/map-parallel';
 import { IOptionalPromise, IDictionary } from '@promises/interfaces';
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let fn = (id: string, ms: number) => () => timeout((resolve) => {
  *      console.log(id);
  *      resolve(id);
@@ -29,7 +29,6 @@ import { IOptionalPromise, IDictionary } from '@promises/interfaces';
  *  // => 2
  *  // => 0
  *  // => { zero: 0, one: 1, two: 2}
- * ```
  */
 function parallel<R>(array: (() => IOptionalPromise<R>)[], limit?: number): Promise<R[]>;
 function parallel<R extends ArrayLike<any>>(array: (() => IOptionalPromise<R[keyof R & number]>)[], limit?: number): Promise<R>;

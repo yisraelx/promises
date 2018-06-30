@@ -15,15 +15,14 @@ export interface IReduceRightSeries {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let array: number[] = [0, 1, 2, 3];
  *
  *  reduceRightSeries(array, (sum: number, num: number) => Promise.resolve(sum + num), 0).then((result: number) => {
  *      console.log(result); // => 6
  *  });
- * ```
  */
 let reduceRightSeries: IReduceRightSeries = createReduce(true) as IReduceRightSeries;
 

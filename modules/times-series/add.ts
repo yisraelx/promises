@@ -9,7 +9,6 @@ declare module '@promises/core' {
         /**
          * @example
          *
-         * ```typescript
          *  let times: number = 3;
          *
          *  Promises.timesSeries(times, (time: number) => {
@@ -26,7 +25,6 @@ declare module '@promises/core' {
          *  // => 1
          *  // => 2
          *  // => [9, 6, 3]
-         * ```
          */
         export function timesSeries<T extends any[]>(times: IOptionalPromise<number>, fn: (time: number) => IOptionalPromise<T[keyof T & number]>): Promises<T>;
     }

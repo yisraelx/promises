@@ -9,7 +9,6 @@ declare module '@promises/core' {
         /**
          * @example
          *
-         * ```typescript
          *  function multiply(a: number, b: number){
          *      return a * b;
          *  }
@@ -20,7 +19,6 @@ declare module '@promises/core' {
          *  promises.then((result: number) => {
          *      console.log(result); // result => 6
          *  });
-         * ```
          */
         export function wrap<R>(fn: () => R, context?: any): () => Promises<R>;
         export function wrap<P1, R>(fn: (p1: P1) => R, context?: any): (p1: IOptionalPromise<P1>) => Promises<R>;

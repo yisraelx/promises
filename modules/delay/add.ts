@@ -8,11 +8,9 @@ declare module '@promises/core' {
         /**
          * @example
          *
-         * ```typescript
          *  Promises.delay(3000).then(() => {
          *    console.log('timeout'); // => 'timeout'
          *  });
-         * ```
          */
         export function delay<T>(ms?: number): Promises<T>;
     }

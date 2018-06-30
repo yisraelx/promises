@@ -15,14 +15,15 @@ export interface ISomeSeries {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let array: any[] = [0, null, true, false];
  *
  *  someSeries(Boolean)(array).then((result: boolean) => {
  *      console.log(result); // result => true
  *  });
- * ```
  */
-export default _curry(someSeries, {length: 2}) as ISomeSeries;
+let curriedSomeSeries: ISomeSeries = _curry(someSeries);
+
+export default curriedSomeSeries;

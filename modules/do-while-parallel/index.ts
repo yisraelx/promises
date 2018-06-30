@@ -9,32 +9,33 @@ import exec from '@promises/exec';
 import whileParallel from '@promises/while-parallel';
 
 /**
+ * @function
  * @example
  *
- * ```typescript
- * let index: number = 0;
- * whileParallel(() => {
- *  console.log(`test ${index}`);
- *  return index++ < 3;
- * }, () => {
- *  let thisIndex = index;
- *  return timeout((resolve) => {
- *   console.log(`iteratee ${thisIndex}`);
- *   resolve();
- *  }, 4 - index);
- * }).then(() => {
- *  console.log('completed');
- * });
- * // => 'test 0'
- * // => 'test 1'
- * // => 'test 2'
- * // => 'test 3'
- * // => 'iteratee 3'
- * // => 'iteratee 2'
- * // => 'iteratee 1'
- * // => 'iteratee 0'
- * // => 'completed'
- * ```
+ *  let index: number = 0;
+ *
+ *  whileParallel(() => {
+ *    console.log(`test ${index}`);
+ *    return index++ < 3;
+ *  }, () => {
+ *    let thisIndex = index;
+ *    return timeout((resolve) => {
+ *     console.log(`iteratee ${thisIndex}`);
+ *     resolve();
+ *    }, 4 - index);
+ *  }).then(() => {
+ *    console.log('completed');
+ *  });
+ *
+ *  // => 'test 0'
+ *  // => 'test 1'
+ *  // => 'test 2'
+ *  // => 'test 3'
+ *  // => 'iteratee 3'
+ *  // => 'iteratee 2'
+ *  // => 'iteratee 1'
+ *  // => 'iteratee 0'
+ *  // => 'completed'
  */
 function doWhileParallel(test: () => IOptionalPromise<boolean>, iteratee: () => IOptionalPromise<any> = () => { }, limit: number = Infinity): Promise<void> {
     limit--;

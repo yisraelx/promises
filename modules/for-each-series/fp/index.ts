@@ -15,21 +15,25 @@ export interface IForEachSeries {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let array: number[] = [3, 7, 1, 5];
  *
  *  console.log('before');
+ *
  *  forEachSeries(array, (value: number) => {
  *      console.log(`start: ${ value }`);
+ *
  *      return timeout((resolve) => {
  *          console.log(`end: ${ value }`);
  *          resolve();
  *      }, value);
+ *
  *  })(array).then(() => {
  *      console.log('complete');
  *  });
+ *
  *  console.log('after');
  *
  *  // => before
@@ -43,6 +47,7 @@ export interface IForEachSeries {
  *  // => start 5
  *  // => end 5
  *  // => complete
- * ```
  */
-export default _curry(forEachSeries, {length: 2}) as IForEachSeries;
+let curriedForEachSeries: IForEachSeries = _curry(forEachSeries);
+
+export default curriedForEachSeries;

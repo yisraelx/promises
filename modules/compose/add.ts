@@ -9,7 +9,6 @@ declare module '@promises/core' {
         /**
          * @example
          *
-         * ```typescript
          *  let prefix = (str: string) => `_${str}`;
          *  let toUpperCase = (str: string) => String.prototype.toUpperCase.call(str);
          *  let method = Promises.compose(prefix, toUpperCase);
@@ -17,7 +16,6 @@ declare module '@promises/core' {
          *  method('some').then((result: string) => {
          *      console.log(result); // => '_SOME'
          *  });
-         * ```
          */
         export function compose<T, P1, R>(fn1: (value?: IOptionalPromise<T>) => IOptionalPromise<P1>, fn2: (value: IOptionalPromise<P1>) => IOptionalPromise<R>): (value?: T) => Promises<R>;
         export function compose<T, P1, P2, R>(fn1: (value?: IOptionalPromise<T>) => IOptionalPromise<P1>, fn2: (value: IOptionalPromise<P1>) => IOptionalPromise<P2>, fn3: (value: IOptionalPromise<P2>) => IOptionalPromise<R>): (value?: T) => Promises<R>;

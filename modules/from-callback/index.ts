@@ -5,15 +5,14 @@
  */
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  fromCallback<string[]>((callback) => {
  *      fs.readdir(process.cwd(), callback);
  *  }).then((result: string[]) => {
  *      console.log(result);
  *  });
- * ```
  */
 function fromCallback<R>(fn: (callback: (error?: any, ...result: R[keyof R & number][]) => void) => void, multi: true): Promise<R>;
 function fromCallback<R>(fn: (callback: (error?: any, result?: R) => void) => void, multi?: false): Promise<R>;

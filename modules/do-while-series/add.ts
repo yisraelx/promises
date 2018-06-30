@@ -9,7 +9,6 @@ declare module '@promises/core' {
         /**
          * @example
          *
-         * ```typescript
          * let index: number = 0;
          * Promises.doWhileSeries(() => {
          *  console.log(`test ${index}`);
@@ -29,7 +28,6 @@ declare module '@promises/core' {
          * // => 'iteratee 3'
          * // => 'test 3'
          * // => 'completed'
-         * ```
          */
         export function doWhileSeries(test: () => IOptionalPromise<boolean>, iteratee?: () => IOptionalPromise<any>): Promises<void>;
     }

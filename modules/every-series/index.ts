@@ -14,10 +14,10 @@ export interface IEverySeries {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
- *  let comparator = (value) => {
+ *  let comparator = (value: any) => {
  *      return Promise.resolve(Boolean(value));
  *  };
  *
@@ -26,7 +26,6 @@ export interface IEverySeries {
  *  everySeries(array, comparator).then((result: boolean)=>{
  *      console.log(result); // result => true
  *  });
- * ```
  */
 let everySeries: IEverySeries = createChecksBoolean(forEach, (truthy) => {
     return truthy ? true : Promise.reject(false);

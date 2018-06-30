@@ -9,7 +9,6 @@ declare module '@promises/core' {
         /**
          * @example
          *
-         * ```typescript
          *  let fn = (id: string, ms: number) => () => timeout((resolve) => {
          *      console.log(id);
          *      resolve(id);
@@ -28,7 +27,6 @@ declare module '@promises/core' {
          *  // => 'two'
          *  // => 'zero'
          *  // => ['zero', 'one', 'two']
-         * ```
          */
         export function parallel<R>(array: (() => IOptionalPromise<R>)[], limit?: number): Promises<R[]>;
         export function parallel<R extends ArrayLike<any>>(array: (() => IOptionalPromise<R[keyof R & number]>)[], limit?: number): Promises<R>;

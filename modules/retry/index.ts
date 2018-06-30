@@ -28,9 +28,9 @@ export interface IRetryFilterInfo {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let count: number = 0;
  *
  *  let promise: Promise<string> = retry<string>(()=>{
@@ -41,7 +41,6 @@ export interface IRetryFilterInfo {
  *  promises.then((result: string) => {
  *      console.log(result); // => 'foo'
  *  });
- * ```
  */
 function retry<R>(fn: () => IOptionalPromise<R>, options?: IRetryOptions): Promise<R> {
     return new Promise<R>((resolve, reject) => {

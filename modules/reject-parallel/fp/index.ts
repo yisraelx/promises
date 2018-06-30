@@ -17,14 +17,15 @@ export interface IRejectParallel {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let array: any[] = ['yes', null, 0, true];
  *
  *  rejectParallel(Boolean)(1)(array).then((result: any[]) => {
  *      console.log(result); // => [null, 0]
  *  });
- * ```
  */
-export default _curry(rejectParallel, {length: 3}) as IRejectParallel;
+let curriedRejectParallel: IRejectParallel = _curry(rejectParallel);
+
+export default curriedRejectParallel;

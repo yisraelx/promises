@@ -8,16 +8,15 @@ import { IOptionalPromise, IDictionary } from '@promises/interfaces';
 import _keys from '@promises/_keys';
 
 /**
+ * @function
  * @example
  *
- * ```typescript
- *  let object = { foo: 'bar'};
+ *  let object: {[key: string]: string} = { foo: 'bar'};
  *  let promise: Promise<{[key: string]: string}> = Promise.resolve(object);
  *
  *  keys(promises).then(keys: string[]) => {
  *      console.log(keys); // => ['foo']
  *  });
- * ```
  */
 function keys(collection: IOptionalPromise<ArrayLike<any> | IDictionary<any>>): Promise<string[]> {
     return Promise.resolve(collection).then((collection: ArrayLike<any> | IDictionary<any>) => {

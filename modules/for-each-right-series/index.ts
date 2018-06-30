@@ -13,21 +13,25 @@ export interface IForEachRightSeries {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let array: number[] = [3, 7, 1, 5];
  *
  *  console.log('before');
+ *
  *  forEachRightSeries(array, (value: number) => {
  *      console.log(`start: ${ value }`);
+ *
  *      return timeout((resolve) => {
  *          console.log(`end: ${ value }`);
  *          resolve();
  *      }, value);
+ *
  *  }).then(() => {
  *      console.log('complete');
  *  });
+ *
  *  console.log('after');
  *
  *  // => before
@@ -41,7 +45,6 @@ export interface IForEachRightSeries {
  *  // => start 3
  *  // => end 3
  *  // => complete
- * ```
  */
 let forEachRightSeries: IForEachRightSeries = createForEachSeries(true) as IForEachRightSeries;
 

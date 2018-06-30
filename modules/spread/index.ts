@@ -9,14 +9,12 @@ import { IOptionalPromise, IOptionalPromiseArray } from '@promises/interfaces';
 /**
  * @example
  *
- * ```typescript
  *  let promise = Promise.resolve([Promise.resolve('foo'), 'bar']);
  *
  *  spread(promise, (a: string, b: string) => {
  *      console.log(a); // a => 'foo'
  *      console.log(b); // b => 'bar'
  *  });
- * ```
  */
 function spread<T extends ArrayLike<any>>(array: IOptionalPromiseArray<T>, fn: (...args: (T[keyof T & number])[]) => IOptionalPromise<T>): Promise<T>;
 function spread<T extends ArrayLike<any>, R>(array: IOptionalPromiseArray<T>, fn: (...args: (T[keyof T & number])[]) => IOptionalPromise<R>): Promise<R>;

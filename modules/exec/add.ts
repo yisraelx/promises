@@ -9,7 +9,6 @@ declare module '@promises/core' {
         /**
          * @example
          *
-         * ```typescript
          *  let foo = () => {
          *      return 'bar';
          *  };
@@ -17,7 +16,6 @@ declare module '@promises/core' {
          *  Promises.exec(foo).then((result: string) => {
          *      console.log(result); // => 'bar'
          *  });
-         * ```
          */
         export function exec<R>(fn: () => IOptionalPromise<R>): Promises<R>;
     }

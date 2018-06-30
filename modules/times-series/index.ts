@@ -7,9 +7,9 @@
 import { IOptionalPromise } from '@promises/interfaces';
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let times: number = 3;
  *
  *  timesSeries(times, (time: number) => {
@@ -26,7 +26,6 @@ import { IOptionalPromise } from '@promises/interfaces';
  *  // => 1
  *  // => 2
  *  // => [9, 6, 3]
- * ```
  */
 function timesSeries<T extends any[]>(times: IOptionalPromise<number>, fn: (time: number) => IOptionalPromise<T[keyof T & number]>): Promise<T> {
     return Promise.resolve(times).then((times: number) => {

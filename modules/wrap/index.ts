@@ -9,7 +9,6 @@ import { IOptionalPromise } from '@promises/interfaces';
 /**
  * @example
  *
- * ```typescript
  *  function multiply(a: number, b: number){
  *      return a * b;
  *  }
@@ -20,7 +19,6 @@ import { IOptionalPromise } from '@promises/interfaces';
  *  promise.then((result: number) => {
  *      console.log(result); // result => 6
  *  });
- * ```
  */
 function wrap<R>(fn: () => R, context?: any): () => Promise<R>;
 function wrap<P1, R>(fn: (p1: P1) => R, context?: any): (p1: IOptionalPromise<P1>) => Promise<R>;

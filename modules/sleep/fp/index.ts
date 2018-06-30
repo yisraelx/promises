@@ -13,13 +13,15 @@ export interface ISleep {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let promise: Promise<string> = Promise.resolve<string>('foo');
+ *
  *  sleep(3000, promise).then((result: string) => {
  *    console.log(result); // result => 'foo'
  *  });
- * ```
  */
-export default _curry(sleep, {length: 2}) as ISleep;
+let curriedSleep: ISleep = _curry(sleep);
+
+export default curriedSleep;

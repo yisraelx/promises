@@ -4,6 +4,10 @@
  * @license MIT
  */
 
+/**
+ * @function
+ * @private
+ */
 export default function _createChecksBoolean(iterator, check, is) {
     return (collection?, iteratee: any = v => v, limit?) => {
         return iterator(collection, (value, index, collection) => {

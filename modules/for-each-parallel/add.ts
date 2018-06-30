@@ -9,7 +9,6 @@ declare module '@promises/core' {
         /**
          * @example
          *
-         * ```typescript
          *  let array: number[] = [3, 7, 1, 5];
          *  let promises: Promises<number[]> = Promises.resolve<number[]>(array);
          *
@@ -36,7 +35,6 @@ declare module '@promises/core' {
          *  // => end 5
          *  // => end 7
          *  // => complete
-         * ```
          */
         forEachParallel(this: Promises<T & ArrayLike<any>>, iteratee?: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<any>, limit?: number): Promises<T>;
         forEachParallel(this: Promises<T>, iteratee?: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<any>, limit?: number): Promises<T>;

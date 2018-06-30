@@ -9,22 +9,18 @@ declare module '@promises/core' {
         /**
          * @example
          *
-         * ```typescript
          *  let promises = Promises.resolve('foo');
          *
          *  promises.finally(() => {
          *      console.log('done'); // => 'done'
          *  });
-         * ```
          * @example
          *
-         * ```typescript
          *  let promises = Promises.reject('foo');
          *
          *  promises.finally(() => {
          *      console.log('done'); // => 'done'
          *  });
-         * ```
          */
         finally(this: Promises<T>, fn: () => IOptionalPromise<any>): Promises<T>;
     }

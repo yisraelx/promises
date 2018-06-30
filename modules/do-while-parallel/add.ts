@@ -9,7 +9,6 @@ declare module '@promises/core' {
         /**
          * @example
          *
-         * ```typescript
          * let index: number = 0;
          * Promises.whileParallel(() => {
          *  console.log(`test ${index}`);
@@ -32,7 +31,6 @@ declare module '@promises/core' {
          * // => 'iteratee 1'
          * // => 'iteratee 0'
          * // => 'completed'
-         * ```
          */
         export function doWhileParallel(test: () => IOptionalPromise<boolean>, iteratee?: () => IOptionalPromise<any>, limit?: number): Promises<void>;
     }

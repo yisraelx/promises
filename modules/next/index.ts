@@ -7,22 +7,22 @@
 import { IOptionalPromise } from '@promises/interfaces';
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let promise: Promise<string> = Promise.resolve<string>('foo');
+ *
  *  next(promise, 'bar').then((result: string) => {
  *    console.log(result); // => 'bar'
  *  });
- * ```
+ *
  * @example
  *
- * ```typescript
  *  let promise: Promise<string> = Promise.reject<string>('foo');
+ *
  *  next(promise, 'bar').then((result: string) => {
  *    console.log(result); // => 'bar'
  *  });
- * ```
  */
 function next<R>(value: IOptionalPromise<any>, newValue: IOptionalPromise<R>): Promise<R> {
     return Promise.resolve(value).then(() => newValue);

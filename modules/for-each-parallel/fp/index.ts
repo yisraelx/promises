@@ -17,21 +17,25 @@ export interface IForEachParallel {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let array: number[] = [3, 7, 1, 5];
  *
  *  console.log('before');
+ *
  *  forEachParallel((value: number) => {
  *      console.log(`start: ${ value }`);
+ *
  *      return timeout((resolve) => {
  *          console.log(`end: ${ value }`);
  *          resolve();
  *      }, value);
+ *
  *  })(Infinity, array).then(() => {
  *      console.log('complete');
  *  });
+ *
  *  console.log('after');
  *
  *  // => before
@@ -45,6 +49,7 @@ export interface IForEachParallel {
  *  // => end 5
  *  // => end 7
  *  // => complete
- * ```
  */
-export default _curry(forEachParallel, {length: 3}) as IForEachParallel;
+let curriedForEachParallel: IForEachParallel = _curry(forEachParallel);
+
+export default curriedForEachParallel;

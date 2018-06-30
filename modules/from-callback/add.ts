@@ -8,12 +8,10 @@ declare module '@promises/core' {
         /**
          * @example
          *
-         * ```typescript
          *  let readDir = fs.readdir.bind(null, process.cwd());
          *  Promises.fromCallback<string[]>(readDir).then((result: string[]) => {
          *      console.log(result);
          *  });
-         * ```
          */
         export function fromCallback<R>(fn: (callback: (error?: any, ...result: R[keyof R & number][]) => void) => void, multi: true): Promises<R>;
         export function fromCallback<R>(fn: (callback: (error?: any, result?: R) => void) => void, multi?: false): Promises<R>;

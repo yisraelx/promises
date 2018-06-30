@@ -17,10 +17,10 @@ export interface IEveryParallel {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
- *  let comparator = (value) => {
+ *  let comparator = (value: any) => {
  *      return Promise.resolve(Boolean(value))
  *  };
  *
@@ -29,6 +29,7 @@ export interface IEveryParallel {
  *  everyParallel(comparator)(Infinity)(array).then((result: boolean)=>{
  *      console.log(result) // result => false
  *  });
- * ```
  */
-export default _curry(everyParallel, {length: 3}) as IEveryParallel;
+let curriedEveryParallel: IEveryParallel = _curry(everyParallel);
+
+export default curriedEveryParallel;

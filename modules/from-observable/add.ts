@@ -9,7 +9,6 @@ declare module '@promises/core' {
         /**
          * @example
          *
-         * ```typescript
          *  let observable: Observable<string> = new Observable<string>((observer: Subscriber<T>) => {
          *      observer.next('foo');
          *      observer.complete();
@@ -20,7 +19,6 @@ declare module '@promises/core' {
          *  promises.then((result: string) => {
          *      console.log(result); // => 'foo'
          *  });
-         * ```
          */
         export function fromObservable<T>(observe: Observable<T>): Promises<T>;
     }

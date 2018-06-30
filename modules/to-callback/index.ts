@@ -7,16 +7,15 @@
 import { IOptionalPromise } from '@promises/interfaces';
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let promise: Promise<string> = Promise.resolve<string>('foo');
  *
  *  toCallback(promise, (error: any, result: string) => {
  *      console.log(error); // error => null
  *      console.log(result); // result => 'foo'
  *  });
- * ```
  */
 function toCallback<T, R>(value: IOptionalPromise<T>, callback: (error?: any, value?: T) => IOptionalPromise<R>): Promise<R> {
     return Promise

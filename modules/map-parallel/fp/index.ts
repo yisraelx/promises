@@ -23,9 +23,9 @@ export interface IMapParallel {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let mapper = (time: number) => {
  *      return timeout((resolve) => {
  *          resolve(count++);
@@ -38,6 +38,7 @@ export interface IMapParallel {
  *  mapParallel(mapper)(1)(array).then((result: number[]) => {
  *      console.log(result); // result => [0, 1, 2, 3, 4]
  *  });
- * ```
  */
-export default _curry(mapParallel, {length: 3}) as IMapParallel;
+let curriedMapParallel: IMapParallel = _curry(mapParallel);
+
+export default curriedMapParallel;

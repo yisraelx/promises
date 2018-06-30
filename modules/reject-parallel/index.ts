@@ -14,15 +14,14 @@ export interface IRejectParallel {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let array: any[] = ['yes', null, 0, true];
  *
  *  rejectParallel(array).then((result: any[]) => {
  *      console.log(result); // => [null, 0]
  *  });
- * ```
  */
 let rejectParallel: IRejectParallel = createFilter(forEach, false) as IRejectParallel;
 

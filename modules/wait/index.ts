@@ -7,15 +7,15 @@
 import { IOptionalPromise } from '@promises/interfaces';
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let promise: Promise<string> = Promise.resolve<string>('foo');
  *  let count: number = 0;
+ *
  *  wait(promise, () => count++ === 3, 1000).then((result: string) => {
  *    console.log(result); // result => 'foo'
  *  });
- * ```
  */
 function wait<T>(value: IOptionalPromise<T>, test?: (value: T) => IOptionalPromise<boolean>, ms?: number): Promise<T> {
     return Promise.resolve(value).then((value: T) => {

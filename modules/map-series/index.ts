@@ -16,9 +16,9 @@ export interface IMapSeries {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let mapper = (time: number) => {
  *      return timeout((resolve) => {
  *          resolve(index);
@@ -31,7 +31,6 @@ export interface IMapSeries {
  *  mapSeries(array, mapper).then((result: number[]) => {
  *      console.log(result); // result => [0, 1, 2, 3, 4]
  *  });
- * ```
  */
 let mapSeries: IMapSeries = createMap(forEach) as IMapSeries;
 

@@ -9,7 +9,6 @@ declare module '@promises/core' {
         /**
          * @example
          *
-         * ```typescript
          *  let promises: Promises<string> = Promises.timeout<string>((resolve, reject)=>{
          *      resolve('foo')
          *  }, 3000);
@@ -17,7 +16,6 @@ declare module '@promises/core' {
          *  promises.then((result: string)=>{
          *      console.log(result); // result => 'foo'
          *  });
-         * ```
          */
         export function timeout<T>(executor: IExecutor<T>, ms?: number): Promises<T>;
     }

@@ -16,6 +16,10 @@ let hasEnumBug = !({ toString: null }).propertyIsEnumerable('toString'),
     ],
     { hasOwnProperty } = Object.prototype;
 
+/**
+ * @function
+ * @private
+ */
 export default function _keys(object): string[] {
     if (Object(object) !== object) return [];
     if (typeof Object.keys === 'function') return Object.keys(object);

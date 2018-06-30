@@ -9,7 +9,6 @@ declare module '@promises/core' {
         /**
          * @example
          *
-         * ```typescript
          *  let count: number = 0;
          *  let promises: Promises<string> = Promises.retry(()=>{
          *      if(count++ < 2)  throw 'error';
@@ -19,7 +18,6 @@ declare module '@promises/core' {
          *  promises.then((result: string) => {
          *      console.log(result); // => 'foo'
          *  });
-         * ```
          */
         export function retry<R>(fn: () => IOptionalPromise<R>, options?: IRetryOptions): Promises<R>;
     }

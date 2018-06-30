@@ -13,21 +13,23 @@ export interface IError {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let promise: Promise<string> = Promise.reject<string>('foo');
+ *
  *  error('bar')()(promise).catch((error: string) => {
  *    console.log(error); // => 'bar'
  *  });
- * ```
+ *
  * @example
  *
- * ```typescript
  *  let promise: Promise<string> = Promise.resolve<string>('foo');
+ *
  *  error('bar', promise).catch((error: string) => {
  *    console.log(error); // => 'bar'
  *  });
- * ```
  */
-export default _curry(error, {length: 2}) as IError;
+let curriedError: IError = _curry(error);
+
+export default curriedError;

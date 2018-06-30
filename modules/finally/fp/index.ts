@@ -13,21 +13,23 @@ export interface IFinally {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let promise = Promise.resolve('foo');
+ *
  *  finally(() => {
  *      console.log('done'); // => 'done'
  *  }, promise);
- * ```
+ *
  * @example
  *
- * ```typescript
  *  let promise = Promise.reject('foo');
+ *
  *  finally(() => {
  *      console.log('done'); // => 'done'
  *  })(promise);
- * ```
  */
-export default _curry(_finally, {length: 2}) as IFinally;
+let curriedFinally: IFinally = _curry(_finally);
+
+export default curriedFinally;

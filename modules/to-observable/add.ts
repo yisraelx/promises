@@ -9,14 +9,12 @@ declare module '@promises/core' {
         /**
          * @example
          *
-         * ```typescript
          *  let promises: Promises<string> = Promises.resolve('foo');
          *  let observable: Observable<string> = promises.toObservable();
          *
          *  observable.subscribe((result: string) => {
          *      console.log(result); // result => 'foo'
          *  });
-         * ```
          */
         toObservable(promise: Promises<T>): Observable<T>;
     }

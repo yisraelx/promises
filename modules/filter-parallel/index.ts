@@ -14,9 +14,9 @@ export interface IFilterParallel {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let comparator = (value: number) => {
  *      return value % 2 === 0;
  *  };
@@ -26,7 +26,6 @@ export interface IFilterParallel {
  *  filterParallel(array, comparator).then((result: number[])=>{
  *      console.log(result); // result => [0, 2, 4]
  *  });
- * ```
  */
 let filterParallel: IFilterParallel = createFilter(forEach, true) as IFilterParallel;
 

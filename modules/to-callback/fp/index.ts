@@ -13,15 +13,16 @@ export interface IToCallback {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let promise: Promise<string> = Promise.resolve<string>('foo');
  *
  *  toCallback((error: any, result: string) => {
  *      console.log(error); // error => null
  *      console.log(result); // result => 'foo'
  *  })(promise);
- * ```
  */
-export default _curry(toCallback, {length: 2}) as IToCallback;
+let curriedToCallback: IToCallback = _curry(toCallback);
+
+export default curriedToCallback;

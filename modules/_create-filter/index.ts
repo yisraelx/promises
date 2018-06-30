@@ -4,6 +4,10 @@
  * @license MIT
  */
 
+/**
+ * @function
+ * @private
+ */
 export default function _createFilter(iterator, is) {
     return (collection?, iteratee: any = v => v, limit?) => {
         return Promise.resolve(collection).then((collection = []) => {

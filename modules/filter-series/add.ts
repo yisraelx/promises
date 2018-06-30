@@ -9,7 +9,6 @@ declare module '@promises/core' {
         /**
          * @example
          *
-         * ```typescript
          *  let comparator = (value) => {
          *      return value % 2 === 0;
          *  };
@@ -20,7 +19,6 @@ declare module '@promises/core' {
          *  promises.filterSeries(comparator).then((result: number[])=>{
          *      console.log(result); // [0,2]
          *  });
-         * ```
          */
         filterSeries(this: Promises<T & ArrayLike<any>>, iteratee?: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<boolean>): Promises<T>;
         filterSeries(this: Promises<T>, iteratee?: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<boolean>): Promises<T>;

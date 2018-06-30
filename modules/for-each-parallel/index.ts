@@ -8,21 +8,25 @@ import keys from '@promises/_keys';
 import { IOptionalPromise, IOptionalPromiseDictionary } from '@promises/interfaces';
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let array: number[] = [3, 7, 1, 5];
  *
  *  console.log('before');
+ *
  *  forEachParallel(array, (value: number) => {
  *      console.log(`start: ${ value }`);
+ *
  *      return timeout((resolve) => {
  *          console.log(`end: ${ value }`);
  *          resolve();
  *      }, value);
+ *
  *  }).then(() => {
  *      console.log('complete');
  *  });
+ *
  *  console.log('after');
  *
  *  // => before
@@ -36,7 +40,6 @@ import { IOptionalPromise, IOptionalPromiseDictionary } from '@promises/interfac
  *  // => end 5
  *  // => end 7
  *  // => complete
- * ```
  */
 function forEachParallel<T extends ArrayLike<any>>(array: IOptionalPromise<T>, iteratee?: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<any>, limit?: number): Promise<T>;
 function forEachParallel<T>(object: IOptionalPromiseDictionary<T>, iteratee?: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<any>, limit?: number): Promise<T>;

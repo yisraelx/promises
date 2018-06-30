@@ -7,9 +7,9 @@
 import { IExecutor } from '@promises/interfaces';
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let promise: Promise<string> = create<string>((resolve, reject) => {
  *      resolve('foo');
  *  });
@@ -17,7 +17,6 @@ import { IExecutor } from '@promises/interfaces';
  *  promise.then((result: string) => {
  *      console.log(result); // => 'foo'
  *  });
- * ```
  */
 function create<T>(executor: IExecutor<T> = (resolve) => resolve()): Promise<T> {
     return new Promise(executor);

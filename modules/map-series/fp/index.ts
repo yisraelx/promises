@@ -19,9 +19,9 @@ export interface IMapSeries {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let mapper = (time: number) => {
  *      return timeout((resolve) => {
  *          resolve(index);
@@ -34,6 +34,7 @@ export interface IMapSeries {
  *  mapSeries(mapper, array).then((result: number[]) => {
  *      console.log(result); // result => [0, 1, 2, 3, 4]
  *  });
- * ```
  */
-export default _curry(mapSeries, {length: 2}) as IMapSeries;
+let curriedMapSeries: IMapSeries = _curry(mapSeries);
+
+export default curriedMapSeries;

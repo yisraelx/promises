@@ -23,14 +23,15 @@ export interface IReduceSeries {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let array: number[] = [0, 1, 2, 3];
  *
  *  reduceSeries((sum: number, num: number) => Promises.resolve(sum + num), 0, array).then((result: number) => {
  *      console.log(result); // => 6
  *  });
- * ```
  */
-export default _curry(reduceSeries, {length: 3}) as IReduceSeries;
+let curriedReduceSeries: IReduceSeries = _curry(reduceSeries);
+
+export default curriedReduceSeries;

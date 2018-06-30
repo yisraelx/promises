@@ -9,7 +9,6 @@ declare module '@promises/core' {
         /**
          * @example
          *
-         * ```typescript
          *  let comparator = (value) => {
          *      return Promises.resolve(Boolean(value))
          *  };
@@ -20,7 +19,6 @@ declare module '@promises/core' {
          *  promises.everyParallel(comparator).then((result: boolean)=>{
          *      console.log(result) // result => false
          *  });
-         * ```
          */
         everyParallel<T extends ArrayLike<any>>(this: Promises<T & string>, iteratee?: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<boolean>, limit?: number): Promises<boolean>;
         everyParallel<T>(this: Promises<T>, iteratee?: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<boolean>, limit?: number): Promises<boolean>;

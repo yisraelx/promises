@@ -12,19 +12,19 @@ export interface IFromEventOptions {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
- * let emitter: EventEmitter = new EventEmitter()
- * Promise.race([
- *  fromEvent(emitter, 'foo'),
- *  fromEvent(emitter, 'error', {reject: true})
- * ]).catch((error: string) => {
- *  console.log(error); // error => 'some error'
- * });
+ *  let emitter: EventEmitter = new EventEmitter();
  *
- * emitter.emit('error', 'some error');
- * ```
+ *  Promise.race([
+ *   fromEvent(emitter, 'foo'),
+ *   fromEvent(emitter, 'error', {reject: true})
+ *  ]).catch((error: string) => {
+ *   console.log(error); // error => 'some error'
+ *  });
+ *
+ *  emitter.emit('error', 'some error');
  */
 function fromEvent(emitter: IEmitterLike, event: string, options: IFromEventOptions & { reject: true }): Promise<never> ;
 function fromEvent<R>(emitter: IEmitterLike, event: string, options?: IFromEventOptions & { reject?: false }): Promise<R> ;

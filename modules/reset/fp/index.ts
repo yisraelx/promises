@@ -13,21 +13,23 @@ export interface IReset {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let promise: Promise<string> = Promise.resolve<string>('foo');
+ *
  *  reset('bar')(promise).then((result: string) => {
  *    console.log(result); // => 'bar'
  *  });
- * ```
+ *
  * @example
  *
- * ```typescript
  *  let promise: Promise<string> = Promise.reject<string>('foo');
+ *
  *  reset('bar', promise).then((result: string) => {
  *    console.log(result); // => 'bar'
  *  });
- * ```
  */
-export default _curry(reset, {length: 2}) as IReset;
+let curriedReset: IReset = _curry(reset);
+
+export default curriedReset;

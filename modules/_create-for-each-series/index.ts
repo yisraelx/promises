@@ -6,6 +6,10 @@
 
 import keys from '@promises/_keys';
 
+/**
+ * @function
+ * @private
+ */
 export default function _createForEachSeries(rtl?: boolean) {
     return (collection?, iteratee: any = v => v) => {
         return Promise.resolve(collection).then((collection = []) => {

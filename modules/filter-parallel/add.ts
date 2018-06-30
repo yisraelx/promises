@@ -9,7 +9,6 @@ declare module '@promises/core' {
         /**
          * @example
          *
-         * ```typescript
          *  let comparator = (value: number) => {
          *      return value % 2 === 0;
          *  };
@@ -20,7 +19,6 @@ declare module '@promises/core' {
          *  promises.filterParallel(comparator).then((result: number[])=>{
          *      console.log(result); // result => [0, 2, 4]
          *  });
-         * ```
          */
         filterParallel(this: Promises<T & ArrayLike<any>>, iteratee?: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<boolean>, limit?: number): Promises<T>;
         filterParallel(this: Promises<T>, iteratee?: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<boolean>, limit?: number): Promises<T>;

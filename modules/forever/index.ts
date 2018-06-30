@@ -7,17 +7,16 @@
 import { IOptionalPromise } from '@promises/interfaces';
 
 /**
+ * @function
  * @example
  *
- * ```typescript
- * forever((count: number) => new Promise((resolve, reject) => {
- *  setImmediate(() => {
- *   count >= 5 ? reject('foo') : resolve(++count);
+ *  forever((count: number) => new Promise((resolve, reject) => {
+ *   setImmediate(() => {
+ *    count >= 5 ? reject('foo') : resolve(++count);
+ *   });
+ *  }), 0).catch((error: string) => {
+ *   console.log(error); // error => 'reject'
  *  });
- * }), 0).catch((error: string) => {
- *  console.log(error) // error => 'reject'
- * });
- * ```
  */
 function forever<T>(iteratee: (previous?: T) => IOptionalPromise<any>, factor?: T): Promise<never> {
     return new Promise((resolve, reject) => {

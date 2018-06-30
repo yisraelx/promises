@@ -9,7 +9,6 @@ declare module '@promises/core' {
         /**
          * @example
          *
-         * ```typescript
          *  let mapper = (time: number) => {
          *      return Promises.timeout((resolve) => {
          *          resolve(count++);
@@ -23,7 +22,6 @@ declare module '@promises/core' {
          *  promises.mapSeries(mapper).then((result: number[]) => {
          *      console.log(result); // result => [0, 1, 2, 3, 4]
          *  });
-         * ```
          */
         mapSeries(this: Promises<T & ArrayLike<any>>, iteratee?: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<T[keyof T & number]>): Promises<T>;
         mapSeries<R>(this: Promises<T & ArrayLike<any>>, iteratee?: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<R>): Promises<R[]>;

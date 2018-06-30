@@ -4,7 +4,7 @@
  * @license MIT
  */
 import _curry from '@promises/_curry';
-import { IOptionalPromise, IOptionalPromiseDictionary } from '@promises/interfaces';
+import { IOptionalPromise } from '@promises/interfaces';
 import timesParallel from '../';
 
 export interface ITimesParallel {
@@ -14,9 +14,9 @@ export interface ITimesParallel {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let times: number = 3;
  *
  *  timesParallel((time: number) => {
@@ -33,6 +33,7 @@ export interface ITimesParallel {
  *  // => 1
  *  // => 2
  *  // => [9, 6, 3]
- * ```
  */
-export default _curry(timesParallel, {length: 3}) as ITimesParallel;
+let curriedTimesParallel: ITimesParallel = _curry(timesParallel);
+
+export default curriedTimesParallel;

@@ -17,14 +17,15 @@ export interface ISomeParallel {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let array: any[] = [0, null, true, false];
  *
  *  someParallel(void 0, 3, array).then((result: boolean) => {
  *      console.log(result); // result => true
  *  });
- * ```
  */
-export default _curry(someParallel, {length: 3}) as ISomeParallel;
+let curriedSomeParallel: ISomeParallel = _curry(someParallel);
+
+export default curriedSomeParallel;

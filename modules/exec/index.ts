@@ -7,9 +7,9 @@
 import { IOptionalPromise } from '@promises/interfaces';
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let foo = () => {
  *      return 'bar';
  *  };
@@ -17,7 +17,6 @@ import { IOptionalPromise } from '@promises/interfaces';
  *  exec(foo).then((result: string) => {
  *      console.log(result); // => 'bar'
  *  });
- * ```
  */
 function exec<R>(fn: () => IOptionalPromise<R>): Promise<R> {
     return Promise.resolve().then(fn) as Promise<R>;

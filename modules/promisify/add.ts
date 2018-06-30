@@ -9,7 +9,6 @@ declare module '@promises/core' {
         /**
          * @example
          *
-         * ```typescript
          *  function pass<T>(value: T, cb: (error:any, result: T) => void){
          *      cb(null, value);
          *  }
@@ -20,7 +19,6 @@ declare module '@promises/core' {
          *  promises.then((result: string) => {
          *      console.log(result); // result => 'foo';
          *  });
-         * ```
          */
         export function promisify<R>(fn: (cb: (error: any, ...result: R[keyof R & number][]) => void) => void, options: { multi: true, context?: any }): () => Promises<R>;
         export function promisify<P1, R>(fn: (p1: P1, cb: (error: any, ...result: R[keyof R & number][]) => void) => void, options: { multi: true, context?: any }): (p1: IOptionalPromise<P1>) => Promises<R>;

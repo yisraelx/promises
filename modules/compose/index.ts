@@ -8,9 +8,9 @@ import reduce from '@promises/reduce-series';
 import { IOptionalPromise } from '@promises/interfaces';
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let prefix = (str: string) => Promise.resolve(`_${str}`);
  *  let toUpperCase = (str: string) => String.prototype.toUpperCase.call(str);
  *  let method = compose(prefix, toUpperCase);
@@ -18,7 +18,6 @@ import { IOptionalPromise } from '@promises/interfaces';
  *  method('some').then((result: string) => {
  *      console.log(result); // => '_SOME'
  *  });
- * ```
  */
 function compose<T, P1, R>(fn1: (value?: IOptionalPromise<T>) => IOptionalPromise<P1>, fn2: (value: IOptionalPromise<P1>) => IOptionalPromise<R>): (value?: T) => Promise<R>;
 function compose<T, P1, P2, R>(fn1: (value?: IOptionalPromise<T>) => IOptionalPromise<P1>, fn2: (value: IOptionalPromise<P1>) => IOptionalPromise<P2>, fn3: (value: IOptionalPromise<P2>) => IOptionalPromise<R>): (value?: T) => Promise<R>;

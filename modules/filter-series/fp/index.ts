@@ -15,9 +15,9 @@ export interface IFilterSeries {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let comparator = (value: number) => {
  *      return value % 2 === 0;
  *  };
@@ -27,6 +27,7 @@ export interface IFilterSeries {
  *  filterSeries(comparator)(array).then((result: number[])=>{
  *      console.log(result); // result => [0, 2, 4]
  *  });
- * ```
  */
-export default _curry(filterSeries, {length: 2}) as IFilterSeries;
+let curriedFilterSeries: IFilterSeries = _curry(filterSeries);
+
+export default curriedFilterSeries;

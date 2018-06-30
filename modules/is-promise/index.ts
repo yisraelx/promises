@@ -5,13 +5,13 @@
  */
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let promise: Promise<string> = Promise.resolve('foo');
+ *
  *  console.log(isPromise(promises)); // => true
  *  console.log(isPromise('foo')); // => false
- * ```
  */
 function isPromise(x: any): boolean {
     return !!x && typeof x.then === 'function';

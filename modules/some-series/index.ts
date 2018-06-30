@@ -14,15 +14,14 @@ export interface ISomeSeries {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let array: any[] = [0, null, true, false];
  *
  *  someSeries(array).then((result: boolean) => {
  *      console.log(result); // result => true
  *  });
- * ```
  */
 let someSeries: ISomeSeries = createChecksBoolean(forEach, (truthy) => {
     return truthy ? Promise.reject(true) : false;

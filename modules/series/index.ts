@@ -8,9 +8,9 @@ import map from '@promises/map-series';
 import { IOptionalPromise, IDictionary } from '@promises/interfaces';
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let fn = (id: string, ms: number) => () => timeout((resolve) => {
  *      console.log(id);
  *      resolve(id);
@@ -29,7 +29,6 @@ import { IOptionalPromise, IDictionary } from '@promises/interfaces';
  *  // => 'one'
  *  // => 'two'
  *  // => ['zero', 'one', 'two']
- * ```
  */
 function series<R>(array: (() => IOptionalPromise<R>)[]): Promise<R[]>;
 function series<R extends ArrayLike<any>>(array: (() => IOptionalPromise<R[keyof R & number]>)[]): Promise<R>;

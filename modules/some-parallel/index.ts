@@ -14,15 +14,14 @@ export interface ISomeParallel {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let array: any[] = [0, null, true, false];
  *
  *  someParallel(array).then((result: boolean) => {
  *      console.log(result); // result => true
  *  });
- * ```
  */
 let someParallel: ISomeParallel = createChecksBoolean(forEach, (truthy) => {
     return truthy ? Promise.reject(true) : false;

@@ -6,6 +6,10 @@
 
 import keys from '@promises/_keys';
 
+/**
+ * @function
+ * @private
+ */
 export default function _createReduce(rtl?: boolean) {
     return function (collection?, iteratee: any = v => v, accumulator?) {
         let init = arguments.length < 3;

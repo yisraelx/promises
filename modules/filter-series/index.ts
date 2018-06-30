@@ -14,10 +14,10 @@ export interface IFilterSeries {
 }
 
 /**
+ * @function
  * @example
  *
- * ```typescript
- *  let comparator = (value) => {
+ *  let comparator = (value: number) => {
  *      return value % 2 === 0;
  *  };
  *
@@ -26,7 +26,6 @@ export interface IFilterSeries {
  *  filterSeries(array, comparator).then((result: number[])=>{
  *      console.log(result); // [0,2]
  *  });
- * ```
  */
 let filterSeries: IFilterSeries = createFilter(forEach, true) as IFilterSeries;
 

@@ -1,8 +1,6 @@
-
 # Packages:
 - **@promises/-all** - [Git](https://github.com/yisraelx/promises/blob/master/modules/-all) - [Npm](https://npmjs.com/package/@promises/-all) - [CHANGELOG](https://github.com/yisraelx/promises/blob/master/modules/-all/CHANGELOG.md)
 - **@promises/-constructor** - [Git](https://github.com/yisraelx/promises/blob/master/modules/-constructor) - [Npm](https://npmjs.com/package/@promises/-constructor) - [CHANGELOG](https://github.com/yisraelx/promises/blob/master/modules/-constructor/CHANGELOG.md)
-- **@promises/-fp** - [Git](https://github.com/yisraelx/promises/blob/master/modules/-fp) - [Npm](https://npmjs.com/package/@promises/-fp) - [CHANGELOG](https://github.com/yisraelx/promises/blob/master/modules/-fp/CHANGELOG.md)
 - **@promises/-parallel** - [Git](https://github.com/yisraelx/promises/blob/master/modules/-parallel) - [Npm](https://npmjs.com/package/@promises/-parallel) - [CHANGELOG](https://github.com/yisraelx/promises/blob/master/modules/-parallel/CHANGELOG.md)
 - **@promises/-prototype** - [Git](https://github.com/yisraelx/promises/blob/master/modules/-prototype) - [Npm](https://npmjs.com/package/@promises/-prototype) - [CHANGELOG](https://github.com/yisraelx/promises/blob/master/modules/-prototype/CHANGELOG.md)
 - **@promises/-rxjs** - [Git](https://github.com/yisraelx/promises/blob/master/modules/-rxjs) - [Npm](https://npmjs.com/package/@promises/-rxjs) - [CHANGELOG](https://github.com/yisraelx/promises/blob/master/modules/-rxjs/CHANGELOG.md)

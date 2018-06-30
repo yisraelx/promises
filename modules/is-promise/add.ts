@@ -8,11 +8,9 @@ declare module '@promises/core' {
         /**
          * @example
          *
-         * ```typescript
          *  let promises: Promises<string> = Promises.resolve('foo');
          *  console.log(Promises.isPromise(promises)); // => true
          *  console.log(Promises.isPromise('foo')); // => false
-         * ```
          */
         export function isPromise(x: any): boolean;
     }

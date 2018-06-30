@@ -9,14 +9,12 @@ declare module '@promises/core' {
         /**
          * @example
          *
-         * ```typescript
          *  let array: number[] = [0, 1, 2];
          *  let promises: Promises<number[]> = Promises.resolve(array);
          *
          *  promises.keys().then((keys: string[]) => {
          *      console.log(keys); // => ['0', '1', '2']
          *  });
-         * ```
          */
         keys(this: Promises<IDictionary<any> | ArrayLike<any>>): Promises<string[]>;
     }

@@ -9,6 +9,10 @@ export interface ICurryOptions {
     order?: number[];
 }
 
+/**
+ * @function
+ * @private
+ */
 export default function _curry(fn: Function, { length = fn.length, order}: ICurryOptions = {}) {
     order = Array.isArray(order) ? order : [length - 1].concat(Array.apply(null, Array(length - 1)).map((v, i) => i));
 

@@ -7,9 +7,9 @@
 import { IExecutor } from '@promises/interfaces';
 
 /**
+ * @function
  * @example
  *
- * ```typescript
  *  let promise: Promise<string> = timeout<string>((resolve, reject)=>{
  *      resolve('foo')
  *  }, 3000);
@@ -17,7 +17,6 @@ import { IExecutor } from '@promises/interfaces';
  *  promise.then((result: string)=>{
  *      console.log(result); // result => 'foo'
  *  });
- * ```
  */
 function timeout<T>(executor: IExecutor<T>, ms?: number): Promise<T> {
     return new Promise((resolve, reject) => {
