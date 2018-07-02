@@ -37,6 +37,6 @@ declare module '@promises/core' {
          *  // => complete
          */
         forEachSeries(this: Promises<T & ArrayLike<any>>, iteratee?: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<any>): Promises<T>;
-        forEachSeries(this: Promises<T>, iteratee?: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<any>): Promises<T>;
+        forEachSeries(this: Promises<T & object>, iteratee?: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<any>): Promises<T>;
     }
 }

@@ -31,7 +31,7 @@ describe('fromCallback', () => {
     });
 
     it('should be resolve multi args', () => {
-        fromCallback((callback) => {
+        fromCallback<string[]>((callback) => {
             callback(null, 'a', 'b', 'c');
         }, true).then((result: string[]) => {
             expect(result).toEqual(['a', 'b', 'c']);

@@ -4,16 +4,16 @@
  * @license MIT
  */
 import _curry from '@promises/_curry';
-import { IOptionalPromise, IOptionalPromiseDictionary } from '@promises/interfaces';
+import { IOptionalPromise, IOptionalPromiseArray, IOptionalPromiseDictionary } from '@promises/interfaces';
 import someParallel from '../';
 
-export interface ISomeParallel {
-    <T extends ArrayLike<any>>(iteratee: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<boolean>, limit: number, array: IOptionalPromise<T>): Promise<boolean>;
-    <T extends ArrayLike<any>>(iteratee: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<boolean>, limit: number): (array: IOptionalPromise<T>) => Promise<boolean>;
-    <T extends ArrayLike<any>>(iteratee: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<boolean>): (limit: number) => (array: IOptionalPromise<T>) => Promise<boolean>;
-    <T>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<boolean>, limit: number, object: IOptionalPromiseDictionary<T>): Promise<boolean>;
-    <T>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<boolean>, limit: number): (object: IOptionalPromiseDictionary<T>) => Promise<boolean>;
-    <T>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<boolean>): (limit: number) => (object: IOptionalPromiseDictionary<T>) => Promise<boolean>;
+export interface ICurriedSomeParallel {
+    <T extends ArrayLike<any>>(iteratee: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<boolean>, limit: number, array: IOptionalPromiseArray<T>): Promise<boolean>;
+    <T extends ArrayLike<any>>(iteratee: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<boolean>, limit: number): (array: IOptionalPromiseArray<T>) => Promise<boolean>;
+    <T extends ArrayLike<any>>(iteratee: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<boolean>): (limit: number) => (array: IOptionalPromiseArray<T>) => Promise<boolean>;
+    <T extends object>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<boolean>, limit: number, object: IOptionalPromiseDictionary<T>): Promise<boolean>;
+    <T extends object>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<boolean>, limit: number): (object: IOptionalPromiseDictionary<T>) => Promise<boolean>;
+    <T extends object>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<boolean>): (limit: number) => (object: IOptionalPromiseDictionary<T>) => Promise<boolean>;
 }
 
 /**
@@ -26,6 +26,6 @@ export interface ISomeParallel {
  *      console.log(result); // result => true
  *  });
  */
-let curriedSomeParallel: ISomeParallel = _curry(someParallel);
+let curriedSomeParallel: ICurriedSomeParallel = _curry(someParallel);
 
 export default curriedSomeParallel;

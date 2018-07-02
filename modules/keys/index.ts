@@ -18,8 +18,8 @@ import _keys from '@promises/_keys';
  *      console.log(keys); // => ['foo']
  *  });
  */
-function keys(collection: IOptionalPromise<ArrayLike<any> | IDictionary<any>>): Promise<string[]> {
-    return Promise.resolve(collection).then((collection: ArrayLike<any> | IDictionary<any>) => {
+function keys(collection: IOptionalPromise<ArrayLike<any> | object>): Promise<string[]> {
+    return Promise.resolve(collection).then((collection: ArrayLike<any> | object) => {
         let keys: string[] = _keys(collection);
         return Promise.resolve(keys);
     });

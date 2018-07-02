@@ -5,7 +5,7 @@
  */
 
 import keys from '@promises/_keys';
-import { IOptionalPromise, IOptionalPromiseDictionary } from '@promises/interfaces';
+import { IOptionalPromise, IOptionalPromiseArray, IOptionalPromiseDictionary } from '@promises/interfaces';
 
 /**
  * @function
@@ -41,9 +41,9 @@ import { IOptionalPromise, IOptionalPromiseDictionary } from '@promises/interfac
  *  // => end 7
  *  // => complete
  */
-function forEachParallel<T extends ArrayLike<any>>(array: IOptionalPromise<T>, iteratee?: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<any>, limit?: number): Promise<T>;
-function forEachParallel<T>(object: IOptionalPromiseDictionary<T>, iteratee?: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<any>, limit?: number): Promise<T>;
-function forEachParallel(collection, iteratee = (v => v) as any, limit?) {
+function forEachParallel<T extends ArrayLike<any>>(array: IOptionalPromiseArray<T>, iteratee?: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<any>, limit?: number): Promise<T>;
+function forEachParallel<T extends object>(object: IOptionalPromiseDictionary<T>, iteratee?: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<any>, limit?: number): Promise<T>;
+function forEachParallel(collection, iteratee: Function = (v => v), limit?) {
     return Promise.resolve(collection).then((collection = []) => {
         return new Promise((resolve, reject) => {
             let objectKeys = !Array.isArray(collection) && keys(collection);

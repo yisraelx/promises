@@ -9,7 +9,7 @@
  * @private
  */
 export default function _createChecksBoolean(iterator, check, is) {
-    return (collection?, iteratee: any = v => v, limit?) => {
+    return (collection?, iteratee: Function = v => v, limit?) => {
         return iterator(collection, (value, index, collection) => {
             let result = iteratee(value, index, collection);
             return Promise.resolve(result).then(check);

@@ -7,7 +7,7 @@ import _curry from '@promises/_curry';
 import { IOptionalPromise } from '@promises/interfaces';
 import reset from '../';
 
-export interface IReset {
+export interface ICurriedReset {
     <R>(newValue: IOptionalPromise<any>, value: IOptionalPromise<R>): Promise<R>;
     <R>(newValue: IOptionalPromise<any>): (value: IOptionalPromise<R>) => Promise<R>;
 }
@@ -30,6 +30,6 @@ export interface IReset {
  *    console.log(result); // => 'bar'
  *  });
  */
-let curriedReset: IReset = _curry(reset);
+let curriedReset: ICurriedReset = _curry(reset);
 
 export default curriedReset;

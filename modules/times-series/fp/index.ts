@@ -7,7 +7,7 @@ import _curry from '@promises/_curry';
 import { IOptionalPromise } from '@promises/interfaces';
 import timesSeries from '../';
 
-export interface ITimesSeries {
+export interface ICurriedTimesSeries {
     <T extends any[]>(fn: (time: number) => IOptionalPromise<T[keyof T & number]>, times: IOptionalPromise<number>): Promise<T>;
     <T extends any[]>(fn: (time: number) => IOptionalPromise<T[keyof T & number]>): (times: IOptionalPromise<number>) => Promise<T>;
 }
@@ -33,6 +33,6 @@ export interface ITimesSeries {
  *  // => 2
  *  // => [9, 6, 3]
  */
-let curriedTimesSeries: ITimesSeries = _curry(timesSeries);
+let curriedTimesSeries: ICurriedTimesSeries = _curry(timesSeries);
 
 export default curriedTimesSeries;

@@ -4,14 +4,14 @@
  * @license MIT
  */
 import _curry from '@promises/_curry';
-import { IOptionalPromise, IOptionalPromiseDictionary } from '@promises/interfaces';
+import { IOptionalPromise, IOptionalPromiseArray, IOptionalPromiseDictionary } from '@promises/interfaces';
 import rejectSeries from '../';
 
-export interface IRejectSeries {
-    <T extends ArrayLike<any>>(iteratee: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<boolean>, array: IOptionalPromise<T>): Promise<T>;
-    <T extends ArrayLike<any>>(iteratee: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<boolean>): (array: IOptionalPromise<T>) => Promise<T>;
-    <T>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<boolean>, object: IOptionalPromiseDictionary<T>): Promise<T>;
-    <T>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<boolean>): (object: IOptionalPromiseDictionary<T>) => Promise<T>;
+export interface ICurriedRejectSeries {
+    <T extends ArrayLike<any>>(iteratee: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<boolean>, array: IOptionalPromiseArray<T>): Promise<T>;
+    <T extends ArrayLike<any>>(iteratee: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<boolean>): (array: IOptionalPromiseArray<T>) => Promise<T>;
+    <T extends object>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<boolean>, object: IOptionalPromiseDictionary<T>): Promise<T>;
+    <T extends object>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<boolean>): (object: IOptionalPromiseDictionary<T>) => Promise<T>;
 }
 
 /**
@@ -25,6 +25,6 @@ export interface IRejectSeries {
  *      console.log(result); // => [null, 0]
  *  });
  */
-let curriedRejectSeries: IRejectSeries = _curry(rejectSeries);
+let curriedRejectSeries: ICurriedRejectSeries = _curry(rejectSeries);
 
 export default curriedRejectSeries;

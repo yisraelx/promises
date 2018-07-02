@@ -7,7 +7,7 @@ import _curry from '@promises/_curry';
 import { IOptionalPromise } from '@promises/interfaces';
 import toCallback from '../';
 
-export interface IToCallback {
+export interface ICurriedToCallback {
     <T, R>(callback: (error?: any, value?: T) => IOptionalPromise<R>, value: IOptionalPromise<T>): Promise<R>;
     <T, R>(callback: (error?: any, value?: T) => IOptionalPromise<R>): (value: IOptionalPromise<T>) => Promise<R>;
 }
@@ -23,6 +23,6 @@ export interface IToCallback {
  *      console.log(result); // result => 'foo'
  *  })(promise);
  */
-let curriedToCallback: IToCallback = _curry(toCallback);
+let curriedToCallback: ICurriedToCallback = _curry(toCallback);
 
 export default curriedToCallback;

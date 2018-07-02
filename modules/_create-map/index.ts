@@ -9,7 +9,7 @@
  * @private
  */
 export default function _createMap(iterator) {
-    return (collection?, iteratee: any = v => v, limit?) => {
+    return (collection?, iteratee: Function = v => v, limit?) => {
         return Promise.resolve(collection).then((collection = []) => {
             let result = Array.isArray(collection) ? Array(collection.length) : {};
             return iterator(collection, (value, key, collection) => {

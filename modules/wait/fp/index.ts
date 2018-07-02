@@ -7,7 +7,7 @@ import _curry from '@promises/_curry';
 import { IOptionalPromise } from '@promises/interfaces';
 import wait from '../';
 
-export interface IWait {
+export interface ICurriedWait {
     <T>(test: (value: T) => IOptionalPromise<boolean>, ms: number, value: IOptionalPromise<T>): Promise<T>;
     <T>(test: (value: T) => IOptionalPromise<boolean>, ms: number): (value: IOptionalPromise<T>) => Promise<T>;
     <T>(test: (value: T) => IOptionalPromise<boolean>): (ms: number) => (value: IOptionalPromise<T>) => Promise<T>;
@@ -24,6 +24,6 @@ export interface IWait {
  *    console.log(result); // result => 'foo'
  *  })(100)(promise);
  */
-let curriedWait: IWait = _curry(wait);
+let curriedWait: ICurriedWait = _curry(wait);
 
 export default  curriedWait;

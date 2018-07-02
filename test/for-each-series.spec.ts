@@ -4,7 +4,7 @@ import forEachSeries from '@promises/for-each-series';
 describe('forEachSeries', () => {
     it('should be series iterator on array with identity function and return the array', () => {
         let array: number[] = [0, 1, 2];
-        return forEachSeries(array).then((result: number[]) => {
+        return forEachSeries<number[]>(array).then((result: number[]) => {
             expect(array).toBe(result);
         });
     });
@@ -13,7 +13,7 @@ describe('forEachSeries', () => {
         let object: IDictionary<number> = { a: 0, b: 1, c: 2 };
         let objectKeys = Object.keys(object);
         let count: number = 0;
-        return forEachSeries(object, (value, key, object) => {
+        return forEachSeries<IDictionary<number>>(object, (value, key, object) => {
             expect(value).toBe(count);
             expect(key).toBe(objectKeys[count]);
             count++;

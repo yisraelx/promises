@@ -7,7 +7,7 @@ import _curry from '@promises/_curry';
 import { IOptionalPromise } from '@promises/interfaces';
 import error from '../';
 
-export interface IError {
+export interface ICurriedError {
     <R>(newValue: IOptionalPromise<any>, value: IOptionalPromise<R>): Promise<R>;
     <R>(newValue: IOptionalPromise<any>): (value: IOptionalPromise<R>) => Promise<R>;
 }
@@ -30,6 +30,6 @@ export interface IError {
  *    console.log(error); // => 'bar'
  *  });
  */
-let curriedError: IError = _curry(error);
+let curriedError: ICurriedError = _curry(error);
 
 export default curriedError;

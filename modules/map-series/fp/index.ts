@@ -7,15 +7,15 @@ import _curry from '@promises/_curry';
 import { IOptionalPromise, IOptionalPromiseDictionary, IOptionalPromiseArray, IDictionary } from '@promises/interfaces';
 import mapSeries from '../';
 
-export interface IMapSeries {
+export interface ICurriedMapSeries {
     <T extends ArrayLike<any>>(iteratee: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<T[keyof T & number]>, array: IOptionalPromiseArray<T>): Promise<T>;
     <T extends ArrayLike<any>>(iteratee: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<T[keyof T & number]>): (array: IOptionalPromiseArray<T>) => Promise<T>;
     <T extends ArrayLike<any>, R>(iteratee: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<R>, array: IOptionalPromiseArray<T>): Promise<R[]>;
     <T extends ArrayLike<any>, R>(iteratee: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<R>): (array: IOptionalPromiseArray<T>) => Promise<R[]>;
-    <T>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<T[keyof T]>, object: IOptionalPromiseDictionary<T>): Promise<T>;
-    <T>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<T[keyof T]>): (object: IOptionalPromiseDictionary<T>) => Promise<T>;
-    <T, R>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<R>,  object: IOptionalPromiseDictionary<T>): Promise<IDictionary<R>>;
-    <T, R>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<R>): (object: IOptionalPromiseDictionary<T>) => Promise<IDictionary<R>>;
+    <T extends object>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<T[keyof T]>, object: IOptionalPromiseDictionary<T>): Promise<T>;
+    <T extends object>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<T[keyof T]>): (object: IOptionalPromiseDictionary<T>) => Promise<T>;
+    <T extends object, R>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<R>,  object: IOptionalPromiseDictionary<T>): Promise<IDictionary<R>>;
+    <T extends object, R>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<R>): (object: IOptionalPromiseDictionary<T>) => Promise<IDictionary<R>>;
 }
 
 /**
@@ -35,6 +35,6 @@ export interface IMapSeries {
  *      console.log(result); // result => [0, 1, 2, 3, 4]
  *  });
  */
-let curriedMapSeries: IMapSeries = _curry(mapSeries);
+let curriedMapSeries: ICurriedMapSeries = _curry(mapSeries);
 
 export default curriedMapSeries;

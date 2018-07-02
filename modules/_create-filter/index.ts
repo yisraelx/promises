@@ -9,7 +9,7 @@
  * @private
  */
 export default function _createFilter(iterator, is) {
-    return (collection?, iteratee: any = v => v, limit?) => {
+    return (collection?, iteratee: Function = v => v, limit?) => {
         return Promise.resolve(collection).then((collection = []) => {
             let isArray = Array.isArray(collection);
             let result = isArray ? [] : {};

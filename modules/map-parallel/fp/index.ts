@@ -7,19 +7,19 @@ import _curry from '@promises/_curry';
 import { IOptionalPromise, IOptionalPromiseDictionary, IOptionalPromiseArray, IDictionary } from '@promises/interfaces';
 import mapParallel from '../';
 
-export interface IMapParallel {
+export interface ICurriedMapParallel {
     <T extends ArrayLike<any>>(iteratee: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<T[keyof T & number]>, limit: number, array: IOptionalPromiseArray<T>): Promise<T>;
     <T extends ArrayLike<any>>(iteratee: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<T[keyof T & number]>, limit: number): (array: IOptionalPromiseArray<T>) => Promise<T>;
     <T extends ArrayLike<any>>(iteratee: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<T[keyof T & number]>): (limit: number) => (array: IOptionalPromiseArray<T>) => Promise<T>;
     <T extends ArrayLike<any>, R>(iteratee: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<R>, limit: number, array: IOptionalPromiseArray<T>): Promise<R[]>;
     <T extends ArrayLike<any>, R>(iteratee: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<R>, limit: number): (array: IOptionalPromiseArray<T>) => Promise<R[]>;
     <T extends ArrayLike<any>, R>(iteratee: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<R>): (limit: number) => (array: IOptionalPromiseArray<T>) => Promise<R[]>;
-    <T>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<T[keyof T]>, limit: number, object: IOptionalPromiseDictionary<T>): Promise<T>;
-    <T>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<T[keyof T]>, limit: number): (object: IOptionalPromiseDictionary<T>) => Promise<T>;
-    <T>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<T[keyof T]>): (limit: number) => (object: IOptionalPromiseDictionary<T>) => Promise<T>;
-    <T, R>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<R>, limit: number, object: IOptionalPromiseDictionary<T>): Promise<IDictionary<R>>;
-    <T, R>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<R>, limit: number): (object: IOptionalPromiseDictionary<T>) => Promise<IDictionary<R>>;
-    <T, R>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<R>): (limit: number) => (object: IOptionalPromiseDictionary<T>) => Promise<IDictionary<R>>;
+    <T extends object>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<T[keyof T]>, limit: number, object: IOptionalPromiseDictionary<T>): Promise<T>;
+    <T extends object>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<T[keyof T]>, limit: number): (object: IOptionalPromiseDictionary<T>) => Promise<T>;
+    <T extends object>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<T[keyof T]>): (limit: number) => (object: IOptionalPromiseDictionary<T>) => Promise<T>;
+    <T extends object, R>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<R>, limit: number, object: IOptionalPromiseDictionary<T>): Promise<IDictionary<R>>;
+    <T extends object, R>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<R>, limit: number): (object: IOptionalPromiseDictionary<T>) => Promise<IDictionary<R>>;
+    <T extends object, R>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<R>): (limit: number) => (object: IOptionalPromiseDictionary<T>) => Promise<IDictionary<R>>;
 }
 
 /**
@@ -39,6 +39,6 @@ export interface IMapParallel {
  *      console.log(result); // result => [0, 1, 2, 3, 4]
  *  });
  */
-let curriedMapParallel: IMapParallel = _curry(mapParallel);
+let curriedMapParallel: ICurriedMapParallel = _curry(mapParallel);
 
 export default curriedMapParallel;

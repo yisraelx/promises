@@ -7,7 +7,7 @@ import _curry from '@promises/_curry';
 import { IOptionalPromise } from '@promises/interfaces';
 import _finally from '../';
 
-export interface IFinally {
+export interface ICurriedFinally {
     <R>(fn: () => IOptionalPromise<any>, promise: IOptionalPromise<R>): Promise<R>;
     <R>(fn: () => IOptionalPromise<any>): (promise: IOptionalPromise<R>) => Promise<R>;
 }
@@ -30,6 +30,6 @@ export interface IFinally {
  *      console.log('done'); // => 'done'
  *  })(promise);
  */
-let curriedFinally: IFinally = _curry(_finally);
+let curriedFinally: ICurriedFinally = _curry(_finally);
 
 export default curriedFinally;

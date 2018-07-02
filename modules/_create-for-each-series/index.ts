@@ -11,7 +11,7 @@ import keys from '@promises/_keys';
  * @private
  */
 export default function _createForEachSeries(rtl?: boolean) {
-    return (collection?, iteratee: any = v => v) => {
+    return (collection?, iteratee: Function = v => v) => {
         return Promise.resolve(collection).then((collection = []) => {
             let objectKeys = !Array.isArray(collection) && keys(collection);
             let {length} = objectKeys ? objectKeys : collection;

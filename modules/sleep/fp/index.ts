@@ -7,7 +7,7 @@ import _curry from '@promises/_curry';
 import { IOptionalPromise } from '@promises/interfaces';
 import sleep from '../';
 
-export interface ISleep {
+export interface ICurriedSleep {
     <T>(ms: number, value: IOptionalPromise<T>): Promise<T>;
     <T>(ms: number): (value: IOptionalPromise<T>) => Promise<T>;
 }
@@ -22,6 +22,6 @@ export interface ISleep {
  *    console.log(result); // result => 'foo'
  *  });
  */
-let curriedSleep: ISleep = _curry(sleep);
+let curriedSleep: ICurriedSleep = _curry(sleep);
 
 export default curriedSleep;

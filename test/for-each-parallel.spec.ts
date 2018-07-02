@@ -36,7 +36,7 @@ describe('forEachParallel', () => {
 
     it('should be parallel iterator on object with identity function and return the object', () => {
         let object: IDictionary<number> = {a: 1, b: 2, c: 3};
-        return forEachParallel(object).then((result: IDictionary<number>) => {
+        return forEachParallel<IDictionary<number>>(object).then((result: IDictionary<number>) => {
             expect(object).toBe(result);
         });
     });

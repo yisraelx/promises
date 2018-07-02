@@ -4,16 +4,16 @@
  * @license MIT
  */
 import _curry from '@promises/_curry';
-import { IOptionalPromise, IOptionalPromiseDictionary } from '@promises/interfaces';
+import { IOptionalPromise, IOptionalPromiseArray, IOptionalPromiseDictionary } from '@promises/interfaces';
 import forEachParallel from '../';
 
-export interface IForEachParallel {
-    <T extends ArrayLike<any>>(iteratee: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<any>, limit: number, array: IOptionalPromise<T>): Promise<T>;
-    <T extends ArrayLike<any>>(iteratee: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<any>, limit: number): (array: IOptionalPromise<T>) => Promise<T>;
-    <T extends ArrayLike<any>>(iteratee: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<any>): (limit: number) => (array: IOptionalPromise<T>) => Promise<T>;
-    <T>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<any>, limit: number, object: IOptionalPromiseDictionary<T>): Promise<T>;
-    <T>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<any>, limit: number): (object: IOptionalPromiseDictionary<T>) => Promise<T>;
-    <T>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<any>): (limit: number) => (object: IOptionalPromiseDictionary<T>) => Promise<T>;
+export interface ICurriedForEachParallel {
+    <T extends ArrayLike<any>>(iteratee: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<any>, limit: number, array: IOptionalPromiseArray<T>): Promise<T>;
+    <T extends ArrayLike<any>>(iteratee: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<any>, limit: number): (array: IOptionalPromiseArray<T>) => Promise<T>;
+    <T extends ArrayLike<any>>(iteratee: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<any>): (limit: number) => (array: IOptionalPromiseArray<T>) => Promise<T>;
+    <T extends object>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<any>, limit: number, object: IOptionalPromiseDictionary<T>): Promise<T>;
+    <T extends object>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<any>, limit: number): (object: IOptionalPromiseDictionary<T>) => Promise<T>;
+    <T extends object>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<any>): (limit: number) => (object: IOptionalPromiseDictionary<T>) => Promise<T>;
 }
 
 /**
@@ -50,6 +50,6 @@ export interface IForEachParallel {
  *  // => end 7
  *  // => complete
  */
-let curriedForEachParallel: IForEachParallel = _curry(forEachParallel);
+let curriedForEachParallel: ICurriedForEachParallel = _curry(forEachParallel);
 
 export default curriedForEachParallel;

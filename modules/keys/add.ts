@@ -16,6 +16,7 @@ declare module '@promises/core' {
          *      console.log(keys); // => ['0', '1', '2']
          *  });
          */
-        keys(this: Promises<IDictionary<any> | ArrayLike<any>>): Promises<string[]>;
+        keys(this: Promises<T & ArrayLike<any>>): Promises<string[]>;
+        keys(this: Promises<T & object>): Promises<string[]>;
     }
 }

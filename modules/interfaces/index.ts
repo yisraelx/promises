@@ -5,7 +5,7 @@
  */
 
 export type IDictionary<T> = { [key: string]: T };
-export type IOptionalPromise<T> = PromiseLike<T> | T;
-export type IOptionalPromiseArray<T> = IOptionalPromise<IOptionalPromise<ArrayLike<T[keyof T & number]>>>;
-export type IOptionalPromiseDictionary<T> = IOptionalPromise<IOptionalPromise<IDictionary<T[keyof T]>>>;
+export type IOptionalPromise<T> = T | PromiseLike<T>;
+export type IOptionalPromiseArray<T extends ArrayLike<any>> = IOptionalPromise<ArrayLike<IOptionalPromise<T[keyof T & number]>>>;
+export type IOptionalPromiseDictionary<T extends object> = IOptionalPromise<IDictionary<IOptionalPromise<T[keyof T]>>>;
 export type IExecutor<T> = (resolve?: (value?: T) => void, reject?: (reason?: any) => void) => void;

@@ -7,7 +7,7 @@ import _curry from '@promises/_curry';
 import { IOptionalPromise } from '@promises/interfaces';
 import next from '../';
 
-export interface INext {
+export interface ICurriedNext {
     <R>(newValue: IOptionalPromise<any>, value: IOptionalPromise<R>): Promise<R>;
     <R>(newValue: IOptionalPromise<any>): (value: IOptionalPromise<R>) => Promise<R>;
 }
@@ -30,6 +30,6 @@ export interface INext {
  *    console.log(result); // => 'bar'
  *  });
  */
-let curriedNext: INext = _curry(next);
+let curriedNext: ICurriedNext = _curry(next);
 
 export default curriedNext;

@@ -11,7 +11,7 @@ import keys from '@promises/_keys';
  * @private
  */
 export default function _createReduce(rtl?: boolean) {
-    return function (collection?, iteratee: any = v => v, accumulator?) {
+    return function (collection?, iteratee: Function = v => v, accumulator?) {
         let init = arguments.length < 3;
         return Promise.resolve(collection).then((collection = []) => {
             let objectKeys = !Array.isArray(collection) && keys(collection);

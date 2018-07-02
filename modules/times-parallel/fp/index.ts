@@ -7,7 +7,7 @@ import _curry from '@promises/_curry';
 import { IOptionalPromise } from '@promises/interfaces';
 import timesParallel from '../';
 
-export interface ITimesParallel {
+export interface ICurriedTimesParallel {
     <T extends any[]>(fn: (time: number) => IOptionalPromise<T[keyof T & number]>, limit: number, times: IOptionalPromise<number>): Promise<T>;
     <T extends any[]>(fn: (time: number) => IOptionalPromise<T[keyof T & number]>, limit: number): (times: IOptionalPromise<number>) => Promise<T>;
     <T extends any[]>(fn: (time: number) => IOptionalPromise<T[keyof T & number]>): (limit: number) => (times: IOptionalPromise<number>) => Promise<T>;
@@ -34,6 +34,6 @@ export interface ITimesParallel {
  *  // => 2
  *  // => [9, 6, 3]
  */
-let curriedTimesParallel: ITimesParallel = _curry(timesParallel);
+let curriedTimesParallel: ICurriedTimesParallel = _curry(timesParallel);
 
 export default curriedTimesParallel;
