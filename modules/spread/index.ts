@@ -22,7 +22,7 @@ function spread(array, fn) {
     return (Promise as any).resolve(array).then((array) => {
         return Array.isArray(array) ? Promise.all(array) : Object(array);
     }).then((args) => {
-        return fn(...args);
+        return fn.apply(null, args);
     });
 }
 

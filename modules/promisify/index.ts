@@ -48,15 +48,16 @@ function promisify<P1, P2, P3, P4, P5, P6, P7, R>(fn: (p1: P1, p2: P2, p3: P3, p
 function promisify<P1, P2, P3, P4, P5, P6, P7, P8, R>(fn: (p1: P1, p2: P2, p3: P3, p4: P4, p5: P5, p6: P6, p7: P7, p8: P8, cb: (error: any, result: R) => void) => void, options?: { multi?: false, context?: any }): (p1: IOptionalPromise<P1>, p2: IOptionalPromise<P2>, p3: IOptionalPromise<P3>, p4: IOptionalPromise<P4>, p5: IOptionalPromise<P5>, p6: IOptionalPromise<P6>, p7: IOptionalPromise<P7>, p8: IOptionalPromise<P8>) => Promise<R>;
 function promisify<P1, P2, P3, P4, P5, P6, P7, P8, P9, R>(fn: (p1: P1, p2: P2, p3: P3, p4: P4, p5: P5, p6: P6, p7: P7, p8: P8, p9: P9, cb: (error: any, result: R) => void) => void, options?: { multi?: false, context?: any }): (p1: IOptionalPromise<P1>, p2: IOptionalPromise<P2>, p3: IOptionalPromise<P3>, p4: IOptionalPromise<P4>, p5: IOptionalPromise<P5>, p6: IOptionalPromise<P6>, p7: IOptionalPromise<P7>, p8: IOptionalPromise<P8>, p9: IOptionalPromise<P9>) => Promise<R>;
 function promisify<P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, R>(fn: (p1: P1, p2: P2, p3: P3, p4: P4, p5: P5, p6: P6, p7: P7, p8: P8, p9: P9, p10: P10, cb: (error: any, result: R) => void) => void, options?: { multi?: false, context?: any }): (p1: IOptionalPromise<P1>, p2: IOptionalPromise<P2>, p3: IOptionalPromise<P3>, p4: IOptionalPromise<P4>, p5: IOptionalPromise<P5>, p6: IOptionalPromise<P6>, p7: IOptionalPromise<P7>, p8: IOptionalPromise<P8>, p9: IOptionalPromise<P9>, p10: IOptionalPromise<P10>) => Promise<R>;
-function promisify(fn, {multi, context}: IPromisifyOptions = {}) {
+function promisify(fn, { multi, context }: IPromisifyOptions = {}) {
     return function (...args) {
         return Promise.all(args).then((args) => {
             return new Promise((resolve, reject) => {
-                fn.call(context || this, ...args, (error, ...result) => {
+                args.push((error, ...result) => {
                     if (error) return reject(error);
                     if (result && !multi) result = result[0];
                     resolve(result);
                 });
+                fn.apply(context || this, args);
             });
         });
     };

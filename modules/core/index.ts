@@ -22,15 +22,21 @@ try {
 
 export namespace Promises {
     export function _setOnConstructor(key: string, fn: Function, wrap: boolean = true): void {
-        this[key] = this[key] || wrap ? function (...args) {
-            let result = fn(...args);
+        this[key] = this[key] || wrap ? function () {
+            let result = fn.apply(this, arguments);
             return this.resolve(result);
         } : fn;
     }
 
     export function _setOnPrototype(key: string, fn: Function, wrap: boolean = true): void {
-        this.prototype[key] = this.prototype[key] || wrap ? function (...args) {
-            let result = fn(this, ...args);
+        this.prototype[key] = this.prototype[key] || wrap ? function () {
+            let {length} = arguments;
+            let args = Array(length + 1);
+            args[0] = this;
+            for (let i = 1; i <= length; i++) {
+                args[i] = arguments[i - 1];
+            }
+            let result = fn.apply(this, args);
             return this.constructor.resolve(result);
         } : fn;
     }
@@ -42,6 +48,7 @@ export namespace Promises {
  */
 export interface Promises<T> {
     then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): Promises<TResult1 | TResult2>;
+
     catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): Promises<T | TResult>;
 }
 
