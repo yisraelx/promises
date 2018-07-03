@@ -33,7 +33,7 @@
     "@promises/core": "^0.3.1"
   },
   "dependencies": {
-    "@promises/_keys": "^0.3.0",
+    "@pakal/keys": "^0.1.0",
     "@promises/interfaces": "^0.3.1"
   }
 }

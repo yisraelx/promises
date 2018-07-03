@@ -162,6 +162,56 @@
     mkdirp "^0.5.1"
     rimraf "^2.5.2"
 
+"@pakal/-all@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@pakal/-all/-/-all-0.1.0.tgz#c82af396738e4a8ed4c1092a8ca749e46e385f64"
+  dependencies:
+    "@pakal/arity" "^0.1.0"
+    "@pakal/assertify" "^0.1.0"
+    "@pakal/assign" "^0.1.0"
+    "@pakal/curry" "^0.1.0"
+    "@pakal/for-each" "^0.1.0"
+    "@pakal/keys" "^0.1.0"
+    "@pakal/reduce" "^0.1.0"
+
+"@pakal/arity@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@pakal/arity/-/arity-0.1.0.tgz#388519a61fb4755373a300df5a34763e33bcfdc7"
+
+"@pakal/assertify@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@pakal/assertify/-/assertify-0.1.0.tgz#f85787303fa57addfd6111ba4f483297aededcbf"
+  dependencies:
+    "@pakal/arity" "^0.1.0"
+
+"@pakal/assign@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@pakal/assign/-/assign-0.1.0.tgz#1157bb94289c9a7816897989470d80e8f0c35405"
+  dependencies:
+    "@pakal/for-each" "^0.1.0"
+
+"@pakal/curry@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@pakal/curry/-/curry-0.1.0.tgz#dde8453be3c6f675f8d099a53d0d870d2317f197"
+  dependencies:
+    "@pakal/arity" "^0.1.0"
+
+"@pakal/for-each@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@pakal/for-each/-/for-each-0.1.0.tgz#dd044f8f321c3b51c20085a788876ee3c7148e49"
+  dependencies:
+    "@pakal/keys" "^0.1.0"
+
+"@pakal/keys@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@pakal/keys/-/keys-0.1.0.tgz#4277cd232036b963f8d50e9ad674f15a3d73dee2"
+
+"@pakal/reduce@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@pakal/reduce/-/reduce-0.1.0.tgz#07f1b8ae363a0b96e1093e89d419b3ddaaebe044"
+  dependencies:
+    "@pakal/for-each" "^0.1.0"
+
 "@types/bluebird@*":
   version "3.5.20"
   resolved "https://registry.yarnpkg.com/@types/bluebird/-/bluebird-3.5.20.tgz#f6363172add6f4eabb8cada53ca9af2781e8d6a1"

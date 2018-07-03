@@ -68,6 +68,7 @@
         "@commitlint/cli": "^7.0.0",
         "@commitlint/config-conventional": "^7.0.1",
         "@commitlint/prompt": "^7.0.0",
+        "@pakal/-all": "^0.1.0",
         "@types/handlebars": "^4.0.38",
         "@types/jasmine": "^2.8.6",
         "@types/karma": "^1.7.3",

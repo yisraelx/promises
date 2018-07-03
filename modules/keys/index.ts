@@ -4,8 +4,8 @@
  * @license MIT
  */
 
-import { IOptionalPromise, IDictionary } from '@promises/interfaces';
-import _keys from '@promises/_keys';
+import { IOptionalPromise } from '@promises/interfaces';
+import _keys from '@pakal/keys';
 
 /**
  * @function

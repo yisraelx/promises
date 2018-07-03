@@ -8,9 +8,16 @@ describe('keys', () => {
         });
     });
 
-    it('should be return promise with the array keys', () => {
+    it('should be return promise with the array indexes', () => {
         let array: number[] = [0, 1, 2];
         return keys(array).then((keys: string[]) => {
+            expect(keys).toEqual(['0', '1', '2']);
+        });
+    });
+
+    it('should be return promise with the string indexes', () => {
+        let word: string = 'foo';
+        return keys(word).then((keys: string[]) => {
             expect(keys).toEqual(['0', '1', '2']);
         });
     });

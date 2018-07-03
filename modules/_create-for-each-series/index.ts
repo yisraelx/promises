@@ -4,7 +4,7 @@
  * @license MIT
  */
 
-import keys from '@promises/_keys';
+import keys from '@pakal/keys';
 
 /**
  * @function
