@@ -26,4 +26,5 @@ export interface ICurriedSomeSeries {
  */
 let curriedSomeSeries: ICurriedSomeSeries = _curry(someSeries);
 
+export { __ } from '@promises/_curry';
 export default curriedSomeSeries;

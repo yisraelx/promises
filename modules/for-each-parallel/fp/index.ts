@@ -52,4 +52,5 @@ export interface ICurriedForEachParallel {
  */
 let curriedForEachParallel: ICurriedForEachParallel = _curry(forEachParallel);
 
+export { __ } from '@promises/_curry';
 export default curriedForEachParallel;

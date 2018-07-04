@@ -27,4 +27,5 @@ export interface ICurriedRejectSeries {
  */
 let curriedRejectSeries: ICurriedRejectSeries = _curry(rejectSeries);
 
+export { __ } from '@promises/_curry';
 export default curriedRejectSeries;

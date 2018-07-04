@@ -30,4 +30,5 @@ export interface ICurriedFilterSeries {
  */
 let curriedFilterSeries: ICurriedFilterSeries = _curry(filterSeries);
 
+export { __ } from '@promises/_curry';
 export default curriedFilterSeries;

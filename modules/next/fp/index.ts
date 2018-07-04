@@ -32,4 +32,5 @@ export interface ICurriedNext {
  */
 let curriedNext: ICurriedNext = _curry(next);
 
+export { __ } from '@promises/_curry';
 export default curriedNext;

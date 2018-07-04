@@ -4,6 +4,7 @@
  * @license MIT
  */
 
+export { __ } from '@promises/_curry';
 export { default as everySeries } from '@promises/every-series/fp';
 export { default as filterSeries } from '@promises/filter-series/fp';
 export { default as forEachSeries } from '@promises/for-each-series/fp';

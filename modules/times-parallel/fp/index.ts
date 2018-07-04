@@ -36,4 +36,5 @@ export interface ICurriedTimesParallel {
  */
 let curriedTimesParallel: ICurriedTimesParallel = _curry(timesParallel);
 
+export { __ } from '@promises/_curry';
 export default curriedTimesParallel;

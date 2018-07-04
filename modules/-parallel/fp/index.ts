@@ -4,6 +4,7 @@
  * @license MIT
  */
 
+export { __ } from '@promises/_curry';
 export { default as everyParallel } from '@promises/every-parallel/fp';
 export { default as filterParallel } from '@promises/filter-parallel/fp';
 export { default as forEachParallel } from '@promises/for-each-parallel/fp';

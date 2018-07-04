@@ -32,4 +32,5 @@ export interface ICurriedFilterParallel {
  */
 let curriedFilterParallel: ICurriedFilterParallel = _curry(filterParallel);
 
+export { __ } from '@promises/_curry';
 export default curriedFilterParallel;

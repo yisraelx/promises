@@ -24,4 +24,5 @@ export interface ICurriedSleep {
  */
 let curriedSleep: ICurriedSleep = _curry(sleep);
 
+export { __ } from '@promises/_curry';
 export default curriedSleep;

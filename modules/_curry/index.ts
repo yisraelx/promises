@@ -4,33 +4,27 @@
  * @license MIT
  */
 
-export interface ICurryOptions {
-    length?: number;
-    order?: number[];
-}
+import curry from '@pakal/curry';
 
 /**
  * @function
  * @private
  */
-export default function _curry(fn: Function, { length = fn.length, order}: ICurryOptions = {}) {
-    order = Array.isArray(order) ? order : [length - 1].concat(Array.apply(null, Array(length - 1)).map((v, i) => i));
+function _curry(fn: Function, length: number = fn.length) {
+    return curry((function () {
+        let {length} = arguments;
+        let args = Array(length);
 
-    let next = (allArgs: any[]) => {
-        if (allArgs.length >= length) {
-            let execArgs = Array(length);
+        if (length) {
+            args[0] = arguments[--length];
             for (let i = 0; i < length; i++) {
-                let index = order[i];
-                let value = allArgs[index];
-                execArgs[i] = value;
+                args[i + 1] = arguments[i];
             }
-            return fn.apply(null, execArgs);
         }
-        return (...currentArgs: any[]) => {
-            allArgs = allArgs.concat(currentArgs);
-            return next(allArgs);
-        };
-    };
 
-    return next([]);
+        return fn.apply(this, args);
+    }), length) as any;
 }
+
+export { __ } from '@pakal/curry';
+export default _curry;

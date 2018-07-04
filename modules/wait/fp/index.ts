@@ -26,4 +26,5 @@ export interface ICurriedWait {
  */
 let curriedWait: ICurriedWait = _curry(wait);
 
-export default  curriedWait;
+export { __ } from '@promises/_curry';
+export default curriedWait;

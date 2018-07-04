@@ -41,4 +41,5 @@ export interface ICurriedMapParallel {
  */
 let curriedMapParallel: ICurriedMapParallel = _curry(mapParallel);
 
+export { __ } from '@promises/_curry';
 export default curriedMapParallel;

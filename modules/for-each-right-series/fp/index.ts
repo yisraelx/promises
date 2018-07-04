@@ -50,4 +50,5 @@ export interface ICurriedForEachRightSeries {
  */
 let curriedForEachRightSeries: ICurriedForEachRightSeries = _curry(forEachRightSeries);
 
+export { __ } from '@promises/_curry';
 export default curriedForEachRightSeries;

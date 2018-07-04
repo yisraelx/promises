@@ -25,4 +25,5 @@ export interface ICurriedToCallback {
  */
 let curriedToCallback: ICurriedToCallback = _curry(toCallback);
 
+export { __ } from '@promises/_curry';
 export default curriedToCallback;

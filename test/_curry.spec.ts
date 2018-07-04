@@ -23,26 +23,14 @@ describe('_curry', () => {
         fn(b)()(void 0)(d)()(a);
     });
 
-    it(`should be collect 2 args by n and order by array`, () => {
+    it(`should be collect 2 args by length`, () => {
         let a = 1;
         let b = 3;
         let fn = _curry(function (...args) {
             expect(args).toEqual([a, b]);
-        }, {length: 2, order: [1, 0]});
+        }, 2);
 
         fn(b)(a);
-    });
-
-    it(`should be collect 4 args by n and order by array`, () => {
-        let a = 1;
-        let b = 2;
-        let c = 3;
-        let d = 4;
-        let fn = _curry(function (...args) {
-            expect(args).toEqual([a, b, c, d]);
-        }, {length: 4, order: [3, 0, 1, 2]});
-
-        fn(b)(c, d)(a);
     });
 
 });

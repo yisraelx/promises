@@ -30,6 +30,7 @@
     "url": "https://github.com/yisraelx/promises/issues"
   },
   "dependencies": {
+    "@promises/_curry": "^0.4.0",
     "@promises/core": "^0.3.1",
     "@promises/do-while-parallel": "^0.4.0",
     "@promises/every-parallel": "^0.4.0",

@@ -28,4 +28,5 @@ export interface ICurriedRejectParallel {
  */
 let curriedRejectParallel: ICurriedRejectParallel = _curry(rejectParallel);
 
+export { __ } from '@promises/_curry';
 export default curriedRejectParallel;

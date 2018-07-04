@@ -9,8 +9,11 @@ import forEachSeries from '../';
 
 export interface ICurriedForEachSeries {
     <T extends ArrayLike<any>>(iteratee: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<any>, array: IOptionalPromiseArray<T>): Promise<T>;
+
     <T extends ArrayLike<any>>(iteratee: (value: T[keyof T & number], index: number, array: T) => IOptionalPromise<any>): (array: IOptionalPromiseArray<T>) => Promise<T>;
+
     <T extends object>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<any>, object: IOptionalPromiseDictionary<T>): Promise<T>;
+
     <T extends object>(iteratee: (value: T[keyof T], key: keyof T, object: T) => IOptionalPromise<any>): (object: IOptionalPromiseDictionary<T>) => Promise<T>;
 }
 
@@ -50,4 +53,5 @@ export interface ICurriedForEachSeries {
  */
 let curriedForEachSeries: ICurriedForEachSeries = _curry(forEachSeries);
 
+export { __ } from '@promises/_curry';
 export default curriedForEachSeries;

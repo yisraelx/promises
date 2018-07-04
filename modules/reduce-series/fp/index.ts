@@ -34,4 +34,5 @@ export interface ICurriedReduceSeries {
  */
 let curriedReduceSeries: ICurriedReduceSeries = _curry(reduceSeries);
 
+export { __ } from '@promises/_curry';
 export default curriedReduceSeries;

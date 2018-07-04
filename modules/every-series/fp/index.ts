@@ -30,4 +30,5 @@ export interface ICurriedEverySeries {
  */
 let curriedEverySeries: ICurriedEverySeries = _curry(everySeries);
 
+export { __ } from '@promises/_curry';
 export default curriedEverySeries;

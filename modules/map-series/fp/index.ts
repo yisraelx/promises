@@ -37,4 +37,5 @@ export interface ICurriedMapSeries {
  */
 let curriedMapSeries: ICurriedMapSeries = _curry(mapSeries);
 
+export { __ } from '@promises/_curry';
 export default curriedMapSeries;

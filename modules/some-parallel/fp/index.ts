@@ -28,4 +28,5 @@ export interface ICurriedSomeParallel {
  */
 let curriedSomeParallel: ICurriedSomeParallel = _curry(someParallel);
 
+export { __ } from '@promises/_curry';
 export default curriedSomeParallel;

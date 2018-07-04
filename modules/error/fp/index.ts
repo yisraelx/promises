@@ -8,8 +8,8 @@ import { IOptionalPromise } from '@promises/interfaces';
 import error from '../';
 
 export interface ICurriedError {
-    <R>(newValue: IOptionalPromise<any>, value: IOptionalPromise<R>): Promise<R>;
-    <R>(newValue: IOptionalPromise<any>): (value: IOptionalPromise<R>) => Promise<R>;
+    (newValue: any, value: IOptionalPromise<any>): Promise<never>;
+    (newValue: any): (value: IOptionalPromise<any>) => Promise<never>;
 }
 
 /**
@@ -32,4 +32,5 @@ export interface ICurriedError {
  */
 let curriedError: ICurriedError = _curry(error);
 
+export { __ } from '@promises/_curry';
 export default curriedError;

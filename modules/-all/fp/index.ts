@@ -4,6 +4,7 @@
  * @license MIT
  */
 
+export { __ } from '@promises/_curry';
 export {default as error} from '@promises/error/fp';
 export {default as everyParallel} from '@promises/every-parallel/fp';
 export {default as everySeries} from '@promises/every-series/fp';

@@ -32,4 +32,5 @@ export interface ICurriedReset {
  */
 let curriedReset: ICurriedReset = _curry(reset);
 
+export { __ } from '@promises/_curry';
 export default curriedReset;

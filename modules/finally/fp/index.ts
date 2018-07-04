@@ -32,4 +32,5 @@ export interface ICurriedFinally {
  */
 let curriedFinally: ICurriedFinally = _curry(_finally);
 
+export { __ } from '@promises/_curry';
 export default curriedFinally;
