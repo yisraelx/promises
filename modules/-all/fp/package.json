@@ -1,9 +1,7 @@
 {
   "name": "@promises/-all/fp",
-  "main": "es5.js",
-  "browser": "umd.min.js",
-  "module": "index.js",
-  "es2015": "index.js",
-  "typings": "index.d.ts",
-  "bundle": "bundle.min.js"
+  "main": "index.js",
+  "browser": "bundle.umd.js",
+  "es2015": "index.es6.js",
+  "typings": "index.d.ts"
 }
