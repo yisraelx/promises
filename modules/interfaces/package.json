@@ -2,9 +2,7 @@
   "name": "@promises/interfaces",
   "version": "0.3.0",
   "description": "Interfaces is package from Promises library",
-  "main": "index.js",
-  "browser": "bundle.umd.js",
-  "es2015": "index.es6.js",
+  "main": "",
   "typings": "index.d.ts",
   "author": {
     "name": "Yisrael Eliev",
@@ -15,8 +13,11 @@
   "keywords": [
     "promise",
     "promises",
+    "utilities",
     "utility",
+    "utils",
     "modules",
+    "modular",
     "async",
     "await",
     "deferred"

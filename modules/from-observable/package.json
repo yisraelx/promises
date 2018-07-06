@@ -15,8 +15,11 @@
   "keywords": [
     "promise",
     "promises",
+    "utilities",
     "utility",
+    "utils",
     "modules",
+    "modular",
     "async",
     "await",
     "deferred"
@@ -30,7 +33,7 @@
     "url": "https://github.com/yisraelx/promises/issues"
   },
   "peerDependencies": {
-    "rxjs": "^5.5.7"
+    "rxjs": "^6.2.1"
   },
   "optionalDependencies": {
     "@promises/core": "^0.3.1"
