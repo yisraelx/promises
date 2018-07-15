@@ -29,8 +29,8 @@ let data = {
         examples: getExamples('./fp/index.ts')
     },
     add: {
-        has: existsSync('./add.ts'),
-        examples: getExamples('./add.ts')
+        has: existsSync('./add/index.ts'),
+        examples: getExamples('./add/index.ts')
     }
 };
 
@@ -67,7 +67,7 @@ ${examples.join('\n')}
 
 Handlebars.registerPartial('header', `
 # {{ package.fullName }}
-[![Source Code](https://img.shields.io/badge/%3C%2F%3E-source_code-blue.svg)]({{repo.url}}/blob/master/packages/{{package.subName}})
+[![Source Code](https://img.shields.io/badge/%3C%2F%3E-source_code-blue.svg)]({{repo.url}}/blob/master/modules/{{package.subName}})
 [![Version](https://img.shields.io/npm/v/{{package.fullName}}.svg)](https://www.npmjs.com/package/{{package.fullName}})
 [![MIT License](https://img.shields.io/npm/l/{{package.fullName}}.svg)]({{repo.url}}/blob/master/LICENSE)
 [![Bundle Size](https://img.shields.io/bundlephobia/min/{{package.fullName}}.svg)](https://bundlephobia.com/result?p={{package.fullName}})
@@ -135,16 +135,21 @@ let {
 
 **Module**
 \`\`\`sh
-$ npm install --save {{package.fullName}}{{#unless isGroup}} @promises/core{{/unless }}
+$ npm install --save {{package.fullName}}
 \`\`\`
 \`\`\`typescript
 import Promises from '@promises/core';
 import '{{package.fullName}}/add';
 \`\`\`
+*Or*
+\`\`\`typescript
+import Promises from '{{package.fullName}}/add';
+\`\`\`
 
 **Browser**
 \`\`\`html
-<script src="https://unpkg.com/@promises/-all/bundle.umd.min.js"></script>
+<script src="https://unpkg.com/@promises/core/bundle.umd.min.js"></script>
+<script src="https://unpkg.com/{{package.fullName}}/add/bundle.umd.min.js"></script>
 \`\`\`
 \`\`\`typescript
 let {

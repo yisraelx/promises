@@ -15,6 +15,3 @@ export { default as rejectParallel } from '@promises/reject-parallel';
 export { default as someParallel } from '@promises/some-parallel';
 export { default as timesParallel } from '@promises/times-parallel';
 export { default as whileParallel } from '@promises/while-parallel';
-
-import './add';
-export { default as Promises } from '@promises/core';

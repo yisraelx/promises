@@ -1,0 +1,9 @@
+{
+  "name": "@promises/timer/add",
+  "main": "index.js",
+  "module": "index.esm.js",
+  "browser": "bundle.umd.js",
+  "es2015": "index.es6.js",
+  "typings": "index.d.ts",
+  "sideEffects": true
+}

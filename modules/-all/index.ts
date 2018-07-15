@@ -50,6 +50,3 @@ export { default as wait } from '@promises/wait';
 export { default as whileParallel } from '@promises/while-parallel';
 export { default as whileSeries } from '@promises/while-series';
 export { default as wrap } from '@promises/wrap';
-
-import './add';
-export { default as Promises } from '@promises/core';

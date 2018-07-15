@@ -18,6 +18,3 @@ export { default as series } from '@promises/series';
 export { default as someSeries } from '@promises/some-series';
 export { default as timesSeries } from '@promises/times-series';
 export { default as whileSeries } from '@promises/while-series';
-
-import './add';
-export { default as Promises } from '@promises/core';

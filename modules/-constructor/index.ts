@@ -25,6 +25,3 @@ export {default as timesSeries} from '@promises/times-series';
 export {default as whileParallel} from '@promises/while-parallel';
 export {default as whileSeries} from '@promises/while-series';
 export {default as wrap} from '@promises/wrap';
-
-import './add';
-export { default as Promises } from '@promises/core';

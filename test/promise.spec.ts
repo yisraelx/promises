@@ -1,4 +1,4 @@
-import { Promises } from '@promises/-all';
+import Promises from '@promises/-all/add';
 
 describe('Promises', () => {
 

@@ -3,9 +3,11 @@
   "version": "0.4.0",
   "description": "Prototype is a group of packages of Promises library",
   "main": "index.js",
+  "module": "index.esm.js",
   "browser": "bundle.umd.js",
   "es2015": "index.es6.js",
   "typings": "index.d.ts",
+  "sideEffects": false,
   "author": {
     "name": "Yisrael Eliev",
     "url": "https://github.com/yisraelx",

@@ -104,12 +104,12 @@ Promise
 
 *it will add all the modules in the group to Promises*
 ```typescript
-import { Promises } from '@promises/-all';
+import Promises from '@promises/core';
+import '@promises/-all/add';
 ```
 *Or*
 ```typescript
-import Promises from '@promises/core';
-import '@promises/-all/add';
+import Promises from '@promises/-all/add';
 ```
 *Or add all modules in specific groups*
 ```typescript
@@ -124,16 +124,19 @@ import '@promises/filter-parallel/add';
 import '@promises/map-parallel/add';
 import '@promises/sleep/add';
 ```
+*Note: for bundles add only the modules needed, because Tree-shaking can not remove the unnecessary modules*
+
 **Browser**
 ```html
-<script src="https://unpkg.com/@promises/-all/bundle.umd.min.js"><script>
+<script src="https://unpkg.com/@promises/core/bundle.umd.min.js"><script>
+<script src="https://unpkg.com/@promises/-all/add/bundle.umd.min.js"><script>
 ```
 ```typescript
 let { Promises } = P;
 ```
 **Example**
 ```typescript
-import { Promises } from '@promises/-all';
+import Promises from '@promises/-all/add';
 let array: number[] = [1, 2, 3];
 let promises: Promises<number[]> = Promises.resolve(array);
 let filter: Promises<number[]> = promises.filterParallel((value: number) => value % 2 !== 0);
@@ -227,8 +230,9 @@ run(forEachWrap);
 These modules are written in typescript and available in ES5 and ES6 standard, the requirements are a global __Promise__ (native or polyfill).
 
 * main - commonjs module and es5 standard (index.js)
-* es2015 - commonjs module and es2015 standard (index.es6.js)
+* module - es2015 module and es5 standard (index.esm.js)
 * browser - bundle in umd format includes all scope dependencies in es5 standard (bundle.umd.js, bundle.umd.min.js)
+* es2015 - commonjs module and es2015 standard (index.es6.js)
 * typings - typescript declaration file (index.d.ts)
 
 ## License

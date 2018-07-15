@@ -31,5 +31,3 @@ export { default as timer } from '@promises/timer';
 export { default as toCallback } from '@promises/to-callback';
 export { default as wait } from '@promises/wait';
 
-import './add';
-export { default as Promises } from '@promises/core';
