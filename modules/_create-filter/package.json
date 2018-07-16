@@ -1,6 +1,6 @@
 {
   "name": "@promises/_create-filter",
-  "version": "0.3.0",
+  "version": "0.5.0",
   "description": "Create Filter is a internal package from Promises library",
   "main": "index.js",
   "module": "index.esm.js",

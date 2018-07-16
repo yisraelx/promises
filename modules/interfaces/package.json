@@ -1,6 +1,6 @@
 {
   "name": "@promises/interfaces",
-  "version": "0.3.1",
+  "version": "0.5.0",
   "description": "Interfaces is package from Promises library",
   "main": "",
   "typings": "index.d.ts",

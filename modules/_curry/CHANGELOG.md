@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.5.0"></a>
+# [0.5.0](https://github.com/yisraelx/promises/compare/v0.4.0...v0.5.0) (2018-07-16)
+
+
+### build
+
+* move from webpack to rollup, compatibility changes ([47594dc](https://github.com/yisraelx/promises/commit/47594dc))
+
+
+### Features
+
+* **fp:** move to conversion by [@pakal](https://github.com/pakal)/curry, add placeholder support ([ff18d23](https://github.com/yisraelx/promises/commit/ff18d23))
+* add Tree-Shaking & esm support and convert "add" to sub-package ([0aa2297](https://github.com/yisraelx/promises/commit/0aa2297))
+
+
+### BREAKING CHANGES
+
+* change in wrapper use, for use in wrapper:
+```typescript
+import Promises from '@promises/-all/add';
+```
+*Or*
+```typescript
+import Promises from '@promises/core';
+import '@promises/-all/add';
+```
+* new compatibility support:
+* main - commonjs module and es5 standard (index.js)
+* es2015 - commonjs module and es2015 standard (index.es6.js)
+* browser - bundle in umd format includes all scope dependencies in es5 standard (bundle.umd.js, bundle.umd.min.js)
+* typings - typescript declaration file (index.d.ts)
+
+
+
+
 <a name="0.4.0"></a>
 # [0.4.0](https://github.com/yisraelx/promises/compare/v0.3.1...v0.4.0) (2018-03-17)
 

@@ -1,6 +1,6 @@
 {
   "name": "@promises/from-callback",
-  "version": "0.3.1",
+  "version": "0.5.0",
   "description": "From Callback is package from Promises library",
   "main": "index.js",
   "module": "index.esm.js",
@@ -35,6 +35,6 @@
     "url": "https://github.com/yisraelx/promises/issues"
   },
   "dependencies": {
-    "@promises/core": "^0.3.1"
+    "@promises/core": "^0.5.0"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@promises/from-observable",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "From Observable is package from Promises library",
   "main": "index.js",
   "module": "index.esm.js",
@@ -38,6 +38,6 @@
     "rxjs": "^6.2.2"
   },
   "dependencies": {
-    "@promises/core": "^0.3.1"
+    "@promises/core": "^0.5.0"
   }
 }
