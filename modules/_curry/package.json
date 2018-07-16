@@ -35,6 +35,6 @@
     "url": "https://github.com/yisraelx/promises/issues"
   },
   "dependencies": {
-    "@pakal/curry": "^0.1.0"
+    "@pakal/curry": "^0.1.1"
   }
 }

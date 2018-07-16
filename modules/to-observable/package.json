@@ -35,7 +35,7 @@
     "url": "https://github.com/yisraelx/promises/issues"
   },
   "peerDependencies": {
-    "rxjs": "^6.2.1"
+    "rxjs": "^6.2.2"
   },
   "dependencies": {
     "@promises/core": "^0.3.1"

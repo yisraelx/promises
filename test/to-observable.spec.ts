@@ -1,5 +1,5 @@
 import toObservable from '@promises/to-observable';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 describe('toObservable', () => {
     it('should be resolve to Observable', () => {

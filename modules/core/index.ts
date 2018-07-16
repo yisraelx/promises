@@ -15,7 +15,7 @@ export class Promises<T> extends basePromise<T> {
 }
 
 try {
-    exports.Promises = ((Promises as any) = Function(`return function(basePromise){return class Promises extends basePromise{} }`)()(basePromise));
+    (exports).Promises = ((Promises as any) = Function(`Promise`, `return class Promises extends Promise{};`)(basePromise));
 } catch (e) {
 
 }

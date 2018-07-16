@@ -1,6 +1,5 @@
 import fromObservable from '@promises/from-observable';
-import { Observable } from 'rxjs/Observable';
-import { Subscriber } from 'rxjs/Subscriber';
+import { Observable, Subscriber } from 'rxjs';
 
 describe('fromObservable', () => {
 
